@@ -1,4 +1,4 @@
-import AbstractSeeder from "./AbstractSeeder";
+import AbstractSeeder from "../database/fixtures/AbstractSeeder";
 
 interface Theme {
   id: number;
@@ -6,6 +6,8 @@ interface Theme {
 }
 
 class TagHasThemeSeeder extends AbstractSeeder {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  [x: string]: any;
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   query!: (queryString: string) => Promise<any>;
 

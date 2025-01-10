@@ -2,25 +2,22 @@ import AbstractSeeder from "./AbstractSeeder";
 
 class CountrySeeder extends AbstractSeeder {
   constructor() {
-    super({ table: "Country" });
+    super({ table: "Country", truncate: true });
   }
 
   async run() {
-    const countryData = [
-      {
-        CountryName: "France",
-        Description: "Un pays situé en Europe de l'Ouest.",
-        Picture: Buffer.from(""), // Image binaire (exemple vide, remplacez avec une vraie image binaire)
-      },
-      {
-        CountryName: "United States",
-        Description: "Un pays d'Amérique du Nord.",
-        Picture: Buffer.from(""), // Image binaire (exemple vide, remplacez avec une vraie image binaire)
-      },
-      // Ajoutez d'autres pays si nécessaire
-    ];
+    const CountryData = [];
+    const maxCountries = 180;
 
-    for (const data of countryData) {
+    for (let i = 0; i < maxCountries; i++) {
+      CountryData.push({
+        CountryName: this.faker.location.country(),
+        Description: this.faker.lorem.text(),
+        Picture: this.faker.image.urlPicsumPhotos(),
+      });
+    }
+
+    for (const data of CountryData) {
       this.insert(data);
     }
   }

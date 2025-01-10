@@ -1,22 +1,26 @@
 import AbstractSeeder from "./AbstractSeeder";
-import CountrySeeder from "./CountrySeeder";
 
-class TagHasCountrySeeder extends AbstractSeeder {
+class CountrySeeder extends AbstractSeeder {
   constructor() {
-    super({ table: "Tag_has_Country", dependencies: [CountrySeeder] });
+    super({ table: "Country", truncate: true });
   }
 
   async run() {
-    const tagHasCountryData = [
-      { Tag_idTag: 1, Country_idCountry: 1 }, // Exemple d'association (ajustez selon votre logique de tags)
-      { Tag_idTag: 2, Country_idCountry: 2 }, // Exemple d'association (ajustez selon votre logique de tags)
-      // Ajoutez d'autres associations si nécessaire
-    ];
+    const CountryData = [];
+    const maxCountries = 180;
 
-    for (const data of tagHasCountryData) {
+    for (let i = 0; i < maxCountries; i++) {
+      CountryData.push({
+        CountryName: this.faker.location.country(),
+        Description: this.faker.lorem.text(),
+        Picture: this.faker.image.urlPicsumPhotos(),
+      });
+    }
+
+    for (const data of CountryData) {
       this.insert(data);
     }
   }
 }
 
-export default TagHasCountrySeeder;
+export default CountrySeeder;

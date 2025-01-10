@@ -7,6 +7,7 @@ import type { Faker } from "@faker-js/faker";
 import database from "../client";
 
 import type { Result } from "../client";
+import type CountrySeeder from "./CountrySeeder";
 
 // Declare an object to store created objects from their names
 type Ref = object & { insertId: number };
@@ -23,7 +24,7 @@ type SeederOptions = {
 abstract class AbstractSeeder implements SeederOptions {
   table: string;
   truncate: boolean;
-  dependencies: (typeof AbstractSeeder)[];
+  dependencies?: (typeof AbstractSeeder)[];
   promises: Promise<void>[];
   faker: Faker;
 
@@ -32,6 +33,9 @@ abstract class AbstractSeeder implements SeederOptions {
     truncate = true,
     dependencies = [] as (typeof AbstractSeeder)[],
   }: SeederOptions) {
+    if (!table) {
+      throw new Error("The 'table' property must be provided to the seeder.");
+    }
     this.table = table;
 
     this.truncate = truncate;

@@ -1,39 +1,26 @@
 import AbstractSeeder from "./AbstractSeeder";
-import CountrySeeder from "./CountrySeeder";
-import UserSeeder from "./UserSeeder";
 
-class TravelSeeder extends AbstractSeeder {
+class CountrySeeder extends AbstractSeeder {
   constructor() {
-    super({ table: "Travel", dependencies: [UserSeeder, CountrySeeder] });
+    super({ table: "Country", truncate: true });
   }
 
   async run() {
-    const travelData = [
-      {
-        Title: "Vacances à Paris",
-        Description: "Un voyage fantastique à la découverte de Paris.",
-        StartDate: this.faker.date.future(),
-        EndDate: this.faker.date.future(),
-        CountryId: 1, // ID du pays France
-        UserId: 1, // ID de l'utilisateur
-        IsArchived: 0,
-      },
-      {
-        Title: "Road trip aux États-Unis",
-        Description: "Un voyage en voiture à travers les États-Unis.",
-        StartDate: this.faker.date.future(),
-        EndDate: this.faker.date.future(),
-        CountryId: 2, // ID du pays États-Unis
-        UserId: 2, // ID de l'utilisateur
-        IsArchived: 0,
-      },
-      // Ajoutez d'autres voyages si nécessaire
-    ];
+    const CountryData = [];
+    const maxCountries = 180;
 
-    for (const data of travelData) {
+    for (let i = 0; i < maxCountries; i++) {
+      CountryData.push({
+        CountryName: this.faker.location.country(),
+        Description: this.faker.lorem.text(),
+        Picture: this.faker.image.urlPicsumPhotos(),
+      });
+    }
+
+    for (const data of CountryData) {
       this.insert(data);
     }
   }
 }
 
-export default TravelSeeder;
+export default CountrySeeder;
