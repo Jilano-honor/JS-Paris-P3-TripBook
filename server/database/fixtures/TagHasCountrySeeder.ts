@@ -1,11 +1,16 @@
 import AbstractSeeder from "./AbstractSeeder";
+import CountrySeeder from "./CountrySeeder";
 
 class TagHasCountrySeeder extends AbstractSeeder {
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   [x: string]: any;
 
   constructor() {
-    super({ table: "Tag_has_Country", truncate: true });
+    super({
+      table: "Tag_has_Country",
+      truncate: true,
+      dependencies: [CountrySeeder],
+    });
   }
 
   async run() {

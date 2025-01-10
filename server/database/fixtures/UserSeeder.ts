@@ -8,9 +8,10 @@ class UserSeeder extends AbstractSeeder {
   run() {
     for (let i = 0; i < 50; i += 1) {
       const fakeUser = {
-        FirstName: this.faker.name.firstName(),
-        LastName: this.faker.name.lastName(),
+        FirstName: this.faker.person.firstName(),
+        LastName: this.faker.person.lastName(),
         Email: this.faker.internet.email(),
+        Number: this.faker.phone.number(),
         Password: this.faker.internet.password(),
       };
 

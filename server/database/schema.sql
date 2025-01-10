@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`User` (
   `LastName` VARCHAR(45) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
   `Password` VARCHAR(45) NOT NULL,
+  `Number` VARCHAR(10) DEFAULT NULL,
   UNIQUE INDEX `idUser_UNIQUE` (`idUser` ASC) VISIBLE,
   PRIMARY KEY (`idUser`),
   UNIQUE INDEX `Password_UNIQUE` (`Password` ASC) VISIBLE)

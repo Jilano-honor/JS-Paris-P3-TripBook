@@ -11,7 +11,7 @@ class CountrySeeder extends AbstractSeeder {
 
     for (let i = 0; i < numberOfCountries; i++) {
       const fakeCountry = {
-        CountryName: faker.address.country(),
+        CountryName: faker.location.country(),
         Description: faker.lorem.paragraph(),
         Picture: faker.image.avatar(),
       };
