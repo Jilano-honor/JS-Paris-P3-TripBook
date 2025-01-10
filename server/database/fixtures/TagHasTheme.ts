@@ -7,7 +7,7 @@ interface Theme {
 
 class TagHasThemeSeeder extends AbstractSeeder {
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  query!: (queryString: string) => Promise<any>; // Explicit typing for query
+  query!: (queryString: string) => Promise<any>;
 
   constructor() {
     super({ table: "Tag_has_Theme", truncate: true });
@@ -15,24 +15,21 @@ class TagHasThemeSeeder extends AbstractSeeder {
 
   async run() {
     try {
-      const themes = await this.getAllThemes(); // Fetch all themes
+      const themes = await this.getAllThemes();
       const tags = this.getTags();
 
       const themeAssociations = this.createThemeAssociations(tags, themes);
 
-      // Insert all associations in bulk
       await this.bulkInsert(themeAssociations);
     } catch (error) {
       console.error("Error during seeding:", error);
     }
   }
 
-  // Method to fetch all themes from the database
   async getAllThemes(): Promise<Theme[]> {
     return await this.query("SELECT * FROM Theme");
   }
 
-  // Returns the tag list
   getTags(): string[] {
     return [
       "Voyages en famille",
@@ -59,28 +56,25 @@ class TagHasThemeSeeder extends AbstractSeeder {
     ];
   }
 
-  // Improved method for creating associations between tags and themes
   createThemeAssociations(
     tags: string[],
     themes: Theme[],
   ): { Tag_idTag: number; Theme_idTheme: number }[] {
     const themeMap = this.createThemeMap(themes);
 
-    // Explicitly typing the accumulator for reduce
     return tags.reduce<{ Tag_idTag: number; Theme_idTheme: number }[]>(
       (acc, tag, index) => {
         const associatedThemes = this.getThemesForTag(tag, themeMap);
         const newAssociations = associatedThemes.map((theme) => ({
-          Tag_idTag: index + 1, // Using the index for tag ID (adjust as needed)
+          Tag_idTag: index + 1,
           Theme_idTheme: theme.id,
         }));
-        return acc.concat(newAssociations); // Concatenating with correct types
+        return acc.concat(newAssociations);
       },
       [],
-    ); // Initialize as an empty array of the correct type
+    );
   }
 
-  // Create a map of themes by name for fast lookup
   createThemeMap(themes: Theme[]): Record<string, Theme[]> {
     return themes.reduce(
       (map, theme) => {
@@ -94,7 +88,6 @@ class TagHasThemeSeeder extends AbstractSeeder {
     );
   }
 
-  // Return the associated themes for a given tag based on the map
   getThemesForTag(tag: string, themeMap: Record<string, Theme[]>): Theme[] {
     const tagToThemeMap: Record<string, string[]> = {
       "Voyages en famille": ["Voyages en Famille et Activités Diverses"],
@@ -123,11 +116,10 @@ class TagHasThemeSeeder extends AbstractSeeder {
     return themeNames.flatMap((name) => themeMap[name] || []);
   }
 
-  // Bulk insert for better performance
   async bulkInsert(
     associations: { Tag_idTag: number; Theme_idTheme: number }[],
   ) {
-    const chunkSize = 100; // Adjust as needed
+    const chunkSize = 100;
     try {
       for (let i = 0; i < associations.length; i += chunkSize) {
         const chunk = associations.slice(i, i + chunkSize);

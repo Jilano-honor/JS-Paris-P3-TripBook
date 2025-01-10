@@ -7,18 +7,16 @@ class CountrySeeder extends AbstractSeeder {
   }
 
   run() {
-    const numberOfCountries = 180; // Nombre de pays à générer
+    const numberOfCountries = 180;
 
     for (let i = 0; i < numberOfCountries; i++) {
-      // Générer un pays avec des informations aléatoires
       const fakeCountry = {
-        CountryName: faker.address.country(), // Nom du pays généré aléatoirement
-        Description: faker.lorem.paragraph(), // Description générée aléatoirement
-        Picture: faker.image.avatar(), // URL d'image aléatoire (ou vous pouvez utiliser des noms d'images spécifiques)
+        CountryName: faker.address.country(),
+        Description: faker.lorem.paragraph(),
+        Picture: faker.image.avatar(),
       };
 
-      // Insérer le pays généré dans la base de données
-      this.insert(fakeCountry); // insert into Country(CountryName, Description, Picture) values (?, ?, ?);
+      this.insert(fakeCountry);
     }
   }
 }
