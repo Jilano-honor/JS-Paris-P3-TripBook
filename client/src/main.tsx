@@ -9,11 +9,11 @@ import "./reset.css";
 
 // Import the main app component
 import App from "./App";
-import Home from "./pages/Home";
 import CountryCard from "./pages/CountryCard";
 import CountryList from "./pages/CountryList";
-import Dashboard from "./pages/Dasboard";
+import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
+import Profil from "./pages/Profil";
 import SignIn from "./pages/SignIn";
 
 /* ************************************************************************* */
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
         element: <CountryList />,
       },
       {
-        path: "/Dashboard",
-        element: <Dashboard />,
+        path: "/Profil",
+        element: <Profil />,
       },
       {
         path: "/LogIn",
