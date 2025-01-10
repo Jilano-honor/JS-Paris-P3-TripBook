@@ -153,6 +153,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+
 INSERT INTO Country (CountryName, Description, Picture) VALUES
   ('Népal', 'Quotquot cum otiosae et terrarum tamen omnes verecundum licet set certamina securitas canities circumspectum partes.', 'server\\database\\flags\\NP.png'),
   ('Costa Rica', 'Quotquot cum otiosae et terrarum tamen omnes verecundum licet set certamina securitas canities circumspectum partes.', 'server\\database\\flags\\CR.png'),
