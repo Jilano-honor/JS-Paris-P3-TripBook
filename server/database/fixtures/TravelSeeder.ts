@@ -1,30 +1,37 @@
 import AbstractSeeder from "./AbstractSeeder";
+import CountrySeeder from "./CountrySeeder";
+import UserSeeder from "./UserSeeder";
 
 class TravelSeeder extends AbstractSeeder {
   constructor() {
-    super({ table: "Travel", truncate: true });
+    super({ table: "Travel", dependencies: [UserSeeder, CountrySeeder] });
   }
 
-  run() {
-    for (let i = 0; i < 500; i += 1) {
-      const startDate = this.faker.date.future();
+  async run() {
+    const travelData = [
+      {
+        Title: "Vacances à Paris",
+        Description: "Un voyage fantastique à la découverte de Paris.",
+        StartDate: this.faker.date.future(),
+        EndDate: this.faker.date.future(),
+        CountryId: 1, // ID du pays France
+        UserId: 1, // ID de l'utilisateur
+        IsArchived: 0,
+      },
+      {
+        Title: "Road trip aux États-Unis",
+        Description: "Un voyage en voiture à travers les États-Unis.",
+        StartDate: this.faker.date.future(),
+        EndDate: this.faker.date.future(),
+        CountryId: 2, // ID du pays États-Unis
+        UserId: 2, // ID de l'utilisateur
+        IsArchived: 0,
+      },
+      // Ajoutez d'autres voyages si nécessaire
+    ];
 
-      const endDate = new Date(
-        startDate.getTime() +
-          this.faker.number.int({ min: 1, max: 30 }) * 24 * 60 * 60 * 1000,
-      );
-
-      const fakeTravel = {
-        Title: this.faker.lorem.words(3),
-        Description: this.faker.lorem.sentences(3),
-        StartDate: startDate,
-        EndDate: endDate,
-        CountryId: this.faker.number.int({ min: 1, max: 180 }),
-        UserId: this.faker.number.int({ min: 1, max: 50 }),
-        IsArchived: this.faker.datatype.boolean(),
-      };
-
-      this.insert(fakeTravel);
+    for (const data of travelData) {
+      this.insert(data);
     }
   }
 }

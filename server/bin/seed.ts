@@ -1,12 +1,6 @@
-// Load environment variables from .env file
-import "dotenv/config";
-
 import fs from "node:fs";
 import path from "node:path";
-
-// Import database client
 import database from "../database/client";
-
 import type { AbstractSeeder } from "../database/fixtures/AbstractSeeder";
 
 const fixturesPath = path.join(__dirname, "../database/fixtures");
@@ -15,7 +9,7 @@ const seed = async () => {
   try {
     const dependencyMap: { [key: string]: AbstractSeeder } = {};
 
-    // Construct each seeder
+    // Lire les fichiers de seeders
     const filePaths = fs
       .readdirSync(fixturesPath)
       .filter((filePath: string) => !filePath.startsWith("Abstract"));
@@ -25,19 +19,22 @@ const seed = async () => {
         `file://${path.join(fixturesPath, filePath)}`
       );
 
-      const seeder = new SeederClass() as AbstractSeeder;
+      // Vérifier si SeederClass est bien une fonction (classe)
+      if (typeof SeederClass !== "function") {
+        throw new Error(
+          `Le fichier ${filePath} ne contient pas une classe constructeur.`,
+        );
+      }
 
+      const seeder = new SeederClass() as AbstractSeeder;
       dependencyMap[SeederClass.toString()] = seeder;
     }
 
-    // Sort seeders according to their dependencies
+    // Résoudre les dépendances et trier les seeders
     const sortedSeeders: AbstractSeeder[] = [];
-
-    // The recursive solver
     const solveDependencies = (n: AbstractSeeder) => {
       for (const DependencyClass of n.dependencies) {
         const dependency = dependencyMap[DependencyClass.toString()];
-
         if (!sortedSeeders.includes(dependency)) {
           solveDependencies(dependency);
         }
@@ -48,30 +45,23 @@ const seed = async () => {
       }
     };
 
-    // Solve dependencies for each seeder
+    // Résoudre les dépendances pour chaque seeder
     for (const seeder of Object.values(dependencyMap)) {
       solveDependencies(seeder);
     }
 
-    // Truncate tables (starting from the depending ones)
-
-    for (const seeder of sortedSeeders.toReversed()) {
-      // Use delete instead of truncate to bypass foreign key constraint
-      // Wait for the delete promise to complete
-      await database.query(`delete from ${seeder.table}`);
+    // Supprimer les anciennes données (trier selon les dépendances)
+    for (const seeder of sortedSeeders.reverse()) {
+      await database.query(`DELETE FROM ${seeder.table}`);
     }
 
-    // Run each seeder
-
+    // Exécuter chaque seeder
     for (const seeder of sortedSeeders) {
       await seeder.run();
-
-      // Wait for all the insertion promises to complete
-      // We do want to wait in order to satisfy dependencies
-      await Promise.all(seeder.promises);
+      await Promise.all(seeder.promises); // Attendre que les promesses soient résolues
     }
 
-    // Close the database connection
+    // Fermer la connexion à la base de données
     database.end();
 
     console.info(
@@ -83,5 +73,5 @@ const seed = async () => {
   }
 };
 
-// Run the seed function
+// Exécuter la fonction de seed
 seed();

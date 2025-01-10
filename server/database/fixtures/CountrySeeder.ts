@@ -1,22 +1,27 @@
-import { faker } from "@faker-js/faker";
 import AbstractSeeder from "./AbstractSeeder";
 
 class CountrySeeder extends AbstractSeeder {
   constructor() {
-    super({ table: "Country", truncate: true });
+    super({ table: "Country" });
   }
 
-  run() {
-    const numberOfCountries = 180;
+  async run() {
+    const countryData = [
+      {
+        CountryName: "France",
+        Description: "Un pays situé en Europe de l'Ouest.",
+        Picture: Buffer.from(""), // Image binaire (exemple vide, remplacez avec une vraie image binaire)
+      },
+      {
+        CountryName: "United States",
+        Description: "Un pays d'Amérique du Nord.",
+        Picture: Buffer.from(""), // Image binaire (exemple vide, remplacez avec une vraie image binaire)
+      },
+      // Ajoutez d'autres pays si nécessaire
+    ];
 
-    for (let i = 0; i < numberOfCountries; i++) {
-      const fakeCountry = {
-        CountryName: faker.location.country(),
-        Description: faker.lorem.paragraph(),
-        Picture: faker.image.avatar(),
-      };
-
-      this.insert(fakeCountry);
+    for (const data of countryData) {
+      this.insert(data);
     }
   }
 }

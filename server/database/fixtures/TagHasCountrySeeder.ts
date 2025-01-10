@@ -2,51 +2,20 @@ import AbstractSeeder from "./AbstractSeeder";
 import CountrySeeder from "./CountrySeeder";
 
 class TagHasCountrySeeder extends AbstractSeeder {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  [x: string]: any;
-
   constructor() {
-    super({
-      table: "Tag_has_Country",
-      truncate: true,
-      dependencies: [CountrySeeder],
-    });
+    super({ table: "Tag_has_Country", dependencies: [CountrySeeder] });
   }
 
   async run() {
-    const countries = await this.getAllCountries();
-    const numberOfTags = 21;
-    const tagCountryAssociations = [];
+    const tagHasCountryData = [
+      { Tag_idTag: 1, Country_idCountry: 1 }, // Exemple d'association (ajustez selon votre logique de tags)
+      { Tag_idTag: 2, Country_idCountry: 2 }, // Exemple d'association (ajustez selon votre logique de tags)
+      // Ajoutez d'autres associations si nécessaire
+    ];
 
-    const shuffledCountries = this.shuffleArray(countries);
-
-    for (let tagId = 1; tagId <= numberOfTags; tagId++) {
-      const randomCountry = shuffledCountries.pop();
-
-      if (randomCountry) {
-        tagCountryAssociations.push({
-          Tag_idTag: tagId,
-          Country_idCountry: randomCountry.id,
-        });
-      }
+    for (const data of tagHasCountryData) {
+      this.insert(data);
     }
-
-    for (const association of tagCountryAssociations) {
-      await this.insert(association);
-    }
-  }
-
-  async getAllCountries() {
-    return await this.query("SELECT * FROM Country");
-  }
-
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  shuffleArray(array: any[]): any[] {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
   }
 }
 
