@@ -9,7 +9,7 @@ class UserSeeder extends AbstractSeeder {
   // La méthode run - Remplir la table 'User' avec des données factices
   run() {
     // Générer et insérer des données factices dans la table 'User'
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 50; i += 1) {
       // Générer des données factices pour un utilisateur
       const fakeUser = {
         FirstName: this.faker.name.firstName(), // Prénom généré par faker

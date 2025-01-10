@@ -7,7 +7,7 @@ class CountrySeeder extends AbstractSeeder {
   }
 
   run() {
-    const numberOfCountries = 20; // Nombre de pays à générer
+    const numberOfCountries = 180; // Nombre de pays à générer
 
     for (let i = 0; i < numberOfCountries; i++) {
       // Générer un pays avec des informations aléatoires
