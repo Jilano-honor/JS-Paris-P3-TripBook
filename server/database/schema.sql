@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`User` (
   `Email` VARCHAR(255) NOT NULL,
   `PhoneNumber` INT NOT NULL,
   `DateOfBirth` DATETIME NOT NULL,
-  `Avatar` TEXT NOT NULL,
+  `Avatar`   VARCHAR(1000) NOT NULL,
   `Password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`IdUser`),
   UNIQUE INDEX `Id_UNIQUE` (`IdUser` ASC) VISIBLE,
@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `TripBook`.`Country` (
   `idCountry` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(255) NOT NULL,
-  `Flag` TEXT NOT NULL,
+  `Flag` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idCountry`),
   UNIQUE INDEX `idCountry_UNIQUE` (`idCountry` ASC) VISIBLE,
   UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
@@ -55,8 +55,8 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`Trip` (
   `Name` VARCHAR(255) NOT NULL,
   `StartDate` DATETIME NOT NULL,
   `EndDate` DATETIME NOT NULL,
-  `Description` LONGTEXT NOT NULL,
-  `Photo` TEXT NOT NULL,
+  `Description` VARCHAR(1000) NOT NULL,
+  `Photo` VARCHAR(1000) NOT NULL,
   `User_IdUser` INT NOT NULL,
   `Country_idCountry` INT NOT NULL,
   PRIMARY KEY (`idTrip`, `User_IdUser`, `Country_idCountry`),
@@ -83,7 +83,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `TripBook`.`Theme` (
   `idTheme` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(255) NOT NULL,
-  `Photo` TEXT NOT NULL,
+  `Photo` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idTheme`),
   UNIQUE INDEX `idTheme_UNIQUE` (`idTheme` ASC) VISIBLE,
   UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
@@ -96,7 +96,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `TripBook`.`Tag` (
   `idTag` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(255) NOT NULL,
-  `Photo` TEXT NOT NULL,
+  `Photo` VARCHAR(1000) NOT NULL,
   `Theme_idTheme` INT NOT NULL,
   PRIMARY KEY (`idTag`, `Theme_idTheme`),
   UNIQUE INDEX `idTag_UNIQUE` (`idTag` ASC) VISIBLE,
