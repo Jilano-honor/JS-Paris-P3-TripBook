@@ -1,4 +1,5 @@
 import AbstractSeeder from "./AbstractSeeder";
+import ThemeSeeder from "./ThemeSeeder";
 
 const tags = [
   "Aventure en plein air",
@@ -24,14 +25,22 @@ const tags = [
 ];
 
 class TagSeeder extends AbstractSeeder {
+  static getAllTags() {
+    throw new Error("Method not implemented.");
+  }
   constructor() {
-    super({ table: "tag", truncate: true });
+    super({ table: "tag", truncate: true, dependencies: [ThemeSeeder] });
   }
 
   run() {
     for (let i = 0; i < tags.length; i++) {
+      const randomThemeId = Math.floor(Math.random() * 5);
+
       const fakeTag = {
         Name: tags[i],
+        Photo: this.faker.image.urlPicsumPhotos(),
+        refName: `tag_${i}`,
+        Theme_idTheme: this.getRef(`theme_${randomThemeId}`).insertId,
       };
       this.insert(fakeTag);
     }

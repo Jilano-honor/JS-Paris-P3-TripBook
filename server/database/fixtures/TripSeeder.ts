@@ -13,7 +13,7 @@ class TripSeeder extends AbstractSeeder {
   }
 
   run() {
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 50; i += 1) {
       const fakeTrip = {
         Name: this.faker.lorem.words(5),
         StartDate: this.faker.date.anytime(),
