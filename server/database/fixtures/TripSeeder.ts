@@ -1,29 +1,22 @@
+import { th } from "@faker-js/faker/.";
 import AbstractSeeder from "./AbstractSeeder";
-import UserSeeder from "./UserSeeder";
 
 class TripSeeder extends AbstractSeeder {
   constructor() {
-    super({
-      table: "Trip",
-      truncate: true,
-      dependencies: [UserSeeder],
-    });
+    super({ table: "Trip", truncate: true, dependencies: [] });
   }
 
-  async run() {
-    const CountryData = [];
-    const maxCountries = 180;
-
-    for (let i = 0; i < maxCountries; i++) {
-      CountryData.push({
-        CountryName: this.faker.location.country(),
+  run() {
+    for (let i = 0; i < 10; i += 1) {
+      const fakeTrip = {
+        Name: this.faker.lorem.words(5),
+        StartDate: this.faker.date.anytime(),
+        EndDate: this.faker.date.anytime(),
         Description: this.faker.lorem.text(),
-        Picture: this.faker.image.urlPicsumPhotos(),
-      });
-    }
+        Photo: this.faker.image.url(),
+      };
 
-    for (const data of CountryData) {
-      this.insert(data);
+      this.insert(fakeTrip);
     }
   }
 }
