@@ -6,11 +6,11 @@ class CountrySeeder extends AbstractSeeder {
   }
 
   run() {
-    for (let i = 0; i < 25; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       const fakeCountry = {
-        Name: this.faker.location.country.name,
+        Name: this.faker.location.country(),
         Flag: this.faker.location.countryCode(),
-        refName: `Country_${i}`,
+        refName: `country_${i}`,
       };
 
       this.insert(fakeCountry);
