@@ -19,39 +19,39 @@ import TravelsSearch from "./pages/TravelsSearch";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
-  {
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/travels",
-        element: <TravelsSearch />,
-      },
-      {
-        path: "/travels/:id",
-        element: <Travel />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />,
-      },
-      {
-        path: "/login",
-        element: <LogIn />,
-      },
-      {
-        path: "/signin",
-        element: <SignIn />,
-      },
-      {
-        path: "/travels/add",
-        element: <TravelsAdd />,
-      },
-    ],
-  },
+	{
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "/travels",
+				element: <TravelsSearch />,
+			},
+			{
+				path: "/travels/:id",
+				element: <Travel />,
+			},
+			{
+				path: "/profile",
+				element: <Profile />,
+			},
+			{
+				path: "/login",
+				element: <LogIn />,
+			},
+			{
+				path: "/signin",
+				element: <SignIn />,
+			},
+			{
+				path: "/travels/add",
+				element: <TravelsAdd />,
+			},
+		],
+	},
 ]);
 
 /* ************************************************************************* */
@@ -59,14 +59,14 @@ const router = createBrowserRouter([
 // Find the root element in the HTML document
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
-  throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
+	throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
 }
 
 // Render the app inside the root element
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+	<StrictMode>
+		<RouterProvider router={router} />
+	</StrictMode>,
 );
 
 /**
