@@ -6,7 +6,7 @@ import UserSeeder from "./UserSeeder";
 class TripSeeder extends AbstractSeeder {
   constructor() {
     super({
-      table: "Trip",
+      table: "trip",
       truncate: true,
       dependencies: [CountrySeeder, UserSeeder],
     });
@@ -15,13 +15,13 @@ class TripSeeder extends AbstractSeeder {
   run() {
     for (let i = 0; i < 50; i += 1) {
       const fakeTrip = {
-        Name: this.faker.lorem.words(5),
-        StartDate: this.faker.date.anytime(),
-        EndDate: this.faker.date.anytime(),
-        Description: this.faker.lorem.text(),
-        Photo: this.faker.image.url(),
-        User_IdUser: this.getRef(`user_${i}`).insertId,
-        Country_idCountry: this.getRef(`country_${i}`).insertId,
+        name: this.faker.lorem.words(5),
+        start_date: this.faker.date.anytime(),
+        end_date: this.faker.date.anytime(),
+        description: this.faker.lorem.text(),
+        photo: this.faker.image.url(),
+        user_id_user: this.getRef(`user_${i}`).insertId,
+        Country_id_country: this.getRef(`country_${i}`).insertId,
       };
 
       this.insert(fakeTrip);

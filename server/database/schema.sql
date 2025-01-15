@@ -17,62 +17,62 @@ CREATE SCHEMA IF NOT EXISTS `TripBook` DEFAULT CHARACTER SET utf8 ;
 USE `TripBook` ;
 
 -- -----------------------------------------------------
--- Table `TripBook`.`User`
+-- Table `TripBook`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`User` (
-  `IdUser` INT NOT NULL AUTO_INCREMENT,
-  `FirstName` VARCHAR(255) NOT NULL,
-  `LastName` VARCHAR(255) NOT NULL,
-  `Email` VARCHAR(255) NOT NULL,
-  `PhoneNumber` INT NOT NULL,
-  `` DATETIME NOT NULL,
-  `Avatar`   VARCHAR(255) NOT NULL,
-  `Password` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`IdUser`),
-  UNIQUE INDEX `Id_UNIQUE` (`IdUser` ASC) VISIBLE,
-  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE,
-  UNIQUE INDEX `Mdp_UNIQUE` (`Password` ASC) VISIBLE)
+CREATE TABLE IF NOT EXISTS `TripBook`.`user` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(255) NOT NULL,
+  `lastname` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phone_number` INT NOT NULL,
+  `born_at` DATETIME NOT NULL,
+  `avatar`   VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE INDEX `Id_UNIQUE` (`id_user` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `Mdp_UNIQUE` (`password` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `TripBook`.`Country`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`Country` (
-  `idCountry` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(255) NOT NULL,
-  `Flag` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`idCountry`),
-  UNIQUE INDEX `idCountry_UNIQUE` (`idCountry` ASC) VISIBLE,
-  UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
+CREATE TABLE IF NOT EXISTS `TripBook`.`country` (
+  `id_country` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `flag` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_country`),
+  UNIQUE INDEX `id_country_UNIQUE` (`id_country` ASC) VISIBLE,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `TripBook`.`Trip`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`Trip` (
-  `idTrip` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(255) NOT NULL,
-  `StartDate` DATETIME NOT NULL,
-  `EndDate` DATETIME NOT NULL,
-  `Description` TEXT NOT NULL,
-  `Photo` VARCHAR(255) NOT NULL,
-  `User_IdUser` INT NOT NULL,
-  `Country_idCountry` INT NOT NULL,
-  PRIMARY KEY (`idTrip`, `User_IdUser`, `Country_idCountry`),
-  UNIQUE INDEX `idTrip_UNIQUE` (`idTrip` ASC) VISIBLE,
-  UNIQUE INDEX `Photo_UNIQUE` (`Photo` ASC) VISIBLE,
-  INDEX `fk_Trip_User_idx` (`User_IdUser` ASC) VISIBLE,
-  INDEX `fk_Trip_Country1_idx` (`Country_idCountry` ASC) VISIBLE,
-  CONSTRAINT `fk_Trip_User`
-    FOREIGN KEY (`User_IdUser`)
-    REFERENCES `TripBook`.`User` (`IdUser`)
+CREATE TABLE IF NOT EXISTS `TripBook`.`trip` (
+  `id_trip` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `start_date` DATETIME NOT NULL,
+  `end_date` DATETIME NOT NULL,
+  `description` TEXT NOT NULL,
+  `photo` VARCHAR(255) NOT NULL,
+  `user_id_user` INT NOT NULL,
+  `Country_id_country` INT NOT NULL,
+  PRIMARY KEY (`id_trip`, `user_id_user`, `Country_id_country`),
+  UNIQUE INDEX `id_trip_UNIQUE` (`id_trip` ASC) VISIBLE,
+  UNIQUE INDEX `photo_UNIQUE` (`photo` ASC) VISIBLE,
+  INDEX `fk_Trip_user_idx` (`user_id_user` ASC) VISIBLE,
+  INDEX `fk_Trip_Country1_idx` (`Country_id_country` ASC) VISIBLE,
+  CONSTRAINT `fk_Trip_user`
+    FOREIGN KEY (`user_id_user`)
+    REFERENCES `TripBook`.`user` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Trip_Country1`
-    FOREIGN KEY (`Country_idCountry`)
-    REFERENCES `TripBook`.`Country` (`idCountry`)
+    FOREIGN KEY (`Country_id_country`)
+    REFERENCES `TripBook`.`Country` (`id_country`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -81,31 +81,31 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `TripBook`.`Theme`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`Theme` (
-  `idTheme` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(255) NOT NULL,
-  `Photo` VARCHAR(1000) NOT NULL,
-  PRIMARY KEY (`idTheme`),
-  UNIQUE INDEX `idTheme_UNIQUE` (`idTheme` ASC) VISIBLE,
-  UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
+CREATE TABLE IF NOT EXISTS `TripBook`.`theme` (
+  `id_theme` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `photo` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id_theme`),
+  UNIQUE INDEX `id_theme_UNIQUE` (`id_theme` ASC) VISIBLE,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `TripBook`.`Tag`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`Tag` (
-  `idTag` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(255) NOT NULL,
-  `Photo` VARCHAR(1000) NOT NULL,
-  `Theme_idTheme` INT NOT NULL,
-  PRIMARY KEY (`idTag`, `Theme_idTheme`),
-  UNIQUE INDEX `idTag_UNIQUE` (`idTag` ASC) VISIBLE,
-  UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE,
-  INDEX `fk_Tag_Theme1_idx` (`Theme_idTheme` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `TripBook`.`tag` (
+  `id_tag` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `photo` VARCHAR(1000) NOT NULL,
+  `Theme_id_theme` INT NOT NULL,
+  PRIMARY KEY (`id_tag`, `Theme_id_theme`),
+  UNIQUE INDEX `id_tag_UNIQUE` (`id_tag` ASC) VISIBLE,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
+  INDEX `fk_Tag_Theme1_idx` (`Theme_id_theme` ASC) VISIBLE,
   CONSTRAINT `fk_Tag_Theme1`
-    FOREIGN KEY (`Theme_idTheme`)
-    REFERENCES `TripBook`.`Theme` (`idTheme`)
+    FOREIGN KEY (`Theme_id_theme`)
+    REFERENCES `TripBook`.`Theme` (`id_theme`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -114,20 +114,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `TripBook`.`CountryTag`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`CountryTag` (
-  `CountryId` INT NOT NULL,
-  `TagId` INT NOT NULL,
-  PRIMARY KEY (`CountryId`, `TagId`),
-  INDEX `fk_Country_has_Tag_Tag1_idx` (`TagId` ASC) VISIBLE,
-  INDEX `fk_Country_has_Tag_Country1_idx` (`CountryId` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `TripBook`.`country_tag` (
+  `country_id` INT NOT NULL,
+  `tag_id` INT NOT NULL,
+  PRIMARY KEY (`country_id`, `tag_id`),
+  INDEX `fk_Country_has_Tag_Tag1_idx` (`tag_id` ASC) VISIBLE,
+  INDEX `fk_Country_has_Tag_Country1_idx` (`country_id` ASC) VISIBLE,
   CONSTRAINT `fk_Country_has_Tag_Country1`
-    FOREIGN KEY (`CountryId`)
-    REFERENCES `TripBook`.`Country` (`idCountry`)
+    FOREIGN KEY (`country_id`)
+    REFERENCES `TripBook`.`Country` (`id_country`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Country_has_Tag_Tag1`
-    FOREIGN KEY (`TagId`)
-    REFERENCES `TripBook`.`Tag` (`idTag`)
+    FOREIGN KEY (`tag_id`)
+    REFERENCES `TripBook`.`Tag` (`id_tag`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -136,20 +136,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `TripBook`.`ThemeCountry`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TripBook`.`ThemeCountry` (
-  `ThemeId` INT NOT NULL,
-  `CountryId` INT NOT NULL,
-  PRIMARY KEY (`ThemeId`, `CountryId`),
-  INDEX `fk_Theme_has_Country_Country1_idx` (`CountryId` ASC) VISIBLE,
-  INDEX `fk_Theme_has_Country_Theme1_idx` (`ThemeId` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `TripBook`.`theme_country` (
+  `theme_id` INT NOT NULL,
+  `country_id` INT NOT NULL,
+  PRIMARY KEY (`theme_id`, `country_id`),
+  INDEX `fk_Theme_has_Country_Country1_idx` (`country_id` ASC) VISIBLE,
+  INDEX `fk_Theme_has_Country_Theme1_idx` (`theme_id` ASC) VISIBLE,
   CONSTRAINT `fk_Theme_has_Country_Theme1`
-    FOREIGN KEY (`ThemeId`)
-    REFERENCES `TripBook`.`Theme` (`idTheme`)
+    FOREIGN KEY (`theme_id`)
+    REFERENCES `TripBook`.`Theme` (`id_theme`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Theme_has_Country_Country1`
-    FOREIGN KEY (`CountryId`)
-    REFERENCES `TripBook`.`Country` (`idCountry`)
+    FOREIGN KEY (`country_id`)
+    REFERENCES `TripBook`.`Country` (`id_country`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
