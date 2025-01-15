@@ -37,10 +37,10 @@ class TagSeeder extends AbstractSeeder {
       const randomThemeId = Math.floor(Math.random() * 5);
 
       const fakeTag = {
-        Name: tags[i],
-        Photo: this.faker.image.urlPicsumPhotos(),
+        name: tags[i],
+        photo: this.faker.image.urlPicsumPhotos(),
         refName: `tag_${i}`,
-        Theme_idTheme: this.getRef(`theme_${randomThemeId}`).insertId,
+        Theme_id_theme: this.getRef(`theme_${randomThemeId}`).insertId,
       };
       this.insert(fakeTag);
     }

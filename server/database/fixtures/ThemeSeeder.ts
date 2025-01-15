@@ -10,14 +10,14 @@ const Themes = [
 
 class ThemeSeeder extends AbstractSeeder {
   constructor() {
-    super({ table: "Theme", truncate: true });
+    super({ table: "theme", truncate: true });
   }
 
   run() {
     for (let i = 0; i < Themes.length; i++) {
       const fakeTheme = {
-        Name: Themes[i],
-        Photo: this.faker.image.urlPicsumPhotos(),
+        name: Themes[i],
+        photo: this.faker.image.urlPicsumPhotos(),
         refName: `theme_${i}`,
       };
       this.insert(fakeTheme);

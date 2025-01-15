@@ -5,15 +5,14 @@ class CountrySeeder extends AbstractSeeder {
     throw new Error("Method not implemented.");
   }
   constructor() {
-    super({ table: "Country", truncate: true });
+    super({ table: "country", truncate: true });
   }
 
   run() {
     const countryNames = new Set();
 
     for (let i = 0; i < 50; i += 1) {
-      // biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
-      let fakeCountryName;
+      let fakeCountryName: string;
 
       do {
         fakeCountryName = this.faker.location.country();
@@ -22,8 +21,8 @@ class CountrySeeder extends AbstractSeeder {
       countryNames.add(fakeCountryName);
 
       const fakeCountry = {
-        Name: fakeCountryName,
-        Flag: this.faker.location.countryCode(),
+        name: fakeCountryName,
+        flag: this.faker.location.countryCode(),
         refName: `country_${i}`,
       };
 

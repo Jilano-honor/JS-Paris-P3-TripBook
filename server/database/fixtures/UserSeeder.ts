@@ -9,13 +9,13 @@ class UserSeeder extends AbstractSeeder {
   run() {
     for (let i = 0; i < 50; i += 1) {
       const fakeUser = {
-        FirstName: this.faker.person.firstName(),
-        LastName: this.faker.person.lastName(),
-        Email: this.faker.internet.email(),
-        Password: this.faker.internet.password(),
-        PhoneNumber: this.faker.number.int(25),
-        DateOfBirth: this.faker.date.birthdate(),
-        Avatar: this.faker.image.urlPicsumPhotos(),
+        firstname: this.faker.person.firstName(),
+        lastname: this.faker.person.lastName(),
+        email: this.faker.internet.email(),
+        password: this.faker.internet.password(),
+        phone_number: this.faker.number.int(25),
+        born_at: this.faker.date.birthdate(),
+        avatar: this.faker.image.urlPicsumPhotos(),
         refName: `user_${i}`,
       };
 

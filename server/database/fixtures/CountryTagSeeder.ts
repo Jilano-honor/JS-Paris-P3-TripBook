@@ -5,7 +5,7 @@ import TagSeeder from "./TagSeeder";
 class CountryTagSeeder extends AbstractSeeder {
   constructor() {
     super({
-      table: "CountryTag",
+      table: "country_tag",
       truncate: true,
       dependencies: [TagSeeder, CountrySeeder],
     });
@@ -15,8 +15,8 @@ class CountryTagSeeder extends AbstractSeeder {
     for (let i = 0; i < 50; i++) {
       const randomTagId = Math.floor(Math.random() * 19);
       const countryTag = {
-        CountryId: this.getRef(`country_${i}`).insertId,
-        TagId: this.getRef(`tag_${randomTagId}`).insertId,
+        country_id: this.getRef(`country_${i}`).insertId,
+        tag_id: this.getRef(`tag_${randomTagId}`).insertId,
       };
 
       this.insert(countryTag);

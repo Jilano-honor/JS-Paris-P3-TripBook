@@ -5,7 +5,7 @@ import ThemeSeeder from "./ThemeSeeder";
 class ThemeCountrySeeder extends AbstractSeeder {
   constructor() {
     super({
-      table: "ThemeCountry",
+      table: "theme_country",
       truncate: true,
       dependencies: [ThemeSeeder, CountrySeeder],
     });
@@ -15,8 +15,8 @@ class ThemeCountrySeeder extends AbstractSeeder {
     for (let i = 0; i < 50; i++) {
       const randomThemeId = Math.floor(Math.random() * 5);
       const ThemeCountry = {
-        CountryId: this.getRef(`country_${i}`).insertId,
-        ThemeId: this.getRef(`theme_${randomThemeId}`).insertId,
+        theme_id: this.getRef(`theme_${randomThemeId}`).insertId,
+        country_id: this.getRef(`country_${i}`).insertId,
       };
 
       this.insert(ThemeCountry);
