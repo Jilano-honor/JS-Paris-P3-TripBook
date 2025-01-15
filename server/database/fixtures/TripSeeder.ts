@@ -20,8 +20,8 @@ class TripSeeder extends AbstractSeeder {
         end_date: this.faker.date.anytime(),
         description: this.faker.lorem.text(),
         photo: this.faker.image.url(),
-        user_id_user: this.getRef(`user_${i}`).insertId,
-        Country_id_country: this.getRef(`country_${i}`).insertId,
+        user_id: this.getRef(`user_${i}`).insertId,
+        country_id: this.getRef(`country_${i}`).insertId,
       };
 
       this.insert(fakeTrip);

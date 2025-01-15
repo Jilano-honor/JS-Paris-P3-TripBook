@@ -40,7 +40,7 @@ class TagSeeder extends AbstractSeeder {
         name: tags[i],
         photo: this.faker.image.urlPicsumPhotos(),
         refName: `tag_${i}`,
-        Theme_id_theme: this.getRef(`theme_${randomThemeId}`).insertId,
+        theme_id: this.getRef(`theme_${randomThemeId}`).insertId,
       };
       this.insert(fakeTag);
     }

@@ -58,20 +58,20 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`trip` (
   `end_date` DATETIME NOT NULL,
   `description` TEXT NOT NULL,
   `photo` VARCHAR(255) NOT NULL,
-  `user_id_user` INT NOT NULL,
-  `Country_id_country` INT NOT NULL,
-  PRIMARY KEY (`id_trip`, `user_id_user`, `Country_id_country`),
+  `user_id` INT NOT NULL,
+  `country_id` INT NOT NULL,
+  PRIMARY KEY (`id_trip`, `user_id`, `country_id`),
   UNIQUE INDEX `id_trip_UNIQUE` (`id_trip` ASC) VISIBLE,
   UNIQUE INDEX `photo_UNIQUE` (`photo` ASC) VISIBLE,
-  INDEX `fk_Trip_user_idx` (`user_id_user` ASC) VISIBLE,
-  INDEX `fk_Trip_Country1_idx` (`Country_id_country` ASC) VISIBLE,
+  INDEX `fk_Trip_user_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_Trip_Country1_idx` (`country_id` ASC) VISIBLE,
   CONSTRAINT `fk_Trip_user`
-    FOREIGN KEY (`user_id_user`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `TripBook`.`user` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Trip_Country1`
-    FOREIGN KEY (`Country_id_country`)
+    FOREIGN KEY (`country_id`)
     REFERENCES `TripBook`.`Country` (`id_country`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -98,13 +98,13 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`tag` (
   `id_tag` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `photo` VARCHAR(1000) NOT NULL,
-  `Theme_id_theme` INT NOT NULL,
-  PRIMARY KEY (`id_tag`, `Theme_id_theme`),
+  `theme_id` INT NOT NULL,
+  PRIMARY KEY (`id_tag`, `theme_id`),
   UNIQUE INDEX `id_tag_UNIQUE` (`id_tag` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
-  INDEX `fk_Tag_Theme1_idx` (`Theme_id_theme` ASC) VISIBLE,
+  INDEX `fk_Tag_Theme1_idx` (`theme_id` ASC) VISIBLE,
   CONSTRAINT `fk_Tag_Theme1`
-    FOREIGN KEY (`Theme_id_theme`)
+    FOREIGN KEY (`theme_id`)
     REFERENCES `TripBook`.`Theme` (`id_theme`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
