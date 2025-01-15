@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`User` (
   `LastName` VARCHAR(255) NOT NULL,
   `Email` VARCHAR(255) NOT NULL,
   `PhoneNumber` INT NOT NULL,
-  `DateOfBirth` DATETIME NOT NULL,
+  `` DATETIME NOT NULL,
   `Avatar`   VARCHAR(255) NOT NULL,
   `Password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`IdUser`),

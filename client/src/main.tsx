@@ -9,13 +9,13 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
-import AddTravel from "./pages/AddTravel";
-import CountryCard from "./pages/CountryCard";
-import CountryList from "./pages/CountryList";
-import Dashboard from "./pages/Dashboard";
+import Travel from "./components/Travel";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
+import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
+import TravelsAdd from "./pages/TravelsAdd";
+import TravelsSearch from "./pages/TravelsSearch";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -27,28 +27,28 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/CountryCard",
-        element: <CountryCard />,
+        path: "/travels",
+        element: <TravelsSearch />,
       },
       {
-        path: "/CountryList",
-        element: <CountryList />,
+        path: "/travels/:id",
+        element: <Travel />,
       },
       {
-        path: "/Dashboard",
-        element: <Dashboard />,
+        path: "/profile",
+        element: <Profile />,
       },
       {
-        path: "/LogIn",
+        path: "/login",
         element: <LogIn />,
       },
       {
-        path: "/SignIn",
+        path: "/signin",
         element: <SignIn />,
       },
       {
-        path: "/AddTravel",
-        element: <AddTravel />,
+        path: "/travels/add",
+        element: <TravelsAdd />,
       },
     ],
   },
