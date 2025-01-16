@@ -7,7 +7,6 @@ type CountryTag = {
 };
 
 class FilterTagRepository {
-	// Récupère tous les pays associés aux tags
 	async readAll() {
 		const [rows] = await databaseClient.query<Rows>(
 			"SELECT * FROM country_tag",
@@ -15,12 +14,9 @@ class FilterTagRepository {
 		return rows as CountryTag[];
 	}
 
-	// Filtre les pays par tags
 	async readByTags(tagIds: number[]) {
-		// Crée la requête SQL pour filtrer par tags sélectionnés
 		const [rows] = await databaseClient.query<Rows>(
-			"SELECT DISTINCT country_id FROM country_tag WHERE tag_id IN (?)",
-			[tagIds],
+			"SELECT * FROM country_tag",
 		);
 		return rows as { country_id: number }[];
 	}

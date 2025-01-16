@@ -1,6 +1,11 @@
 import type { RequestHandler } from "express";
 import filtertagRepository from "./filtertagRepository";
 
+type CountryTag = {
+	country_id: number;
+	tag_id: number;
+};
+
 const browse: RequestHandler = async (req, res, next) => {
 	try {
 		const filteredCountry = await filtertagRepository.readAll();
@@ -12,8 +17,13 @@ const browse: RequestHandler = async (req, res, next) => {
 
 const read: RequestHandler = async (req, res, next) => {
 	try {
-		const countryId = Number(req.params.country_id);
-		const tagIds = req.params.tag_ids.split(",").map(Number);
+		const countryId = Number(req.params.id);
+
+		const tagIds = req.query.tag_ids
+			? Array.isArray(req.query.tag_ids)
+				? req.query.tag_ids.map(Number)
+				: [Number(req.query.tag_ids)]
+			: [];
 
 		const filteredCountry = await filtertagRepository.readByTags(tagIds);
 
