@@ -14,11 +14,12 @@ class FilterTagRepository {
 		return rows as CountryTag[];
 	}
 
-	async readByTags(tagIds: number[]) {
+	async readByTags(tagId: number) {
 		const [rows] = await databaseClient.query<Rows>(
-			"SELECT * FROM country_tag",
+			"SELECT * FROM country JOIN country_tag ON country.id_country = country_tag.country_id WHERE tag_id = ?",
+			[tagId],
 		);
-		return rows as { country_id: number }[];
+		return rows;
 	}
 }
 

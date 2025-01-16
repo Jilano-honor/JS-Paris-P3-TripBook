@@ -12,13 +12,9 @@ const browse: RequestHandler = async (req, res, next) => {
 
 const read: RequestHandler = async (req, res, next) => {
 	try {
-		const tagIds = req.query.tag_ids
-			? Array.isArray(req.query.tag_ids)
-				? req.query.tag_ids.map(Number)
-				: [Number(req.query.tag_ids)]
-			: [];
+		const tagId = Number(req.params.id);
 
-		const filteredCountries = await filtertagRepository.readByTags(tagIds);
+		const filteredCountries = await filtertagRepository.readByTags(tagId);
 
 		if (filteredCountries.length === 0) {
 			res.sendStatus(404);
