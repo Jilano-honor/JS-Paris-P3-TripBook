@@ -1,6 +1,7 @@
 import { useState } from "react";
+import DragAndDrop from "../components/DragAndDrop";
 
-const TravelForm = () => {
+const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
 	const [step, setStep] = useState(1);
 	const [tripDescription, setTripDescription] = useState("");
@@ -11,6 +12,23 @@ const TravelForm = () => {
 	return (
 		<div>
 			{step === 1 && (
+				<>
+					<header className="AddTrip1Header">
+						<h1>Ajoute ta photo de voyage</h1>
+					</header>
+					<DragAndDrop />
+					<div className="AddTrip1BlockNextAndBackButton">
+						<button
+							className="AddTrip1NextButton"
+							type="button"
+							onClick={() => setStep(2)}
+						>
+							Suivant
+						</button>
+					</div>
+				</>
+			)}
+			{step === 2 && (
 				<div>
 					<h1>Quel Pays avez-vous visité ?</h1>
 					<input
@@ -52,12 +70,12 @@ const TravelForm = () => {
 					<button type="button" onClick={() => setStep(1)}>
 						Retour
 					</button>
-					<button type="button" onClick={() => setStep(2)}>
+					<button type="button" onClick={() => setStep(3)}>
 						Suivant
 					</button>
 				</div>
 			)}
-			{step === 2 && (
+			{step === 3 && (
 				<>
 					<h1>Sous quel nom voulez-vous postez votre voyage </h1>
 					<input type="text" name="Nom de Voyage" id="" />
@@ -74,7 +92,7 @@ const TravelForm = () => {
 						value={tripDescription}
 						onChange={(e) => setTripDescription(e.target.value)}
 					/>
-					<button type="button" onClick={() => setStep(1)}>
+					<button type="button" onClick={() => setStep(2)}>
 						Retour
 					</button>
 					<button type="button" onClick={() => setStep(2)}>
@@ -85,24 +103,24 @@ const TravelForm = () => {
 		</div>
 	);
 };
-
-export default TravelForm;
-import "./TravelsAdd.css";
-import DragAndDrop from "../components/DragAndDrop";
-function TravelsAdd() {
-	return (
-		<>
-			<header className="AddTrip1Header">
-				<h1>Ajoute ta photo de voyage</h1>
-			</header>
-			<DragAndDrop />
-			<div className="AddTrip1BlockNextAndBackButton">
-				<button className="AddTrip1NextButton" type="button">
-					Suivant
-				</button>
-			</div>
-		</>
-	);
-}
-
 export default TravelsAdd;
+
+// import "./TravelsAdd.css";
+// import DragAndDrop from "../components/DragAndDrop";
+// function TravelsAdd() {
+// 	return (
+// 		<div>
+// 			<header className="AddTrip1Header">
+// 				<h1>Ajoute ta photo de voyage</h1>
+// 			</header>
+// 			<DragAndDrop/>
+// 			<div className="AddTrip1BlockNextAndBackButton">
+// 				<button className="AddTrip1NextButton" type="button" onClick={()=>setstep(2)}>
+// 					Suivant
+// 				</button>
+// 			</div>
+// 		</div>
+// 	);
+// }
+
+// export default TravelsAdd;
