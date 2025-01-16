@@ -7,7 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 import filtertagAction from "./modules/FilterTag/filtertagAction";
 
-router.get("/api/travels/tag/:id/", filtertagAction.read);
+router.get("/api/travels/tag/:id", filtertagAction.read);
 router.get("/api/travels", filtertagAction.browse);
 // Define item-related routes
 import itemActions from "./modules/item/itemActions";
