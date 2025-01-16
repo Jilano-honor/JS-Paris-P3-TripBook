@@ -95,7 +95,7 @@ const TravelsAdd = () => {
 					<button type="button" onClick={() => setStep(2)}>
 						Retour
 					</button>
-					<button type="button" onClick={() => setStep(2)}>
+					<button type="button" onClick={() => setStep(1)}>
 						Valider
 					</button>
 				</>
@@ -104,23 +104,3 @@ const TravelsAdd = () => {
 	);
 };
 export default TravelsAdd;
-
-// import "./TravelsAdd.css";
-// import DragAndDrop from "../components/DragAndDrop";
-// function TravelsAdd() {
-// 	return (
-// 		<div>
-// 			<header className="AddTrip1Header">
-// 				<h1>Ajoute ta photo de voyage</h1>
-// 			</header>
-// 			<DragAndDrop/>
-// 			<div className="AddTrip1BlockNextAndBackButton">
-// 				<button className="AddTrip1NextButton" type="button" onClick={()=>setstep(2)}>
-// 					Suivant
-// 				</button>
-// 			</div>
-// 		</div>
-// 	);
-// }
-
-// export default TravelsAdd;
