@@ -12,7 +12,7 @@ class CountryTagSeeder extends AbstractSeeder {
 	}
 
 	run() {
-		for (let i = 0; i < 50; i++) {
+		for (let i = 0; i < 150; i++) {
 			const randomTagId = Math.floor(Math.random() * 19);
 			const countryTag = {
 				country_id: this.getRef(`country_${i}`).insertId,
