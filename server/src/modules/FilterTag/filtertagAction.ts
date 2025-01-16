@@ -1,15 +1,10 @@
 import type { RequestHandler } from "express";
 import filtertagRepository from "./filtertagRepository";
 
-type CountryTag = {
-	country_id: number;
-	tag_id: number;
-};
-
 const browse: RequestHandler = async (req, res, next) => {
 	try {
-		const filteredCountry = await filtertagRepository.readAll();
-		res.json(filteredCountry);
+		const allcountry = await filtertagRepository.readAll();
+		res.json(allcountry);
 	} catch (err) {
 		next(err);
 	}
