@@ -77,8 +77,6 @@ const TravelsAdd = () => {
 			)}
 			{step === 3 && (
 				<>
-					<h1>Sous quel nom voulez-vous postez votre voyage </h1>
-					<input type="text" name="Nom de Voyage" id="" />
 					<h1>Sous quel nom voulez-vous poster votre voyage ?</h1>
 					<input
 						type="text"
