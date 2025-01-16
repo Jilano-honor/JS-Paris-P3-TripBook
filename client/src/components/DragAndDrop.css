@@ -1,0 +1,48 @@
+/* drag-and-drop.css */
+
+/* Zone de drag-and-drop */
+.drag-and-drop-zone {
+	border: 2px dashed #ccc;
+	padding: 20px;
+	text-align: center;
+	min-height: 200px;
+	position: relative; /* Assurer que tout est bien contenu */
+}
+
+/* Texte dans la zone */
+.drag-and-drop-zone p {
+	font-size: 18px;
+	color: #666;
+}
+
+/* Style de l'image */
+.image-preview {
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 20px; /* Un peu d'espace sous l'image */
+}
+
+.image-preview img {
+	max-width: 100%;
+	max-height: 300px;
+	border-radius: 8px;
+}
+
+/* Style du bouton d'importation */
+.import-button {
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.import-button:hover {
+	background-color: #45a049;
+}
+
+input[type="file"] {
+	display: none; /* Cache le bouton file par défaut */
+}
