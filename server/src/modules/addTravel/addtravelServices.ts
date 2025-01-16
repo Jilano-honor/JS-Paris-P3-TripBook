@@ -4,16 +4,13 @@ const validateTrip = (req: Request, res: Response, next: NextFunction) => {
 	const trip = req.body;
 
 	// Validation de `name`
-	if (typeof trip.name !== "string" || trip.name.length < 5) {
+	if (typeof trip.name !== "string" || trip.name.length > 5) {
 		res
 			.status(400)
-			.json({ error: "Le nom doit contenir au moins 5 caractères." });
+			.json({ error: "Le nom doit contenir au moins 5 caractère." });
 	}
 
 	// Validation de `start_date`
-	if (!trip.start_date || Number.isNaN(Date.parse(trip.start_date))) {
-		res.status(400).json({ error: "La date de début n'est pas valide." });
-	}
 
 	// Validation de `end_date`
 	if (!trip.end_date || Number.isNaN(Date.parse(trip.end_date))) {
