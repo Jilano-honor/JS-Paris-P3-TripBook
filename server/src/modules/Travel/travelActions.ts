@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
-import addtravelRepository from "./addtravelRepository";
-const postTrip = async (req: Request, res: Response) => {
+import addtravelRepository from "./travelRepository";
+
+const Add = async (req: Request, res: Response) => {
 	try {
 		const trip = req.body;
 
@@ -13,4 +14,4 @@ const postTrip = async (req: Request, res: Response) => {
 	}
 };
 
-export default { postTrip };
+export default { Add };

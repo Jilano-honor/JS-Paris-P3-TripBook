@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DragAndDrop from "../components/DragAndDrop";
-import Profil from "./Profile";
 
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
@@ -12,6 +11,7 @@ const TravelsAdd = () => {
 	const [endAt, setEndAt] = useState(""); // Date de fin
 	const [tripImage, setTripImage] = useState("");
 	const navigate = useNavigate();
+
 	const createTrip = async (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 		try {
@@ -23,14 +23,14 @@ const TravelsAdd = () => {
 				body: JSON.stringify({
 					name: tripName,
 					description: tripDescription,
-					start_date: startAt,
-					end_date: endAt,
+					start_at: startAt,
+					end_at: endAt,
 					photo: tripImage,
 					user_id: 1,
 					country_id: 2,
 				}),
 			});
-			// console.log(result);
+
 			if (result.status === 201) {
 				navigate("/profile");
 			}
