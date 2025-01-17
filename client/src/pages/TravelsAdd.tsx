@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import DragAndDrop from "../components/DragAndDrop";
+import Profil from "./Profile";
 
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
@@ -8,6 +10,34 @@ const TravelsAdd = () => {
 	const [search, setSearch] = useState(""); // Pays
 	const [startAt, setStartAt] = useState(""); // Date de début
 	const [endAt, setEndAt] = useState(""); // Date de fin
+	const [tripImage, setTripImage] = useState("");
+	const navigate = useNavigate();
+	const createTrip = async (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		try {
+			const result = await fetch(`${import.meta.env.VITE_API_URL}/addTravel`, {
+				method: "POST",
+				headers: {
+					"content-type": "application/json",
+				},
+				body: JSON.stringify({
+					name: tripName,
+					description: tripDescription,
+					start_date: startAt,
+					end_date: endAt,
+					photo: tripImage,
+					user_id: 1,
+					country_id: 2,
+				}),
+			});
+			// console.log(result);
+			if (result.status === 201) {
+				navigate("/profile");
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	return (
 		<div>
@@ -67,6 +97,17 @@ const TravelsAdd = () => {
 							/>
 						</label>
 					</form>
+					<form>
+						<label>
+							<input
+								type="text"
+								id="image"
+								placeholder="url d'image"
+								value={tripImage}
+								onChange={(event) => setTripImage(event.target.value)}
+							/>
+						</label>
+					</form>
 					<button type="button" onClick={() => setStep(1)}>
 						Retour
 					</button>
@@ -93,8 +134,8 @@ const TravelsAdd = () => {
 					<button type="button" onClick={() => setStep(2)}>
 						Retour
 					</button>
-					<button type="button" onClick={() => setStep(1)}>
-						Valider
+					<button type="button" onClick={createTrip}>
+						Valider le formulaire
 					</button>
 				</>
 			)}

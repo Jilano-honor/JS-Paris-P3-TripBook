@@ -13,7 +13,11 @@ router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
-router.post("/addTravel", addtravelActions.postTrip);
+router.post(
+	"/addTravel",
+	addtravelServices.validateTrip,
+	addtravelActions.postTrip,
+);
 /* ************************************************************************* */
 
 export default router;
