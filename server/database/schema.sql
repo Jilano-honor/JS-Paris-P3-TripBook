@@ -54,15 +54,14 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `TripBook`.`trip` (
   `id_trip` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
-  `start_date` DATETIME NOT NULL,
-  `end_date` DATETIME NOT NULL,
+  `start_at` DATETIME NOT NULL,
+  `end_at` DATETIME NOT NULL,
   `description` TEXT NOT NULL,
   `photo` VARCHAR(255) NOT NULL,
   `user_id` INT NOT NULL,
   `country_id` INT NOT NULL,
   PRIMARY KEY (`id_trip`, `user_id`, `country_id`),
   UNIQUE INDEX `id_trip_UNIQUE` (`id_trip` ASC) VISIBLE,
-  UNIQUE INDEX `photo_UNIQUE` (`photo` ASC) VISIBLE,
   INDEX `fk_Trip_user_idx` (`user_id` ASC) VISIBLE,
   INDEX `fk_Trip_Country1_idx` (`country_id` ASC) VISIBLE,
   CONSTRAINT `fk_Trip_user`
