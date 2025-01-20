@@ -9,7 +9,7 @@ import travelActions from "./modules/Travel/travelActions";
 import travelServices from "./modules/Travel/travelServices";
 // Define item-related routes
 
-router.post("/addTravel", travelServices.validateTrip, travelActions.Add);
+router.post("/api/addTravel", travelServices.validateTrip, travelActions.Add);
 /* ************************************************************************* */
 
 export default router;

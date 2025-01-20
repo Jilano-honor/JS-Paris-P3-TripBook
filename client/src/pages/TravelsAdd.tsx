@@ -15,21 +15,24 @@ const TravelsAdd = () => {
 	const createTrip = async (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 		try {
-			const result = await fetch(`${import.meta.env.VITE_API_URL}/addTravel`, {
-				method: "POST",
-				headers: {
-					"content-type": "application/json",
+			const result = await fetch(
+				`${import.meta.env.VITE_API_URL}/api/addTravel`,
+				{
+					method: "POST",
+					headers: {
+						"content-type": "application/json",
+					},
+					body: JSON.stringify({
+						name: tripName,
+						description: tripDescription,
+						start_at: startAt,
+						end_at: endAt,
+						photo: tripImage,
+						user_id: 1,
+						country_id: 2,
+					}),
 				},
-				body: JSON.stringify({
-					name: tripName,
-					description: tripDescription,
-					start_at: startAt,
-					end_at: endAt,
-					photo: tripImage,
-					user_id: 1,
-					country_id: 2,
-				}),
-			});
+			);
 
 			if (result.status === 201) {
 				navigate("/profile");
