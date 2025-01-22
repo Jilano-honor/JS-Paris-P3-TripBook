@@ -10,11 +10,11 @@ const validateTrip = (req: Request, res: Response, next: NextFunction) => {
 	if (typeof Name !== "string" || Name.length < 5) {
 		res
 			.status(400)
-			.json({ error: "Le nom doit contenir au moins 5 caractère." });
+			.json({ error: "Le nom doit contenir au moins 5 caractères." });
 	}
 
 	if (!StartDate || Number.isNaN(Date.parse(StartDate))) {
-		res.status(400).json({ error: "La date de debut n'est pas valide." });
+		res.status(400).json({ error: "La date de début n'est pas valide." });
 	}
 
 	if (!EndDate || Number.isNaN(Date.parse(EndDate))) {
@@ -29,11 +29,13 @@ const validateTrip = (req: Request, res: Response, next: NextFunction) => {
 			error: "La date de début doit être antérieure à la date de fin.",
 		});
 	}
+
 	if (typeof Description !== "string" || Description.length < 5) {
 		res
 			.status(400)
 			.json({ error: "La description doit contenir au moins 5 caractères." });
 	}
+
 	if (
 		!Photo ||
 		typeof Photo !== "string" ||
@@ -44,7 +46,7 @@ const validateTrip = (req: Request, res: Response, next: NextFunction) => {
 		});
 	}
 
-	next();
+	next(); // Passe au middleware suivant si toutes les validations passent
 };
 
 export default { validateTrip };

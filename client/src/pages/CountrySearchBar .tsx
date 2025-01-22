@@ -1,50 +1,46 @@
 import { useEffect, useState } from "react";
-
-const CountrySearchBar = () => {
-	const [search, setSearch] = useState(""); // Valeur de la recherche
+const CountrySearchBar = ({
+	onCountrySelect,
+}: { onCountrySelect: (id: number) => void }) => {
+	const [search, setSearch] = useState("");
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const [results, setResults] = useState<any[]>([]); // Résultats de la recherche
-	const [error, setError] = useState(""); // Gestion des erreurs
+	const [results, setResults] = useState<any[]>([]);
+	const [error, setError] = useState("");
 
 	useEffect(() => {
-		// Si le champ de recherche est vide, ne rien faire
 		if (search.trim() === "") {
 			setResults([]);
 			return;
 		}
 
-		// Fonction pour récupérer les données depuis l'API
 		const fetchCountries = async () => {
 			try {
-				// Envoi de la requête POST
 				const response = await fetch(
 					`${import.meta.env.VITE_API_URL}/api/countries/search`,
 					{
-						method: "POST", // Utilisation de POST pour envoyer des paramètres dans le corps de la requête
+						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify({ search }), // Envoi du paramètre de recherche
+						body: JSON.stringify({ search }),
 					},
 				);
 
-				// Si la requête échoue
 				if (!response.ok) {
 					throw new Error("An error occurred while searching.");
 				}
 
-				const data = await response.json(); // Afficher les données reçues
-				setResults(data.data); // Stockage des résultats de l'API
-				setError(""); // Réinitialisation de l'erreur si la recherche réussit
+				const data = await response.json();
+				setResults(data.data);
+				setError("");
 			} catch (err) {
-				console.error("Erreur lors du fetch:", err); // Afficher l'erreur dans la console
+				console.error("Erreur lors du fetch:", err);
 				setError("An error occurred while searching for countries.");
 			}
 		};
 
-		// Appel de la fonction de recherche après chaque modification de la valeur de recherche
 		fetchCountries();
-	}, [search]); // Re-exécute la recherche à chaque changement de la valeur "search"
+	}, [search]);
 
 	return (
 		<div>
@@ -53,17 +49,22 @@ const CountrySearchBar = () => {
 				id="Searchbar"
 				placeholder="Search for a country"
 				value={search}
-				onChange={(e) => setSearch(e.target.value)} // Mise à jour du search state
+				onChange={(e) => setSearch(e.target.value)}
 			/>
-			{error && <p style={{ color: "red" }}>{error}</p>}{" "}
-			{/* Affichage des erreurs */}
+			{error && <p style={{ color: "red" }}>{error}</p>}
 			<ul>
 				{results.length > 0 ? (
-					results.map((country) => {
-						return <li key={country.id_country}>{country.name}</li>; // Affichage des résultats de recherche
-					})
+					results.map((country) => (
+						// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+						<li
+							key={country.id_country}
+							onClick={() => onCountrySelect(country.id_country)} // Appeler la fonction de sélection
+						>
+							{country.name}
+						</li>
+					))
 				) : (
-					<p>No countries found.</p> // Si aucun pays n'est trouvé
+					<p>No countries found.</p>
 				)}
 			</ul>
 		</div>

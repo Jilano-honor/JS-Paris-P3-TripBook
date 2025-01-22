@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DragAndDrop from "../components/DragAndDrop";
+import CountrySearchBar from "./CountrySearchBar ";
 
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
 	const [step, setStep] = useState(1);
 	const [tripDescription, setTripDescription] = useState("");
-	const [search, setSearch] = useState(""); // Pays
 	const [startAt, setStartAt] = useState(""); // Date de début
 	const [endAt, setEndAt] = useState(""); // Date de fin
 	const [tripImage, setTripImage] = useState("");
+	const [countryId, setCountryId] = useState<number | null>(null); // ID du pays
+
 	const navigate = useNavigate();
 
 	const createTrip = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -29,7 +31,7 @@ const TravelsAdd = () => {
 						end_at: endAt,
 						photo: tripImage,
 						user_id: 1,
-						country_id: 2,
+						country_id: countryId,
 					}),
 				},
 			);
@@ -63,14 +65,15 @@ const TravelsAdd = () => {
 			)}
 			{step === 2 && (
 				<div>
-					<h1>Quel Pays avez-vous visité ?</h1>
+					{/* <h1>Quel Pays avez-vous visité ?</h1>
 					<input
 						type="text"
 						id="Searchbar"
 						placeholder="Rechercher un pays"
 						value={search}
 						onChange={(event) => setSearch(event.target.value)}
-					/>
+					/> */}
+					<CountrySearchBar onCountrySelect={(id) => setCountryId(id)} />
 					<h1>Sur quelle période ?</h1>
 					<form>
 						<label>

@@ -10,7 +10,6 @@ import "./assets/reset.css";
 // Import the main app component
 import App from "./App";
 import Travel from "./components/Travel";
-import CountrySearchBar from "./pages/CountrySearchBar ";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
@@ -50,10 +49,6 @@ const router = createBrowserRouter([
 			{
 				path: "/travels/add",
 				element: <TravelsAdd />,
-			},
-			{
-				path: "/api/countries/search",
-				element: <CountrySearchBar />,
 			},
 		],
 	},
