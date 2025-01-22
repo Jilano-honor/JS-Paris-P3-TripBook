@@ -4,10 +4,12 @@ import addtravelRepository from "./travelRepository";
 const Add = async (req: Request, res: Response) => {
 	try {
 		const trip = req.body;
-
 		const [result] = await addtravelRepository.createTrip(trip);
-		if (result.affectedRows > 0) res.sendStatus(201);
-		else res.sendStatus(400);
+		if (result.affectedRows > 0) {
+			res.sendStatus(201);
+		} else {
+			res.sendStatus(400);
+		}
 	} catch (error) {
 		console.error(error);
 		res.sendStatus(500);

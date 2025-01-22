@@ -28,8 +28,8 @@ const TravelsAdd = () => {
 						start_at: startAt,
 						end_at: endAt,
 						photo: tripImage,
-						user_id: 1,
-						country_id: 2,
+						user_id: 94,
+						country_id: 99,
 					}),
 				},
 			);
@@ -41,7 +41,7 @@ const TravelsAdd = () => {
 			console.error(error);
 		}
 	};
-
+	// console.log(tripName, tripDescription, startAt, endAt, tripImage);
 	return (
 		<div>
 			{step === 1 && (
