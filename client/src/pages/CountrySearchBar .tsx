@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+
 const CountrySearchBar = ({
+	search,
+	setSearch,
 	onCountrySelect,
-}: { onCountrySelect: (id: number) => void }) => {
-	const [search, setSearch] = useState("");
+}: {
+	search: string;
+	setSearch: (value: string) => void;
+	onCountrySelect: (id: number) => void;
+}) => {
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const [results, setResults] = useState<any[]>([]);
 	const [error, setError] = useState("");
@@ -55,12 +61,21 @@ const CountrySearchBar = ({
 			<ul>
 				{results.length > 0 ? (
 					results.map((country) => (
-						// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-						<li
-							key={country.id_country}
-							onClick={() => onCountrySelect(country.id_country)} // Appeler la fonction de sélection
-						>
-							{country.name}
+						<li key={country.id_country}>
+							<button
+								type="button"
+								onClick={() => onCountrySelect(country.id_country)}
+								style={{
+									background: "none",
+									border: "none",
+									color: "blue",
+									cursor: "pointer",
+									textAlign: "left",
+									padding: "5px",
+								}}
+							>
+								{country.name}
+							</button>
 						</li>
 					))
 				) : (

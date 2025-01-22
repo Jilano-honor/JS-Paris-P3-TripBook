@@ -11,6 +11,7 @@ const TravelsAdd = () => {
 	const [endAt, setEndAt] = useState(""); // Date de fin
 	const [tripImage, setTripImage] = useState("");
 	const [countryId, setCountryId] = useState<number | null>(null); // ID du pays
+	const [search, setSearch] = useState(""); // État pour la barre de recherche
 
 	const navigate = useNavigate();
 
@@ -65,15 +66,11 @@ const TravelsAdd = () => {
 			)}
 			{step === 2 && (
 				<div>
-					{/* <h1>Quel Pays avez-vous visité ?</h1>
-					<input
-						type="text"
-						id="Searchbar"
-						placeholder="Rechercher un pays"
-						value={search}
-						onChange={(event) => setSearch(event.target.value)}
-					/> */}
-					<CountrySearchBar onCountrySelect={(id) => setCountryId(id)} />
+					<CountrySearchBar
+						search={search}
+						setSearch={setSearch}
+						onCountrySelect={(id) => setCountryId(id)}
+					/>
 					<h1>Sur quelle période ?</h1>
 					<form>
 						<label>
@@ -148,4 +145,5 @@ const TravelsAdd = () => {
 		</div>
 	);
 };
+
 export default TravelsAdd;
