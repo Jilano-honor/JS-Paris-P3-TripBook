@@ -7,9 +7,11 @@ const router = express.Router();
 /* ************************************************************************* */
 import travelActions from "./modules/Travel/travelActions";
 import travelServices from "./modules/Travel/travelServices";
+router.post("/api/addTravel", travelServices.validateTrip, travelActions.Add);
 // Define item-related routes
 
-router.post("/api/addTravel", travelServices.validateTrip, travelActions.Add);
+import countriesActions from "./modules/Country/countriesActions";
+router.post("/api/countries/search", countriesActions.searchbarCountries);
 /* ************************************************************************* */
 
 export default router;

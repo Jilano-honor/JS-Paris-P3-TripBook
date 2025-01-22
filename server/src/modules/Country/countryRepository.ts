@@ -1,19 +1,25 @@
 import client from "../../../database/client";
-
 import type { Result, Rows } from "../../../database/client";
 
-interface Country {
+interface Countries {
 	id_country: number;
 	name: string;
 	flags: string;
 }
 
-const readAll = async (country: Country) => {
-	const [rows] = await client.query<Rows>(
-		"SELECT code, name FROM countries WHERE name LIKE ?LIMIT 10;",
-		[country.name],
-	);
+const searchCountries = async (search: string) => {
+	const query = `
+    SELECT name
+    FROM country
+    WHERE name LIKE ?
+    LIMIT 10;
+`;
+
+	// Effectuer la requête SQL en passant le paramètre de recherche
+	const [rows] = await client.query<Rows>(query, [`%${search}%`]);
+
+	// Retourner les résultats sous forme de tableau de pays
 	return rows;
 };
 
-export default { readAll };
+export default { searchCountries };
