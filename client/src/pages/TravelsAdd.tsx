@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CountrySearchBar from "./CountrySearchBar ";
+// import CountrySearchBar from "./CountrySearchBar ";
+import TravelSearch from "./TravelsCountrySearchbar";
 
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
@@ -18,7 +19,7 @@ const TravelsAdd = () => {
 		event.preventDefault();
 		try {
 			const result = await fetch(
-				`${import.meta.env.VITE_API_URL}/api/addTravel`,
+				`${import.meta.env.VITE_API_URL}/api/add/travel`,
 				{
 					method: "POST",
 					headers: {
@@ -75,7 +76,7 @@ const TravelsAdd = () => {
 			)}
 			{step === 2 && (
 				<div>
-					<CountrySearchBar
+					<TravelSearch
 						search={search}
 						setSearch={setSearch}
 						onCountrySelect={(countryId) => setCountryId(countryId)}

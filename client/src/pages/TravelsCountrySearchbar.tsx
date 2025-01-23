@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CountrySearchBar = ({
+const TravelsCountrySearchbar = ({
 	search,
 	setSearch,
 	onCountrySelect,
@@ -85,4 +85,4 @@ const CountrySearchBar = ({
 	);
 };
 
-export default CountrySearchBar;
+export default TravelsCountrySearchbar;
