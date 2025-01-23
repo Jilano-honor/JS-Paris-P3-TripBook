@@ -9,16 +9,14 @@ interface Countries {
 
 const searchCountries = async (search: string) => {
 	const query = `
-    SELECT name
+    SELECT id_country, name
     FROM country
     WHERE name LIKE ?
     LIMIT 10;
 `;
 
-	// Effectuer la requête SQL en passant le paramètre de recherche
 	const [rows] = await client.query<Rows>(query, [`%${search}%`]);
 
-	// Retourner les résultats sous forme de tableau de pays
 	return rows;
 };
 

@@ -9,8 +9,11 @@ const CountrySearchBar = ({
 	setSearch: (value: string) => void;
 	onCountrySelect: (id: number) => void;
 }) => {
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const [results, setResults] = useState<any[]>([]);
+	interface Result {
+		id_country: number;
+		name: string;
+	}
+	const [results, setResults] = useState<Result[]>([]);
 	const [error, setError] = useState("");
 
 	useEffect(() => {
@@ -37,6 +40,7 @@ const CountrySearchBar = ({
 				}
 
 				const data = await response.json();
+
 				setResults(data.data);
 				setError("");
 			} catch (err) {
@@ -64,7 +68,10 @@ const CountrySearchBar = ({
 						<li key={country.id_country}>
 							<button
 								type="button"
-								onClick={() => onCountrySelect(country.id_country)}
+								onClick={() => {
+									onCountrySelect(country.id_country);
+									setSearch(country.name);
+								}}
 								style={{
 									background: "none",
 									border: "none",

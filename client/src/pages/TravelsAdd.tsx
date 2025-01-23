@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DragAndDrop from "../components/DragAndDrop";
 import CountrySearchBar from "./CountrySearchBar ";
 
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
 	const [step, setStep] = useState(1);
 	const [tripDescription, setTripDescription] = useState("");
-	const [startAt, setStartAt] = useState(""); // Date de début
-	const [endAt, setEndAt] = useState(""); // Date de fin
+	const [startAt, setStartAt] = useState("");
+	const [endAt, setEndAt] = useState("");
 	const [tripImage, setTripImage] = useState("");
-	const [countryId, setCountryId] = useState<number | null>(null); // ID du pays
-	const [search, setSearch] = useState(""); // État pour la barre de recherche
+	const [countryId, setCountryId] = useState<number>();
+	const [search, setSearch] = useState("");
 
 	const navigate = useNavigate();
 
@@ -51,8 +50,18 @@ const TravelsAdd = () => {
 				<>
 					<header className="AddTrip1Header">
 						<h1>Ajoute ta photo de voyage</h1>
+						<form>
+							<label>
+								<input
+									type="text"
+									id="image"
+									placeholder="url d'image"
+									value={tripImage}
+									onChange={(event) => setTripImage(event.target.value)}
+								/>
+							</label>
+						</form>
 					</header>
-					<DragAndDrop />
 					<div className="AddTrip1BlockNextAndBackButton">
 						<button
 							className="AddTrip1NextButton"
@@ -69,7 +78,7 @@ const TravelsAdd = () => {
 					<CountrySearchBar
 						search={search}
 						setSearch={setSearch}
-						onCountrySelect={(id) => setCountryId(id)}
+						onCountrySelect={(countryId) => setCountryId(countryId)}
 					/>
 					<h1>Sur quelle période ?</h1>
 					<form>
@@ -97,17 +106,6 @@ const TravelsAdd = () => {
 								required
 								value={endAt}
 								onChange={(event) => setEndAt(event.target.value)}
-							/>
-						</label>
-					</form>
-					<form>
-						<label>
-							<input
-								type="text"
-								id="image"
-								placeholder="url d'image"
-								value={tripImage}
-								onChange={(event) => setTripImage(event.target.value)}
 							/>
 						</label>
 					</form>
