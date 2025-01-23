@@ -72,14 +72,6 @@ const CountrySearchBar = ({
 									onCountrySelect(country.id_country);
 									setSearch(country.name);
 								}}
-								style={{
-									background: "none",
-									border: "none",
-									color: "blue",
-									cursor: "pointer",
-									textAlign: "left",
-									padding: "5px",
-								}}
 							>
 								{country.name}
 							</button>
