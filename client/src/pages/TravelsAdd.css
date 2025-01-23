@@ -26,6 +26,7 @@
 	background-color: var(--green);
 	font-family: "Acme", sans-serif;
 	font-size: 2rem;
+	display: inline;
 }
 
 .AddTrip1NextButton {
@@ -46,31 +47,36 @@
 	height: 100vh;
 	width: 100%;
 	text-align: center;
+	gap: 50px;
 }
 
-.name-h1-step2-first {
+.name-h1-step2 {
 	font-size: 2rem;
 	font-family: "Acme", sans-serif;
+	background-color: var(--green);
 }
 
-.name-h1-step2-second {
+.name-h1-step2 {
 	font-size: 2rem;
 	font-family: "Acme", sans-serif;
+	background-color: var(--green);
 }
 
 .step2-container-start-end-at {
 	display: flex;
 	gap: 10vw;
 }
-/* 
-.start-at-step2 {
+
+/* .start-at-step2 {
 }
 
 .end-at-step2 {
-}
+} */
 
 .button-step2-back {
-} */
+	display: flex;
+	padding: left;
+}
 
 .button-step2-next {
 	width: 600px;

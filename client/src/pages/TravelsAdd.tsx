@@ -115,15 +115,13 @@ const TravelsAdd = () => {
 
 			{step === 2 && (
 				<div className="step2-container-addtrip">
-					<h1 className="name-h1-step2-first">
-						Quel pays souhaité vous visitez ?
-					</h1>
+					<h1 className="name-h1-step2">Quel pays souhaité vous visitez ?</h1>
 					<TravelsCountrySearchbar
 						search={search}
 						setSearch={setSearch}
 						onCountrySelect={(id) => setCountryId(id)}
 					/>
-					<h1 className="name-h1-step2-second">Sur quelle période ?</h1>
+					<h1 className="name-h1-step2">Sur quelle période ?</h1>
 					<article className="step2-container-start-end-at">
 						<form>
 							<label className="start-at-step2">
