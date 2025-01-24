@@ -1,0 +1,31 @@
+.step2-searchbarcountry {
+	width: 100%;
+	max-width: 500px;
+	padding: 10px 15px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	outline: none;
+	transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.step2-searchbarcountry::placeholder {
+	color: #aaa;
+	font-style: italic;
+}
+
+.step2-searchbarcountry:focus {
+	border-color: #28a745;
+	box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
+}
+
+.list-country-search button {
+	width: 100%;
+	background: none;
+	border: none;
+	text-align: left;
+	font-size: 15px;
+	padding: 8px;
+	color: #333;
+	cursor: pointer;
+}

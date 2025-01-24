@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import "./TravelsCountrySearchbar.css";
+
+interface Result {
+	id_country: number;
+	name: string;
+}
 
 const TravelsCountrySearchbar = ({
 	search,
@@ -9,16 +15,13 @@ const TravelsCountrySearchbar = ({
 	setSearch: (value: string) => void;
 	onCountrySelect: (id: number) => void;
 }) => {
-	interface Result {
-		id_country: number;
-		name: string;
-	}
 	const [results, setResults] = useState<Result[]>([]);
 	const [error, setError] = useState("");
-
+	const [isDropdownVisible, setDropdownVisible] = useState(true);
 	useEffect(() => {
 		if (search.trim() === "") {
 			setResults([]);
+			setDropdownVisible(true);
 			return;
 		}
 
@@ -55,32 +58,37 @@ const TravelsCountrySearchbar = ({
 	return (
 		<div>
 			<input
+				className="step2-searchbarcountry"
 				type="text"
 				id="Searchbar"
 				placeholder="Search for a country"
 				value={search}
-				onChange={(e) => setSearch(e.target.value)}
+				onChange={(e) => {
+					setSearch(e.target.value);
+					setDropdownVisible(true);
+				}}
 			/>
-			{error && <p style={{ color: "red" }}>{error}</p>}
-			<ul>
-				{results.length > 0 ? (
-					results.map((country) => (
-						<li key={country.id_country}>
-							<button
-								type="button"
-								onClick={() => {
-									onCountrySelect(country.id_country);
-									setSearch(country.name);
-								}}
-							>
-								{country.name}
-							</button>
-						</li>
-					))
-				) : (
-					<p>No countries found.</p>
-				)}
-			</ul>
+			{error && <p>{error}</p>}
+			{isDropdownVisible && (
+				<ul className="list-country-search">
+					{results.length > 0
+						? results.map((country) => (
+								<li key={country.id_country}>
+									<button
+										type="button"
+										onClick={() => {
+											onCountrySelect(country.id_country);
+											setSearch(country.name);
+											setDropdownVisible(false);
+										}}
+									>
+										{country.name}
+									</button>
+								</li>
+							))
+						: search.trim() !== "" && <p>No countries found.</p>}
+				</ul>
+			)}
 		</div>
 	);
 };

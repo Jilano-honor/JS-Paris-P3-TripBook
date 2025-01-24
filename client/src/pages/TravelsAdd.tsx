@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import buttonback from "../assets/images/buttonback.png";
 import TravelsCountrySearchbar from "./TravelsCountrySearchbar";
+
 import "./TravelsAdd.css";
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
@@ -76,13 +78,13 @@ const TravelsAdd = () => {
 	};
 
 	return (
-		<div>
+		<section>
 			{step === 1 && (
-				<div className="step1-container-addtrip">
+				<article className="step1-container-addtrip">
 					<header className="header-step1-addtrip">
 						<h1 className="Name-h1-step1">Ajoute ta photo de voyage</h1>
 						<form>
-							<label>
+							<label className="step1-search-addtrip">
 								<input
 									type="text"
 									id="image"
@@ -93,8 +95,9 @@ const TravelsAdd = () => {
 							</label>
 						</form>
 					</header>
-					{error && <p>{error}</p>}
+
 					<div className="AddTrip1BlockNextAndBackButton">
+						{error && <p className="error-allstep">{error}</p>}
 						<button
 							className="AddTrip1NextButton"
 							type="button"
@@ -110,11 +113,11 @@ const TravelsAdd = () => {
 							Suivant
 						</button>
 					</div>
-				</div>
+				</article>
 			)}
 
 			{step === 2 && (
-				<div className="step2-container-addtrip">
+				<section className="step2-container-addtrip">
 					<h1 className="name-h1-step2">Quel pays souhaité vous visitez ?</h1>
 					<TravelsCountrySearchbar
 						search={search}
@@ -153,15 +156,16 @@ const TravelsAdd = () => {
 							</label>
 						</form>
 					</article>
-					{error && <p>{error}</p>}
-					<div>
+					{error && <p className="error-allstep ">{error}</p>}
+					<article className="next-back-button-container">
 						<button
 							className="button-step2-back"
 							type="button"
 							onClick={() => setStep(1)}
 						>
-							Retour
+							<img className="img-back-button" src={buttonback} alt="Back" />
 						</button>
+
 						<button
 							className="button-step2-next"
 							type="button"
@@ -171,33 +175,42 @@ const TravelsAdd = () => {
 						>
 							Suivant
 						</button>
-					</div>
-				</div>
+					</article>
+				</section>
 			)}
 
 			{step === 3 && (
-				<>
-					<h1>Sous quel nom voulez-vous poster votre voyage ?</h1>
+				<section className="step3-container-addtrip">
+					<h1 className="name-h1-step2">
+						Sous quel nom voulez-vous poster votre voyage ?
+					</h1>
 					<input
 						type="text"
 						placeholder="Nom du voyage"
 						value={tripName}
 						onChange={(e) => setTripName(e.target.value)}
 					/>
-					<h2>Partagez-nous les détails de votre voyage</h2>
+					<h1 className="name-h1-step2">
+						Partagez-nous les détails de votre voyage
+					</h1>
 					<textarea
-						cols={60}
-						rows={15}
+						cols={80}
+						rows={9}
 						placeholder="Description du voyage"
 						value={tripDescription}
 						onChange={(e) => setTripDescription(e.target.value)}
 					/>
-					{error && <p>{error}</p>}
-					<div>
-						<button type="button" onClick={() => setStep(2)}>
-							Retour
+					{error && <p className="error-allstep">{error}</p>}
+					<article className=".next-back-button-container">
+						<button
+							className="button-step2-back"
+							type="button"
+							onClick={() => setStep(2)}
+						>
+							<img className="img-back-button" src={buttonback} alt="Back" />
 						</button>
 						<button
+							className="button-step2-next"
 							type="button"
 							onClick={() => {
 								if (validateStep3()) createTrip();
@@ -205,10 +218,10 @@ const TravelsAdd = () => {
 						>
 							Valider le formulaire
 						</button>
-					</div>
-				</>
+					</article>
+				</section>
 			)}
-		</div>
+		</section>
 	);
 };
 
