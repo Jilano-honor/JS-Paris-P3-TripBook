@@ -201,7 +201,7 @@ const TravelsAdd = () => {
 						onChange={(e) => setTripDescription(e.target.value)}
 					/>
 					{error && <p className="error-allstep">{error}</p>}
-					<article className=".next-back-button-container">
+					<article className="next-back-button-container">
 						<button
 							className="button-step2-back"
 							type="button"

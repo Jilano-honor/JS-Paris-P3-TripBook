@@ -109,7 +109,6 @@
 }
 .next-back-button-container {
 	display: flex;
-	align-items: flex-start;
 }
 .button-step2-next {
 	width: 200px;
