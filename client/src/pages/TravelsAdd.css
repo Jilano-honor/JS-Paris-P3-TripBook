@@ -92,7 +92,7 @@
 	text-align: center;
 }
 
-.name-h1-step2 {
+.name-h1 {
 	font-size: 2rem;
 	font-family: "Acme", sans-serif;
 	background-color: #d1f4e1;
@@ -171,4 +171,57 @@
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	outline: none;
+}
+
+@media (max-width: 768px) {
+	.step1-container-addtrip,
+	.step2-container-addtrip,
+	.step3-container-addtrip {
+		padding: 0 15px;
+		gap: 15px;
+	}
+
+	.Name-h1-step1,
+	.name-h1 {
+		font-size: 1.5rem;
+		padding: 10px;
+	}
+
+	.step1-search-addtrip input[type="text"],
+	.step3-container-addtrip input[type="text"] {
+		width: 100%;
+		max-width: none;
+		font-size: 14px;
+		padding: 8px 12px;
+	}
+
+	.AddTrip1NextButton,
+	.button-step2-next {
+		width: 100%;
+		max-width: none;
+		font-size: 1.2rem;
+		height: 50px;
+	}
+
+	.button-step2-back {
+		margin-top: 10px;
+	}
+
+	.img-back-button {
+		height: 5vh;
+		margin-right: 20px;
+	}
+
+	.step2-container-start-end-at {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.error-allstep {
+		font-size: 1rem;
+	}
+
+	.start-end-h2-name {
+		font-size: 1rem;
+	}
 }

@@ -1,9 +1,10 @@
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import buttonback from "../assets/images/buttonback.png";
 import TravelsCountrySearchbar from "./TravelsCountrySearchbar";
-
 import "./TravelsAdd.css";
+
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
 	const [step, setStep] = useState(1);
@@ -118,13 +119,13 @@ const TravelsAdd = () => {
 
 			{step === 2 && (
 				<section className="step2-container-addtrip">
-					<h1 className="name-h1-step2">Quel pays souhaité vous visitez ?</h1>
+					<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
 					<TravelsCountrySearchbar
 						search={search}
 						setSearch={setSearch}
 						onCountrySelect={(id) => setCountryId(id)}
 					/>
-					<h1 className="name-h1-step2">Sur quelle période ?</h1>
+					<h1 className="name-h1">Sur quelle période ?</h1>
 					<article className="step2-container-start-end-at">
 						<form>
 							<label className="start-at-step2">
@@ -181,7 +182,7 @@ const TravelsAdd = () => {
 
 			{step === 3 && (
 				<section className="step3-container-addtrip">
-					<h1 className="name-h1-step2">
+					<h1 className="name-h1">
 						Sous quel nom voulez-vous poster votre voyage ?
 					</h1>
 					<input
@@ -190,9 +191,7 @@ const TravelsAdd = () => {
 						value={tripName}
 						onChange={(e) => setTripName(e.target.value)}
 					/>
-					<h1 className="name-h1-step2">
-						Partagez-nous les détails de votre voyage
-					</h1>
+					<h1 className="name-h1">Partagez-nous les détails de votre voyage</h1>
 					<textarea
 						cols={80}
 						rows={9}

@@ -19,6 +19,30 @@
 	box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
 }
 
+.parent-container {
+	position: relative;
+	display: inline-block;
+}
+
+.list-country-search {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	max-height: 200px;
+	overflow-y: auto;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-shadow: none;
+	outline: none;
+}
+
 .list-country-search button {
 	width: 100%;
 	background: none;
@@ -28,4 +52,28 @@
 	padding: 8px;
 	color: #333;
 	cursor: pointer;
+}
+
+.list-country-search button:hover {
+	background-color: #f0f0f0;
+	color: #28a745;
+	border-radius: 4px;
+	transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+	.step2-searchbarcountry {
+		width: 100%;
+		font-size: 14px;
+		padding: 8px 10px;
+	}
+
+	.step2-searchbarcountry::placeholder {
+		font-size: 14px;
+	}
+
+	.list-country-search button {
+		font-size: 14px;
+		padding: 6px;
+	}
 }

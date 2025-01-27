@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./TravelsCountrySearchbar.css";
-
 interface Result {
 	id_country: number;
 	name: string;
@@ -56,7 +55,7 @@ const TravelsCountrySearchbar = ({
 	}, [search]);
 
 	return (
-		<div>
+		<div className="parent-container">
 			<input
 				className="step2-searchbarcountry"
 				type="text"
