@@ -185,6 +185,8 @@
 	.name-h1 {
 		font-size: 1.5rem;
 		padding: 10px;
+		width: 100%;
+		max-width: none;
 	}
 
 	.step1-search-addtrip input[type="text"],
@@ -195,12 +197,19 @@
 		padding: 8px 12px;
 	}
 
-	.AddTrip1NextButton,
+	.AddTrip1NextButton {
+		width: 100%;
+		max-width: none;
+		font-size: 1.2rem;
+		height: 50px;
+	}
+
 	.button-step2-next {
 		width: 100%;
 		max-width: none;
 		font-size: 1.2rem;
 		height: 50px;
+		margin-left: 30px;
 	}
 
 	.button-step2-back {
@@ -223,5 +232,17 @@
 
 	.start-end-h2-name {
 		font-size: 1rem;
+	}
+
+	.step3-container-addtrip {
+		font-size: 1rem;
+	}
+
+	.step1-container-addtrip .Name-h1-step1 {
+		font-size: 1.5rem;
+	}
+
+	.AddTrip1NextButton {
+		font-size: 1.4rem;
 	}
 }

@@ -64,16 +64,28 @@
 @media (max-width: 768px) {
 	.step2-searchbarcountry {
 		width: 100%;
+		max-width: 100%;
 		font-size: 14px;
-		padding: 8px 10px;
+		padding: 8px 12px;
 	}
 
-	.step2-searchbarcountry::placeholder {
+	.parent-container {
+		width: 100%;
+	}
+
+	.list-country-search {
+		max-height: 150px;
 		font-size: 14px;
+		overflow-y: auto;
+		border-radius: 6px;
 	}
 
 	.list-country-search button {
-		font-size: 14px;
-		padding: 6px;
+		padding: 6px 10px;
+	}
+
+	.step2-searchbarcountry,
+	.list-country-search {
+		margin: 0 auto;
 	}
 }
