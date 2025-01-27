@@ -1,5 +1,5 @@
 import "./App.css";
-import TravelsAdd from "./pages/TravelsAdd";
+import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
 
 function App() {
 	return (

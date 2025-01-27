@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import buttonback from "../assets/images/buttonback.png";
-import TravelsCountrySearchbar from "./TravelsCountrySearchbar";
+import TravelsCountrySearchbar from "../../components/TravelsCountrySearchbar/TravelsCountrySearchbar";
 import "./TravelsAdd.css";
 
 const TravelsAdd = () => {
