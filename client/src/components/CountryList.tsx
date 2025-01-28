@@ -83,19 +83,19 @@ function CountryList({
 				>
 					Suivant
 				</button>
-			</div>
 
-			<div className="TravelSearchGoToPage">
-				<input
-					type="number"
-					value={pageInput}
-					onChange={handlePageInputChange}
-					min={1}
-					max={totalPages}
-				/>
-				<button type="button" onClick={goToPage}>
-					Aller à la page
-				</button>
+				<div className="TravelSearchGoToPage">
+					<input
+						type="number"
+						value={pageInput}
+						onChange={handlePageInputChange}
+						min={1}
+						max={totalPages}
+					/>
+					<button type="button" onClick={goToPage}>
+						Aller à la page
+					</button>
+				</div>
 			</div>
 		</div>
 	);
