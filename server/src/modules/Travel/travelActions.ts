@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import addtravelRepository from "./travelRepository";
 
-const Add = async (req: Request, res: Response) => {
+const add = async (req: Request, res: Response) => {
 	try {
 		const trip = req.body;
 		const [result] = await addtravelRepository.createTrip(trip);
@@ -16,4 +16,4 @@ const Add = async (req: Request, res: Response) => {
 	}
 };
 
-export default { Add };
+export default { add };

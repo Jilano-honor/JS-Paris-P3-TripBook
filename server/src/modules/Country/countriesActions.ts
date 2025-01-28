@@ -1,20 +1,19 @@
 import type { Request, Response } from "express";
-import CountryRepository from "./CountryRepository";
+import CountryRepository from "./countryRepository";
 
-const searchbarCountries = async (req: Request, res: Response) => {
+const browseCountries = async (req: Request, res: Response) => {
 	try {
-		const { search } = req.body;
+		const name = req.query.name;
 
-		if (typeof search !== "string" || search.trim() === "") {
-			res.status(400).json({
-				error: "Search query is required and must be a non-empty string.",
-			});
-			return;
+		if (typeof name !== "string" || name.trim() === "") {
+			const countries = await CountryRepository.readAll();
+
+			res.status(200).json({ data: countries });
+		} else {
+			const countries = await CountryRepository.readCountryByName(name);
+
+			res.status(200).json({ data: countries });
 		}
-
-		const countries = await CountryRepository.searchCountries(search);
-
-		res.status(200).json({ data: countries });
 	} catch (error) {
 		console.error("Error in searchCountries action:", error);
 		res
@@ -23,4 +22,4 @@ const searchbarCountries = async (req: Request, res: Response) => {
 	}
 };
 
-export default { searchbarCountries };
+export default { browseCountries };

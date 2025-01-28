@@ -27,14 +27,7 @@ const TravelsCountrySearchbar = ({
 		const fetchCountries = async () => {
 			try {
 				const response = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/countries/search`,
-					{
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify({ search }),
-					},
+					`${import.meta.env.VITE_API_URL}/api/countries?name=${search}`,
 				);
 
 				if (!response.ok) {

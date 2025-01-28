@@ -7,7 +7,7 @@ interface Countries {
 	flags: string;
 }
 
-const searchCountries = async (search: string) => {
+const readCountryByName = async (search: string) => {
 	const query = `
     SELECT id_country, name
     FROM country
@@ -19,5 +19,10 @@ const searchCountries = async (search: string) => {
 
 	return rows;
 };
+const readAll = async () => {
+	const query = "SELECT * FROM country ;";
+	const [rows] = await client.query<Rows>(query);
 
-export default { searchCountries };
+	return rows;
+};
+export default { readCountryByName, readAll };
