@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importing useNavigate hook
+import { useNavigate } from "react-router-dom";
 import CountryList from "../../components/CountryList";
 import TagMenu from "../../components/TagMenu";
 import Banner from "../../components/ThemeBanner";
@@ -14,9 +14,8 @@ function TravelsSearch() {
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
 	const themeId = 3;
-	const navigate = useNavigate(); // useNavigate hook for navigation
+	const navigate = useNavigate();
 
-	// Charge la liste complète des voyages
 	useEffect(() => {
 		fetch("http://localhost:3310/api/travels")
 			.then((response) => {
@@ -33,7 +32,6 @@ function TravelsSearch() {
 			});
 	}, []);
 
-	// Charge les tags
 	useEffect(() => {
 		fetch(`http://localhost:3310/api/travels/tag/theme/${themeId}`)
 			.then((response) => {
@@ -92,9 +90,8 @@ function TravelsSearch() {
 		}
 	};
 
-	// Handle navigation to home page
 	const goHome = () => {
-		navigate("/"); // Navigates to the home page ("/")
+		navigate("/");
 	};
 
 	return (
