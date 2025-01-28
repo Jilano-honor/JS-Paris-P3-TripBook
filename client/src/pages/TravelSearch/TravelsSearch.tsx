@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Importing useNavigate hook
 import CountryList from "../../components/CountryList";
 import TagMenu from "../../components/TagMenu";
 import Banner from "../../components/ThemeBanner";
 
 import "./TravelSearch.css";
+
+import HomeButton from "../../assets/images/Icon_buton_back.png";
 
 function TravelsSearch() {
 	const [travels, setTravels] = useState([]);
@@ -11,6 +14,7 @@ function TravelsSearch() {
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
 	const themeId = 3;
+	const navigate = useNavigate(); // useNavigate hook for navigation
 
 	// Charge la liste complète des voyages
 	useEffect(() => {
@@ -88,6 +92,11 @@ function TravelsSearch() {
 		}
 	};
 
+	// Handle navigation to home page
+	const goHome = () => {
+		navigate("/"); // Navigates to the home page ("/")
+	};
+
 	return (
 		<>
 			<div className="TravelSearch">
@@ -102,6 +111,9 @@ function TravelsSearch() {
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
 				/>
+				<button type="button" className="GoHomeButton" onClick={goHome}>
+					<img src={HomeButton} alt="home button" />
+				</button>
 			</div>
 		</>
 	);
