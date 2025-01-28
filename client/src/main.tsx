@@ -14,8 +14,8 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
+import TravelsSearch from "./pages/TravelSearch/TravelsSearch";
 import TravelsAdd from "./pages/TravelsAdd";
-import TravelsSearch from "./pages/TravelsSearch";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([

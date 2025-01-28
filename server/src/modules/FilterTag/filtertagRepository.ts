@@ -8,9 +8,7 @@ type CountryTag = {
 
 class FilterTagRepository {
 	async readAll() {
-		const [rows] = await databaseClient.query<Rows>(
-			"SELECT * FROM country_tag",
-		);
+		const [rows] = await databaseClient.query<Rows>("SELECT * FROM country");
 		return rows as CountryTag[];
 	}
 
@@ -20,6 +18,10 @@ class FilterTagRepository {
 			[tagId],
 		);
 		return rows;
+	}
+	async readTag() {
+		const [rows] = await databaseClient.query<Rows>("SELECT * FROM tag");
+		return rows as CountryTag[];
 	}
 }
 
