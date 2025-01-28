@@ -6,8 +6,7 @@ interface tags {
 interface TagMenuProps {
 	tags: tags[];
 	activeTag: number | null;
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	onTagClick: any;
+	onTagClick: (tagId: number) => void;
 }
 function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 	const handleTagClick = (tag: tags) => {

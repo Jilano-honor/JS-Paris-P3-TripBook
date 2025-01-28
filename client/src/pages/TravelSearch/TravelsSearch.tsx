@@ -1,4 +1,4 @@
-import { type SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CountryList from "../../components/CountryList";
 import TagMenu from "../../components/TagMenu";
 import Banner from "../../components/ThemeBanner";
@@ -8,7 +8,7 @@ import "./TravelSearch.css";
 function TravelsSearch() {
 	const [travels, setTravels] = useState([]);
 	const [tags, setTags] = useState([]);
-	const [activeTag, setActiveTag] = useState(null);
+	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
 
 	// Charge la liste complète des voyages
@@ -45,7 +45,7 @@ function TravelsSearch() {
 			});
 	}, []);
 
-	const loadFilteredTravels = (tagId: SetStateAction<null>) => {
+	const loadFilteredTravels = (tagId: number) => {
 		setCurrentPage(1);
 
 		if (activeTag === tagId) {
