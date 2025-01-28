@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import buttonback from "../assets/images/buttonback.png";
+import buttonback from "../../assets/images/buttonback.png";
 import TravelsCountrySearchbar from "../../components/TravelsCountrySearchbar/TravelsCountrySearchbar";
 import "./TravelsAdd.css";
 
@@ -63,7 +63,7 @@ const TravelsAdd = () => {
 						start_at: startAt,
 						end_at: endAt,
 						photo: tripImage,
-						user_id: 1,
+						user_id: 94,
 						country_id: countryId,
 					}),
 				},
