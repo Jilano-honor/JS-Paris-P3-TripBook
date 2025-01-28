@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface Travel {
 	flag: string;
 	id_country: number;
@@ -31,14 +33,29 @@ function CountryList({
 		}
 	};
 
+	const [pageInput, setPageInput] = useState<number>(currentPage);
+
+	const handlePageInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const value = Number(e.target.value);
+		if (!Number.isNaN(value) && value >= 1 && value <= totalPages) {
+			setPageInput(value);
+		}
+	};
+
+	const goToPage = () => {
+		paginate(pageInput);
+	};
+
 	return (
 		<div className="TravelSearchList">
 			{currentItems.length > 0 ? (
 				<ul className="TravelSearchListCountry">
 					{currentItems.map((travel) => (
-						<li key={travel.id_country} className="TravelSearchListCountryBox">
-							<img src={travel.flag} alt="flag" />
-							<div>{travel.name}</div>
+						<li key={travel.id_country}>
+							<button type="button" className="TravelSearchListCountryBox">
+								<img src={travel.flag} alt="flag" />
+								<div>{travel.name}</div>
+							</button>
 						</li>
 					))}
 				</ul>
@@ -65,6 +82,19 @@ function CountryList({
 					disabled={currentPage === totalPages}
 				>
 					Suivant
+				</button>
+			</div>
+
+			<div className="TravelSearchGoToPage">
+				<input
+					type="number"
+					value={pageInput}
+					onChange={handlePageInputChange}
+					min={1}
+					max={totalPages}
+				/>
+				<button type="button" onClick={goToPage}>
+					Aller à la page
 				</button>
 			</div>
 		</div>

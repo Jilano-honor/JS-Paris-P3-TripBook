@@ -60,6 +60,11 @@
 	align-items: center;
 	padding-left: 1rem;
 }
+
+.TravelSearchListCountryBox:hover {
+	background-color: var(--green);
+	box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
 .TravelSearchButtonPage {
 	display: flex;
 	justify-content: center;
