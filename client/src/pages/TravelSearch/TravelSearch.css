@@ -1,0 +1,42 @@
+.TravelSearch {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.TravelSearchThemeBanner {
+	height: 15vh;
+}
+#TravelSearchThemeTitle {
+	margin: 2rem auto auto auto;
+	padding-bottom: 5rem;
+}
+.TravelSearchListTag {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+}
+.TravelSearchButton {
+	width: 10%;
+	height: 100px;
+}
+.TravelSearchListCountry {
+	width: 100vh;
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+	align-items: center;
+	margin: 5rem 0 1rem 0;
+}
+.TravelSearchListCountryBox {
+	display: flex;
+	width: 100vh;
+	background-color: blue;
+	justify-content: space-evenly;
+}
+.TravelSearchButtonPage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

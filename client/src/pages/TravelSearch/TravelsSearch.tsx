@@ -10,6 +10,7 @@ function TravelsSearch() {
 	const [tags, setTags] = useState([]);
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
+	const themeId = 5;
 
 	// Charge la liste complète des voyages
 	useEffect(() => {
@@ -30,7 +31,7 @@ function TravelsSearch() {
 
 	// Charge les tags
 	useEffect(() => {
-		fetch("http://localhost:3310/api/travels/tag")
+		fetch(`http://localhost:3310/api/travels/tag/theme/${themeId}`)
 			.then((response) => {
 				if (!response.ok) {
 					throw new Error("Réseau de réponse non ok");
@@ -89,17 +90,19 @@ function TravelsSearch() {
 
 	return (
 		<>
-			<Banner />
-			<TagMenu
-				tags={tags}
-				activeTag={activeTag}
-				onTagClick={loadFilteredTravels}
-			/>
-			<CountryList
-				travels={travels}
-				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
-			/>
+			<div className="TravelSearch">
+				<Banner />
+				<TagMenu
+					tags={tags}
+					activeTag={activeTag}
+					onTagClick={loadFilteredTravels}
+				/>
+				<CountryList
+					travels={travels}
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
+				/>
+			</div>
 		</>
 	);
 }

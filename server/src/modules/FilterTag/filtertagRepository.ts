@@ -19,8 +19,11 @@ class FilterTagRepository {
 		);
 		return rows;
 	}
-	async readTag() {
-		const [rows] = await databaseClient.query<Rows>("SELECT * FROM tag");
+	async readTag(themeId: number) {
+		const [rows] = await databaseClient.query<Rows>(
+			"SELECT * FROM tag WHERE theme_id = ?",
+			[themeId],
+		);
 		return rows as CountryTag[];
 	}
 }

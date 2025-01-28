@@ -14,11 +14,11 @@ function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 	};
 
 	return (
-		<div>
-			<h2>Liste de Tags :</h2>
+		<div className="TravelSearchListTag">
 			{tags.length > 0 ? (
 				tags.map((tag: tags) => (
 					<button
+						className="TravelSearchButton"
 						type="button"
 						key={tag.id_tag}
 						onClick={() => handleTagClick(tag)}

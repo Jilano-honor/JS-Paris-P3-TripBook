@@ -1,7 +1,9 @@
 function Banner() {
 	return (
 		<>
-			<h1>Theme Title</h1>
+			<div id="TravelSearchThemeBanner">
+				<h1 id="TravelSearchThemeTitle">Theme Title</h1>
+			</div>
 		</>
 	);
 }

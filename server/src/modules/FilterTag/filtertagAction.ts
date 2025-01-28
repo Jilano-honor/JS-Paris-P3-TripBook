@@ -31,7 +31,8 @@ const read: RequestHandler = async (req, res, next) => {
 
 const readTags: RequestHandler = async (req, res, next) => {
 	try {
-		const tag_id = await filtertagRepository.readTag();
+		const themeId = Number(req.params.id);
+		const tag_id = await filtertagRepository.readTag(themeId);
 
 		if (tag_id.length === 0) {
 			res.sendStatus(404);

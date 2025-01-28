@@ -1,4 +1,5 @@
 interface Travel {
+	flag: string;
 	id_country: number;
 	name: string;
 }
@@ -15,7 +16,7 @@ function CountryList({
 	setCurrentPage,
 }: CountryListProps) {
 	const travelList = travels || [];
-	const itemsPerPage = 10;
+	const itemsPerPage = 5;
 
 	const indexOfLastItem = currentPage * itemsPerPage;
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -31,20 +32,23 @@ function CountryList({
 	};
 
 	return (
-		<div>
-			<h2>Liste des voyages :</h2>
+		<div className="TravelSearchList">
 			{currentItems.length > 0 ? (
-				<ul>
+				<ul className="TravelSearchListCountry">
 					{currentItems.map((travel) => (
-						<li key={travel.id_country}>{travel.name}</li>
+						<li key={travel.id_country} className="TravelSearchListCountryBox">
+							<div>{travel.flag}</div>
+							<div>{travel.name}</div>
+						</li>
 					))}
 				</ul>
 			) : (
 				<p>Aucun voyage disponible.</p>
 			)}
 
-			<div>
+			<div className="TravelSearchButtonPage">
 				<button
+					className="TravelSearchButtonPageDown"
 					type="button"
 					onClick={() => paginate(currentPage - 1)}
 					disabled={currentPage === 1}
@@ -55,6 +59,7 @@ function CountryList({
 					{currentPage} sur {totalPages}
 				</span>
 				<button
+					className="TravelSearchButtonPageUp"
 					type="button"
 					onClick={() => paginate(currentPage + 1)}
 					disabled={currentPage === totalPages}
