@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DragAndDrop from "../components/DragAndDrop";
 
 const TravelsAdd = () => {
 	const [tripName, setTripName] = useState("");
@@ -10,7 +9,6 @@ const TravelsAdd = () => {
 	const [startAt, setStartAt] = useState(""); // Date de début
 	const [endAt, setEndAt] = useState(""); // Date de fin
 	const [tripImage, setTripImage] = useState("");
-	const []
 	const navigate = useNavigate();
 
 	const createTrip = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -50,7 +48,6 @@ const TravelsAdd = () => {
 					<header className="AddTrip1Header">
 						<h1>Ajoute ta photo de voyage</h1>
 					</header>
-					<DragAndDrop />
 					<div className="AddTrip1BlockNextAndBackButton">
 						<button
 							className="AddTrip1NextButton"
