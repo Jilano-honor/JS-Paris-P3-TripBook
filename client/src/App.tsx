@@ -1,12 +1,10 @@
 import "./App.css";
-import CountrySearchBar from "./pages/CountrySearchBar ";
-import TravelsAdd from "./pages/TravelsAdd";
+import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
 
 function App() {
 	return (
 		<div id="root">
 			<TravelsAdd />
-			<CountrySearchBar />
 		</div>
 	);
 }
