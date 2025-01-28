@@ -1,0 +1,91 @@
+.step2-searchbarcountry {
+	width: 100%;
+	max-width: 500px;
+	padding: 10px 15px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	outline: none;
+	transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.step2-searchbarcountry::placeholder {
+	color: #aaa;
+	font-style: italic;
+}
+
+.step2-searchbarcountry:focus {
+	border-color: #28a745;
+	box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
+}
+
+.parent-container {
+	position: relative;
+	display: inline-block;
+}
+
+.list-country-search {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	max-height: 200px;
+	overflow-y: auto;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-shadow: none;
+	outline: none;
+}
+
+.list-country-search button {
+	width: 100%;
+	background: none;
+	border: none;
+	text-align: left;
+	font-size: 15px;
+	padding: 8px;
+	color: #333;
+	cursor: pointer;
+}
+
+.list-country-search button:hover {
+	background-color: #f0f0f0;
+	color: #28a745;
+	border-radius: 4px;
+	transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+	.step2-searchbarcountry {
+		width: 100%;
+		max-width: 100%;
+		font-size: 14px;
+		padding: 8px 12px;
+	}
+
+	.parent-container {
+		width: 100%;
+	}
+
+	.list-country-search {
+		max-height: 150px;
+		font-size: 14px;
+		overflow-y: auto;
+		border-radius: 6px;
+	}
+
+	.list-country-search button {
+		padding: 6px 10px;
+	}
+
+	.step2-searchbarcountry,
+	.list-country-search {
+		margin: 0 auto;
+	}
+}
