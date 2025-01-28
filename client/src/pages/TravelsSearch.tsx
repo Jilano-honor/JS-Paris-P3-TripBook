@@ -1,8 +1,8 @@
-function CountryCard() {
+function TravelSearch() {
 	return (
 		<>
 			<div>Hello</div>
 		</>
 	);
 }
-export default CountryCard;
+export default TravelSearch;
