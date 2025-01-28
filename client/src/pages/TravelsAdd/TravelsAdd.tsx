@@ -51,7 +51,7 @@ const TravelsAdd = () => {
 	const createTrip = async () => {
 		try {
 			const result = await fetch(
-				`${import.meta.env.VITE_API_URL}/api/add/travel`,
+				`${import.meta.env.VITE_API_URL}/api/travels`,
 				{
 					method: "POST",
 					headers: {
