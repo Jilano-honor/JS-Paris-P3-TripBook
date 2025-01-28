@@ -22,7 +22,7 @@ class CountrySeeder extends AbstractSeeder {
 
 			const fakeCountry = {
 				name: fakeCountryName,
-				flag: `server/database/flags/${this.faker.location.countryCode()}.png`,
+				flag: `http://localhost:3310/flags/${this.faker.location.countryCode()}.png`,
 				refName: `country_${i}`,
 			};
 

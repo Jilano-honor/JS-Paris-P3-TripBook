@@ -37,7 +37,7 @@ function CountryList({
 				<ul className="TravelSearchListCountry">
 					{currentItems.map((travel) => (
 						<li key={travel.id_country} className="TravelSearchListCountryBox">
-							<div>{travel.flag}</div>
+							<img src={travel.flag} alt="flag" />
 							<div>{travel.name}</div>
 						</li>
 					))}
