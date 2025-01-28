@@ -7,6 +7,11 @@ interface Countries {
 	flags: string;
 }
 
+interface Countrytag {
+	country_id: number;
+	tag_id: number;
+}
+
 const readCountryByName = async (search: string) => {
 	const query = `
     SELECT id_country, name
@@ -25,4 +30,12 @@ const readAll = async () => {
 
 	return rows;
 };
-export default { readCountryByName, readAll };
+
+const readCountryById = async (id_country: number) => {
+	const [rows] = await client.query<Rows>(
+		"SELECT * FROM country JOIN country_tag ON country.id_country = country_tag.country_id WHERE id_country = ?",
+		[id_country],
+	);
+	return rows;
+};
+export default { readCountryByName, readAll, readCountryById };

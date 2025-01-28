@@ -1,5 +1,6 @@
-import type { Request, Response } from "express";
+import type { NextFunction, Request, RequestHandler, Response } from "express";
 import CountryRepository from "./countryRepository";
+import countryRepository from "./countryRepository";
 
 const browseCountries = async (req: Request, res: Response) => {
 	try {
@@ -22,4 +23,20 @@ const browseCountries = async (req: Request, res: Response) => {
 	}
 };
 
-export default { browseCountries };
+const readCountriesById = async (
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) => {
+	try {
+		const { id } = req.params;
+		const [countryId] = await countryRepository.readCountryById(Number(id));
+		if (countryId.length === 0) res.sendStatus(404);
+		else res.json(countryId);
+	} catch (error) {
+		console.error("Erreur lors de la récupération du pays:", error);
+		res.sendStatus(500);
+	}
+};
+
+export default { browseCountries, readCountriesById };

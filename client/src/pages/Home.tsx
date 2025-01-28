@@ -1,7 +1,9 @@
+import TravelSearch from "./TravelsSearch";
+
 function Home() {
 	return (
 		<>
-			<div>Hello</div>
+			<TravelSearch />
 		</>
 	);
 }

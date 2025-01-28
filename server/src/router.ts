@@ -12,6 +12,7 @@ router.post("/api/travels", travelServices.validateTrip, travelActions.add);
 
 import countriesActions from "./modules/Country/countriesActions";
 router.get("/api/countries", countriesActions.browseCountries);
+router.get("/api/countries/:id", countriesActions.readCountriesById);
 /* ************************************************************************* */
 
 export default router;
