@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CountryList from "../../components/CountryList";
 import TagMenu from "../../components/TagMenu";
 import Banner from "../../components/ThemeBanner";
@@ -13,8 +13,9 @@ function TravelsSearch() {
 	const [tags, setTags] = useState([]);
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
-	const themeId = 3;
+	const location = useLocation();
 	const navigate = useNavigate();
+	const themeId = location.state?.themeId || 3;
 
 	useEffect(() => {
 		fetch("http://localhost:3310/api/travels")
@@ -46,7 +47,7 @@ function TravelsSearch() {
 			.catch((error) => {
 				console.error("Erreur lors de la récupération des tags :", error);
 			});
-	}, []);
+	}, [themeId]);
 
 	const loadFilteredTravels = (tagId: number) => {
 		setCurrentPage(1);
