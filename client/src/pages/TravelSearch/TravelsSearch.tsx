@@ -33,7 +33,7 @@ function TravelsSearch() {
 	}, []);
 
 	useEffect(() => {
-		fetch(`http://localhost:3310/api/travels/tag/theme/${themeId}`)
+		fetch(`http://localhost:3310/api/tag/theme/${themeId}`)
 			.then((response) => {
 				if (!response.ok) {
 					throw new Error("Réseau de réponse non ok");
