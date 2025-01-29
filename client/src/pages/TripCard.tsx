@@ -2,18 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./TripCard.css";
 import buttonback from "../assets/images/buttonback.png";
-interface Trip {
-	id_trip: number;
-	countryName: string;
-	flag: string;
-	tripName: string;
-	start_at: Date;
-	end_at: Date;
-	description: string;
-	photo: string;
-	user_id: number;
-	country_id: number;
-}
+import type Trip from "../../../server/src/types/type";
 
 function TripCard() {
 	const [trip, setTrip] = useState<Trip | null>(null);

@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./country.css";
-interface Trip {
-	id_trip: number;
-	name: string;
-	start_at: Date;
-	end_at: Date;
-	description: string;
-	photo: string;
-	user_id: number;
-	country_id: number;
-}
+import type Trip from "../../../../server/src/types/type";
 function Country() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();
@@ -36,7 +27,7 @@ function Country() {
 			}
 		};
 		getTrips();
-	}, []);
+	}, [id]);
 
 	const handleNavigation = (idtrip: number) => {
 		navigate(`/country/${id}/TripCard/${idtrip}`);
@@ -50,11 +41,11 @@ function Country() {
 						<div key={trip.id_trip}>
 							<figure className="country-trip-block">
 								<figcaption key={trip.id_trip} className="country-trip-name">
-									{trip.name}
+									{trip.tripName}
 								</figcaption>
 								<img
 									src={trip.photo}
-									alt={`le nom est ${trip.name}`}
+									alt={`le nom est ${trip.tripName}`}
 									className="country-trip-photo"
 									onKeyDown={() => handleNavigation(trip.id_trip)}
 									onClick={() => handleNavigation(trip.id_trip)}
