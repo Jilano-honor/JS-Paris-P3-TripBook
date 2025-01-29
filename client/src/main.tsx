@@ -16,6 +16,8 @@ import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
 import TravelsSearch from "./pages/TravelsSearch";
+import Country from "./pages/Country/Country";
+import TripCard from "./pages/TripCard";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
 			{
 				path: "/travels/:id",
 				element: <Travel />,
+			},
+			{
+				path: "/country/:id",
+				element: <Country />,
+			},
+			{
+				path: "/country/:id/TripCard/:id",
+				element: <TripCard />,
 			},
 			{
 				path: "/profile",

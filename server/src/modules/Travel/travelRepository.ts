@@ -18,4 +18,13 @@ const createTrip = (trip: Trip) => {
 		],
 	);
 };
-export default { createTrip };
+
+const readTrips = (countryId: number) => {
+	return client.query<Rows>("SELECT * FROM trip WHERE country_id = ?", [
+		countryId,
+	]);
+};
+const readTrip = (idTrip: number) => {
+	return client.query<Rows>("SELECT * FROM trip WHERE id_trip = ?", [idTrip]);
+};
+export default { createTrip, readTrips, readTrip };

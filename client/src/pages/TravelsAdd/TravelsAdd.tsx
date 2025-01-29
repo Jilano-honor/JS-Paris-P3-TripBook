@@ -63,7 +63,7 @@ const TravelsAdd = () => {
 						start_at: startAt,
 						end_at: endAt,
 						photo: tripImage,
-						user_id: 94,
+						user_id: 3,
 						country_id: countryId,
 					}),
 				},

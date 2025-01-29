@@ -1,5 +1,4 @@
 import AbstractSeeder from "./AbstractSeeder";
-
 class CountrySeeder extends AbstractSeeder {
 	static getAllCountries() {
 		throw new Error("Method not implemented.");
@@ -7,28 +6,21 @@ class CountrySeeder extends AbstractSeeder {
 	constructor() {
 		super({ table: "country", truncate: true });
 	}
-
 	run() {
 		const countryNames = new Set();
-
-		for (let i = 0; i < 80; i += 1) {
+		for (let i = 0; i < 150; i += 1) {
 			let fakeCountryName: string;
-
 			do {
 				fakeCountryName = this.faker.location.country();
 			} while (countryNames.has(fakeCountryName));
-
 			countryNames.add(fakeCountryName);
-
 			const fakeCountry = {
 				name: fakeCountryName,
-				flag: this.faker.location.countryCode(),
+				flag: `http://localhost:3310/flags/${this.faker.location.countryCode()}.png`,
 				refName: `country_${i}`,
 			};
-
 			this.insert(fakeCountry);
 		}
 	}
 }
-
 export default CountrySeeder;
