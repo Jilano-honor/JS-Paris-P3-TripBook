@@ -28,7 +28,7 @@
 	text-align: center;
 	color: white;
 	font-size: 2em;
-	background-color: var(--banner);
+	background-color: rgba(var(--banner-rgb));
 	padding: 10px 0;
 	margin: 0;
 }

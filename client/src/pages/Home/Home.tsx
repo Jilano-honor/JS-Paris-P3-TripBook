@@ -28,8 +28,9 @@ function Home() {
 					Trouvez votre prochaine destination et partagez vos expériences pour
 					inspirer la communauté !
 				</header>
+
+				<Themebar themes={themes} />
 			</div>
-			<Themebar themes={themes} />
 		</>
 	);
 }
