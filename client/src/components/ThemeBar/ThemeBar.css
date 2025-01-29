@@ -1,0 +1,9 @@
+.homelisttheme {
+	display: flex;
+	gap: 5rem;
+	justify-content: center;
+}
+.HomeThemeButton {
+	width: 200px;
+	height: 50px;
+}

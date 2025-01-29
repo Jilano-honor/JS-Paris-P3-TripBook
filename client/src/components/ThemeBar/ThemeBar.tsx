@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "./ThemeBar.css";
 
 interface Theme {
 	id_theme: string;
@@ -14,7 +15,7 @@ function Themebar({ themes }: ThemebarProps) {
 	const navigate = useNavigate();
 
 	return (
-		<div className="HomeListTheme">
+		<div className="homelisttheme">
 			{themes.length > 0 ? (
 				themes.map((theme) => (
 					<button

@@ -1,6 +1,8 @@
 import "./Home.css";
 import { useEffect, useState } from "react";
-import Themebar from "../../components/ThemeBar";
+import Footer from "../../components/Footer/Footer";
+import NavBar from "../../components/NavBar/NavBar";
+import Themebar from "../../components/ThemeBar/ThemeBar";
 
 function Home() {
 	const [themes, setThemes] = useState([]);
@@ -23,13 +25,14 @@ function Home() {
 
 	return (
 		<>
-			<div>
+			<div className="home-container">
+				<NavBar />
 				<header>
 					Trouvez votre prochaine destination et partagez vos expériences pour
 					inspirer la communauté !
 				</header>
-
 				<Themebar themes={themes} />
+				<Footer />
 			</div>
 		</>
 	);
