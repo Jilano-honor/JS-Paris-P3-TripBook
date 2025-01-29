@@ -13,14 +13,14 @@ function NavBar() {
 			</Link>
 
 			<div className="ButtonNavigation">
-				<Link to="/connexion">
+				<Link to="/Login">
 					<button type="button" id="ConnexionButton">
 						<img src={connexionImage} alt="Log In" />
 						<p>Connexion</p>
 					</button>
 				</Link>
 
-				<Link to="/inscription">
+				<Link to="/SignIn">
 					<button type="button" id="InscriptionButton">
 						<img src={inscriptionImage} alt="Sign In" />
 						<p>Inscription</p>
