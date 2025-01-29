@@ -19,7 +19,7 @@ function Country() {
 		const getTrips = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/travels/${id}`,
+					`${import.meta.env.VITE_API_URL}/api/travels/countries/${id}`,
 					{
 						method: "GET",
 						headers: {

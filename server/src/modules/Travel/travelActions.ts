@@ -1,4 +1,5 @@
-import type { Request, Response } from "express";
+import type { Request, RequestHandler, Response } from "express";
+import addtravelRepository from "./travelRepository";
 import travelRepository from "./travelRepository";
 
 const add = async (req: Request, res: Response) => {
@@ -41,5 +42,13 @@ const browse = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
+const browseCountry: RequestHandler = async (req, res, next) => {
+	try {
+		const allcountry = await travelRepository.readAll();
+		res.json(allcountry);
+	} catch (err) {
+		next(err);
+	}
+};
 
-export default { add, browseAll, browse };
+export default { add, browseAll, browse, browseCountry };
