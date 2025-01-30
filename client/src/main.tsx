@@ -14,8 +14,8 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
-import TripCard from "./pages/Trips/TripCard";
 import TripsSearch from "./pages/TripSearch/TripsSearch";
+import TripCard from "./pages/Trips/TripCard";
 import TripsAdd from "./pages/Trips/TripsAdd";
 
 /* ************************************************************************* */
@@ -31,6 +31,7 @@ const router = createBrowserRouter([
 				path: "/trips",
 				element: <TripsSearch />,
 			},
+
 			{
 				path: "/countries/:id",
 				element: <Country />,
