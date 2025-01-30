@@ -1,5 +1,5 @@
 import type { NextFunction, Request, RequestHandler, Response } from "express";
-import CountryRepository from "./countryRepository";
+import tripRepository from "../Trip/tripRepository";
 import countryRepository from "./countryRepository";
 
 const browseCountries = async (req: Request, res: Response) => {
@@ -7,11 +7,11 @@ const browseCountries = async (req: Request, res: Response) => {
 		const name = req.query.name;
 
 		if (typeof name !== "string" || name.trim() === "") {
-			const countries = await CountryRepository.readAll();
+			const countries = await countryRepository.readAll();
 
 			res.status(200).json({ data: countries });
 		} else {
-			const countries = await CountryRepository.readCountryByName(name);
+			const countries = await countryRepository.readCountryByName(name);
 
 			res.status(200).json({ data: countries });
 		}
@@ -31,6 +31,8 @@ const readCountriesById = async (
 	try {
 		const { id } = req.params;
 		const [countryId] = await countryRepository.readCountryById(Number(id));
+		const [trip] = await tripRepository.readTripbycountryId(Number(id));
+		countryId.trip = trip;
 		if (countryId.length === 0) res.sendStatus(404);
 		else res.json(countryId);
 	} catch (error) {

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import addtravelRepository from "./travelRepository";
+import addtravelRepository from "./tripRepository";
 
 const add = async (req: Request, res: Response) => {
 	try {

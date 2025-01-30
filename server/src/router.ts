@@ -5,8 +5,8 @@ const router = express.Router();
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */
-import travelActions from "./modules/Travel/travelActions";
-import travelServices from "./modules/Travel/travelServices";
+import travelActions from "./modules/Trip/tripActions";
+import travelServices from "./modules/Trip/tripServices";
 router.post("/api/travels", travelServices.validateTrip, travelActions.add);
 // Define item-related routes
 

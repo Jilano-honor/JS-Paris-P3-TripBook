@@ -33,7 +33,7 @@ const readAll = async () => {
 
 const readCountryById = async (id_country: number) => {
 	const [rows] = await client.query<Rows>(
-		"SELECT * FROM country JOIN country_tag ON country.id_country = country_tag.country_id WHERE id_country = ?",
+		"SELECT country.id_country, country.name AS country_name, country.flag, tag.name AS tag_name, tag.photo AS tag_photo FROM country JOIN country_tag ON country.id_country = country_tag.country_id JOIN tag ON tag.id_tag = country_tag.tag_id WHERE id_country= ?;",
 		[id_country],
 	);
 	return rows;

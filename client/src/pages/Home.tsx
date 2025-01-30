@@ -1,9 +1,9 @@
-import TravelSearch from "./TravelsSearch";
+import HomeSearchbar from "./TravelsAdd/HomeSearchbar";
 
 function Home() {
 	return (
 		<>
-			<TravelSearch />
+			<HomeSearchbar />
 		</>
 	);
 }

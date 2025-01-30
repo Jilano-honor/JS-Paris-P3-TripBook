@@ -1,4 +1,5 @@
 interface Trip {
+	id_trip: number;
 	name: string;
 	start_at: Date;
 	end_at: Date;

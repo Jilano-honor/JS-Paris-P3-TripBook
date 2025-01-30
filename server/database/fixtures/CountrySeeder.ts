@@ -11,7 +11,7 @@ class CountrySeeder extends AbstractSeeder {
 	run() {
 		const countryNames = new Set();
 
-		for (let i = 0; i < 80; i += 1) {
+		for (let i = 0; i < 150; i += 1) {
 			let fakeCountryName: string;
 
 			do {
