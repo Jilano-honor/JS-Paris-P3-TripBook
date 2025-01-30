@@ -9,14 +9,14 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
-import Country from "./pages/Country/Country";
+import Country from "./pages/countries/Country";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
-import TripsSearch from "./pages/TripSearch/TripsSearch";
-import TripCard from "./pages/Trips/TripCard";
-import TripsAdd from "./pages/Trips/TripsAdd";
+import TripsSearch from "./pages/trips/TripsSearch";
+import TripCard from "./pages/trips/TripCard";
+import TripsAdd from "./pages/trips/TripsAdd";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([

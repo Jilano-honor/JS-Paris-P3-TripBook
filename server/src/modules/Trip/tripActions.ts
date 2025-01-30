@@ -18,7 +18,7 @@ const add = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
-const browseAll = async (req: Request, res: Response) => {
+const browseAllByCountry = async (req: Request, res: Response) => {
 	try {
 		const countryId = Number(req.params.country_id);
 		const [result] = await tripRepository.readTrips(countryId);
@@ -44,13 +44,13 @@ const browse = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
-const browseCountry: RequestHandler = async (req, res, next) => {
+const browseAll: RequestHandler = async (req, res, next) => {
 	try {
-		const allcountry = await tripRepository.readAll();
-		res.json(allcountry);
+		const trips = await tripRepository.readAll();
+		res.json(trips);
 	} catch (err) {
 		next(err);
 	}
 };
 
-export default { add, browseAll, browse, browseCountry };
+export default { add, browseAllByCountry, browse, browseAll };

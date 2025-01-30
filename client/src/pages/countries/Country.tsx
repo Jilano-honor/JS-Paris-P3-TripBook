@@ -10,7 +10,7 @@ function Country() {
 		const getTrips = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/Trips/countries/${id}`,
+					`${import.meta.env.VITE_API_URL}/api/countries/${id}/trips`,
 					{
 						method: "GET",
 						headers: {
@@ -21,6 +21,7 @@ function Country() {
 				if (result.ok) {
 					const trips = await result.json();
 					setTrips(trips);
+					console.log(trips);
 				}
 			} catch (error) {
 				console.error(error);

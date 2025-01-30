@@ -10,7 +10,7 @@ function TripCard() {
 	const { id } = useParams();
 
 	useEffect(() => {
-		const getTrips = async () => {
+		const getTrip = async () => {
 			try {
 				const result = await fetch(
 					`${import.meta.env.VITE_API_URL}/api/trips/${id}`,
@@ -29,14 +29,14 @@ function TripCard() {
 				console.error(error);
 			}
 		};
-		getTrips();
+		getTrip();
 	}, [id]);
 	const formattedStartDate =
 		trip && new Date(trip.start_at).toLocaleDateString("fr-FR");
 	const formattedEndDate =
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
 	const handleNavigateBack = () => {
-		navigate(`/countries/${id}`);
+		navigate(`/countries/${trip?.country_id}`);
 	};
 
 	return (

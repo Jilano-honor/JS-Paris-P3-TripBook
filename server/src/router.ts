@@ -8,11 +8,11 @@ const router = express.Router();
 import tripActions from "./modules/Trip/tripActions";
 import tripServices from "./modules/Trip/tripServices";
 router.post("/api/trips", tripServices.validateTrip, tripActions.add);
-router.get("/api/trips", tripActions.browseCountry);
+router.get("/api/trips", tripActions.browseAll);
 
 import filtertagAction from "./modules/FilterTag/TagAction";
 router.get("/api/tag/theme/:id", filtertagAction.readTags);
-router.get("/api/trips/countries/:country_id", tripActions.browseAll);
+router.get("/api/countries/:country_id/trips", tripActions.browseAllByCountry);
 router.get("/api/trips/:id_trip", tripActions.browse);
 // Define item-related routes
 
