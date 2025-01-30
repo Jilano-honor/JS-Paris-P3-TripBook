@@ -13,7 +13,7 @@ import Travel from "./components/Travel";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/Register";
 import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
 import TravelsSearch from "./pages/TravelsSearch";
 

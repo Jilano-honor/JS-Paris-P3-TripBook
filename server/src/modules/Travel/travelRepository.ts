@@ -18,4 +18,9 @@ const createTrip = (trip: Trip) => {
 		],
 	);
 };
-export default { createTrip };
+
+const readTrip = (id: number) => {
+	return client.query("SELECT * FROM trip WHERE id_trip = ?", [id]);
+}
+
+export default { createTrip, readTrip };

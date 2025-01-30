@@ -7,10 +7,15 @@ const router = express.Router();
 /* ************************************************************************* */
 import travelActions from "./modules/Travel/travelActions";
 import travelServices from "./modules/Travel/travelServices";
-router.post("/api/travels", travelServices.validateTrip, travelActions.add);
-// Define item-related routes
-
 import countriesActions from "./modules/Country/countriesActions";
+import travelRepository from "./modules/Travel/travelRepository";
+import userActions from "./modules/User/userActions";
+
+router.post("/api/travels", travelServices.validateTrip, travelActions.add);
+router.get("/api/travels/:id", travelActions.getTrip);
+
+router.post("/api/users", userActions.add)
+
 router.get("/api/countries", countriesActions.browseCountries);
 /* ************************************************************************* */
 

@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import addtravelRepository from "./travelRepository";
+import travelRepository from "./travelRepository";
 
 const add = async (req: Request, res: Response) => {
 	try {
@@ -16,4 +17,14 @@ const add = async (req: Request, res: Response) => {
 	}
 };
 
-export default { add };
+const getTrip = async (request: Request, response: Response) => {
+	try {
+		const [Trip] = await travelRepository.readTrip(Number(request.params.id));
+		response.json(Trip);
+	} catch (error) {
+		console.error(error);
+		response.sendStatus(500);
+	}
+};
+
+export default { add, getTrip };

@@ -1,10 +1,10 @@
 import "./App.css";
-import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
+import SignIn from "./pages/Register";
 
 function App() {
 	return (
 		<div id="root">
-			<TravelsAdd />
+			<SignIn />
 		</div>
 	);
 }
