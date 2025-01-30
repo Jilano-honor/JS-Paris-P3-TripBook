@@ -9,7 +9,6 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
-import Trip from "./components/Trip";
 import Country from "./pages/Country/Country";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
@@ -32,10 +31,6 @@ const router = createBrowserRouter([
 				path: "/trips",
 				element: <TripsSearch />,
 			},
-			// {
-			// 	path: "/trips/:id",
-			// 	element: <Trip />,
-			// },
 			{
 				path: "/countries/:id",
 				element: <Country />,
