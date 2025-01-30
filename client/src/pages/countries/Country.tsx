@@ -21,7 +21,6 @@ function Country() {
 				if (result.ok) {
 					const trips = await result.json();
 					setTrips(trips);
-					console.log(trips);
 				}
 			} catch (error) {
 				console.error(error);
