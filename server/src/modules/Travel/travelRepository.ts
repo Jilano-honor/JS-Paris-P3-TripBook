@@ -21,6 +21,6 @@ const createTrip = (trip: Trip) => {
 
 const readTrip = (id: number) => {
 	return client.query("SELECT * FROM trip WHERE id_trip = ?", [id]);
-}
+};
 
 export default { createTrip, readTrip };

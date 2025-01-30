@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import type { FormEventHandler } from "react";
+import { useNavigate } from "react-router-dom";
 
 function register() {
 	const emailRef = useRef<HTMLInputElement>(null);
@@ -40,7 +40,6 @@ function register() {
 			setError("Une erreur est survenue...");
 		}
 	};
-console.log((firstnameRef,lastnameRef));
 
 	return (
 		<>
