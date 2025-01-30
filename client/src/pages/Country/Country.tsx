@@ -10,7 +10,7 @@ function Country() {
 		const getTrips = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/travels/countries/${id}`,
+					`${import.meta.env.VITE_API_URL}/api/Trips/countries/${id}`,
 					{
 						method: "GET",
 						headers: {
@@ -28,9 +28,9 @@ function Country() {
 		};
 		getTrips();
 	}, [id]);
-
+	console.log(trips);
 	const handleNavigation = (idtrip: number) => {
-		navigate(`/country/${id}/TripCard/${idtrip}`);
+		navigate(`/trips/${idtrip}`);
 	};
 
 	return (

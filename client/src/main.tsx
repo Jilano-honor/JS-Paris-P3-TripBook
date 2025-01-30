@@ -9,13 +9,13 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
-import Travel from "./components/Travel";
+import Trip from "./components/Trip";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
-import TravelsSearch from "./pages/TravelSearch/TravelsSearch";
-import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
+import TripsSearch from "./pages/TripSearch/TripsSearch";
+import TripsAdd from "./pages/TripsAdd/TripsAdd";
 import Country from "./pages/Country/Country";
 import TripCard from "./pages/TripCard";
 
@@ -29,19 +29,19 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/travels",
-				element: <TravelsSearch />,
+				path: "/trips",
+				element: <TripsSearch />,
 			},
+			// {
+			// 	path: "/trips/:id",
+			// 	element: <Trip />,
+			// },
 			{
-				path: "/travels/:id",
-				element: <Travel />,
-			},
-			{
-				path: "/country/:id",
+				path: "/countries/:id",
 				element: <Country />,
 			},
 			{
-				path: "/country/:id/TripCard/:id",
+				path: "/trips/:id",
 				element: <TripCard />,
 			},
 			{
@@ -57,8 +57,8 @@ const router = createBrowserRouter([
 				element: <SignIn />,
 			},
 			{
-				path: "/travels/add",
-				element: <TravelsAdd />,
+				path: "/trips/add",
+				element: <TripsAdd />,
 			},
 		],
 	},

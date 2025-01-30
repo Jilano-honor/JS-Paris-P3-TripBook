@@ -13,7 +13,7 @@ function TripCard() {
 		const getTrips = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/travels/${id}`,
+					`${import.meta.env.VITE_API_URL}/api/trips/${id}`,
 					{
 						method: "GET",
 						headers: {
@@ -36,7 +36,7 @@ function TripCard() {
 	const formattedEndDate =
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
 	const handleNavigateBack = () => {
-		navigate(`/country/${id}`);
+		navigate(`/countries/${id}`);
 	};
 
 	return (

@@ -9,7 +9,7 @@ const createTrip = (trip: Trip) => {
 	return client.query<Result>(
 		"INSERT INTO trip (name,start_at,end_at,description,photo,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
 		[
-			trip.tripName,
+			trip.name,
 			trip.start_at,
 			trip.end_at,
 			trip.description,

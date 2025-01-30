@@ -1,31 +1,27 @@
 import { useState } from "react";
 
-interface Travel {
+interface Trip {
 	flag: string;
 	id_country: number;
 	name: string;
 }
 
 interface CountryListProps {
-	travels: Travel[];
+	trips: Trip[];
 	currentPage: number;
 	setCurrentPage: (pageNumber: number) => void;
 }
 
-function CountryList({
-	travels,
-	currentPage,
-	setCurrentPage,
-}: CountryListProps) {
-	const travelList = travels || [];
+function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
+	const tripList = trips || [];
 	const itemsPerPage = 5;
 
 	const indexOfLastItem = currentPage * itemsPerPage;
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-	const currentItems = travelList.slice(indexOfFirstItem, indexOfLastItem);
+	const currentItems = tripList.slice(indexOfFirstItem, indexOfLastItem);
 
-	const totalPages = Math.ceil(travelList.length / itemsPerPage);
+	const totalPages = Math.ceil(tripList.length / itemsPerPage);
 
 	const paginate = (pageNumber: number) => {
 		if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -47,17 +43,17 @@ function CountryList({
 	};
 
 	return (
-		<div className="TravelSearchList">
+		<div className="tripSearchList">
 			{currentItems.length > 0 ? (
-				<ul className="TravelSearchListCountry">
-					{currentItems.map((travel) => (
-						<li key={travel.id_country}>
+				<ul className="tripSearchListCountry">
+					{currentItems.map((trip) => (
+						<li key={trip.id_country}>
 							<button
 								type="button"
-								className="TravelSearchListCountryBox" /*onClick={}*/
+								className="tripSearchListCountryBox" /*onClick={}*/
 							>
-								<img src={travel.flag} alt="flag" />
-								<div>{travel.name}</div>
+								<img src={trip.flag} alt="flag" />
+								<div>{trip.name}</div>
 							</button>
 						</li>
 					))}
@@ -66,9 +62,9 @@ function CountryList({
 				<p>Aucun voyage disponible.</p>
 			)}
 
-			<div className="TravelSearchButtonPage">
+			<div className="tripSearchButtonPage">
 				<button
-					className="TravelSearchButtonPageDown"
+					className="tripSearchButtonPageDown"
 					type="button"
 					onClick={() => paginate(currentPage - 1)}
 					disabled={currentPage === 1}
@@ -79,7 +75,7 @@ function CountryList({
 					{currentPage} sur {totalPages}
 				</span>
 				<button
-					className="TravelSearchButtonPageUp"
+					className="tripSearchButtonPageUp"
 					type="button"
 					onClick={() => paginate(currentPage + 1)}
 					disabled={currentPage === totalPages}
@@ -87,7 +83,7 @@ function CountryList({
 					Suivant
 				</button>
 
-				<div className="TravelSearchGoToPage">
+				<div className="tripSearchGoToPage">
 					<input
 						type="number"
 						value={pageInput}
