@@ -1,10 +1,10 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import SignIn from "./pages/Register";
 
 function App() {
 	return (
 		<div id="root">
-			<SignIn />
+			<Outlet />
 		</div>
 	);
 }

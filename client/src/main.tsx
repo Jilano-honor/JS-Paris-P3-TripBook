@@ -10,10 +10,10 @@ import "./assets/reset.css";
 // Import the main app component
 import App from "./App";
 import Travel from "./components/Travel";
+import Register from "./pages/Auth/Register";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
-import SignIn from "./pages/Register";
 import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
 import TravelsSearch from "./pages/TravelsSearch";
 
@@ -43,8 +43,8 @@ const router = createBrowserRouter([
 				element: <LogIn />,
 			},
 			{
-				path: "/signin",
-				element: <SignIn />,
+				path: "/register",
+				element: <Register />,
 			},
 			{
 				path: "/travels/add",
