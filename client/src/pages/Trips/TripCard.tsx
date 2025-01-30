@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./TripCard.css";
-import buttonback from "../assets/images/buttonback.png";
-import type Trip from "../../../server/src/types/type";
+import type Trip from "../../../../server/src/types/type";
+import buttonback from "../../assets/images/buttonback.png";
 
 function TripCard() {
 	const [trip, setTrip] = useState<Trip | null>(null);
@@ -42,14 +42,14 @@ function TripCard() {
 	return (
 		<>
 			<header className="tripCard-block-title">
-				<h1 className="tripCard-trip-title">{trip?.tripName}</h1>
+				<h1 className="tripCard-trip-title">{trip?.name}</h1>
 			</header>
 			<main>
 				<div className="tripCard-images-block">
 					<div className="tripCard-tripImage-block">
 						<img
 							src={trip?.photo}
-							alt={`nom : ${trip?.tripName}`}
+							alt={`nom : ${trip?.name}`}
 							className="tripCard-trip-image"
 						/>
 					</div>

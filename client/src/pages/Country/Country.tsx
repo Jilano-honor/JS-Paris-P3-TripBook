@@ -28,7 +28,6 @@ function Country() {
 		};
 		getTrips();
 	}, [id]);
-	console.log(trips);
 	const handleNavigation = (idtrip: number) => {
 		navigate(`/trips/${idtrip}`);
 	};
@@ -41,11 +40,11 @@ function Country() {
 						<div key={trip.id_trip}>
 							<figure className="country-trip-block">
 								<figcaption key={trip.id_trip} className="country-trip-name">
-									{trip.tripName}
+									{trip.name}
 								</figcaption>
 								<img
 									src={trip.photo}
-									alt={`le nom est ${trip.tripName}`}
+									alt={`le nom est ${trip.name}`}
 									className="country-trip-photo"
 									onKeyDown={() => handleNavigation(trip.id_trip)}
 									onClick={() => handleNavigation(trip.id_trip)}
