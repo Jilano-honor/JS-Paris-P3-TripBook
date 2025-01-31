@@ -1,18 +1,18 @@
 import type { RequestHandler } from "express";
 import ThemeRepository from "./ThemeRepository";
 
-const readTheme: RequestHandler = async (req, res, next) => {
+const readthemes: RequestHandler = async (req, res, next) => {
 	try {
-		const themeId = await ThemeRepository.readTheme();
+		const theme = await ThemeRepository.readthemes();
 
-		if (!themeId) {
+		if (!theme) {
 			res.sendStatus(404);
 		} else {
-			res.json({ themeId });
+			res.json({ theme });
 		}
 	} catch (err) {
 		next(err);
 	}
 };
 
-export default { readTheme };
+export default { readthemes };

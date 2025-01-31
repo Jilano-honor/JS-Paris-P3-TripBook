@@ -14,7 +14,7 @@ import filtertagAction from "./modules/FilterTag/TagAction";
 router.get("/api/tag/theme/:id", filtertagAction.readTags);
 
 import ThemeAction from "./modules/FilterTag/ThemeAction";
-router.get("/api/Theme", ThemeAction.readTheme);
+router.get("/api/theme", ThemeAction.readthemes);
 // Define item-related routes
 
 import countriesActions from "./modules/Country/countriesActions";
