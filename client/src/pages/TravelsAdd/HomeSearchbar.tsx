@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 interface CountryDetails {
 	id_country: number;
 	name: string;
-	flags: string;
+	flag: string;
 	tag_id: number;
 	tag_name: string;
 	tag_photo: string;
