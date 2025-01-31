@@ -7,8 +7,6 @@ import Banner from "../../components/ThemeBanner";
 import "./TravelSearch.css";
 
 import HomeButton from "../../assets/images/Icon_buton_back.png";
-import Footer from "../../components/Footer/Footer";
-import NavBar from "../../components/NavBar/NavBar";
 
 function TravelsSearch() {
 	const [travels, setTravels] = useState([]);
@@ -99,7 +97,6 @@ function TravelsSearch() {
 
 	return (
 		<>
-			<NavBar />
 			<div className="TravelSearch">
 				<Banner />
 				<TagMenu
@@ -116,7 +113,6 @@ function TravelsSearch() {
 					<img src={HomeButton} alt="home button" />
 				</button>
 			</div>
-			<Footer />
 		</>
 	);
 }
