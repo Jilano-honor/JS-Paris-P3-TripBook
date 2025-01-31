@@ -35,14 +35,17 @@ const CountryDetailsPage = () => {
 	return (
 		<div>
 			<div>
-				{country.trip.map((t) => (
-					<h1 key={t.id_trip}>{t?.name}</h1>
-				))}
-				<h1>{country.tag_name}</h1>
 				<h1>{country.country_name}</h1>
-				<img src={country.flag} alt={`Drapeau de ${country.country_name}`} />
-				<h3>Tag: {country.tag_name}</h3>
 				<img src={country.tag_photo} alt={`Tag de ${country.tag_name}`} />
+				<h2>Tag: {country.tag_name}</h2>
+				<img src={country.flag} alt={`Drapeau de ${country.country_name}`} />
+				{country.trip.map((t) => (
+					<div key={t.id_trip}>
+						<h1>Voyages effectué</h1>
+						<h2>{t?.name}</h2>
+						<img src={t?.photo} alt={`Drapeau de ${t?.name}`} />
+					</div>
+				))}
 			</div>
 		</div>
 	);

@@ -17,7 +17,7 @@ const readCountryByName = async (search: string) => {
     SELECT id_country, name
     FROM country
     WHERE name LIKE ?
-    LIMIT 10;
+    LIMIT 2;
 `;
 
 	const [rows] = await client.query<Rows>(query, [`%${search}%`]);

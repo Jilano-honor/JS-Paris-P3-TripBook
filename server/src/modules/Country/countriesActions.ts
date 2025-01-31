@@ -31,8 +31,8 @@ const readCountriesById = async (
 	try {
 		const { id } = req.params;
 		const [countryId] = await countryRepository.readCountryById(Number(id));
-		const [trips] = await tripRepository.readTripbycountryId(Number(id));
-		countryId.trip = trips;
+		const [trip] = await tripRepository.readTripbycountryId(Number(id));
+		countryId.trip = trip;
 		if (countryId.length === 0) res.sendStatus(404);
 		else res.json(countryId);
 	} catch (error) {
