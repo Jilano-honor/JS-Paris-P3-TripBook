@@ -1,19 +1,40 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface Country {
+interface CountryDetails {
 	id_country: number;
 	name: string;
 	flags: string;
 	tag_id: number;
+	tag_name: string;
+	tag_photo: string;
+	trip: Trip[];
+}
+
+interface Trip {
+	id_trip: number;
+	countryName: string;
+	flag: string;
+	name: string;
+	start_at: Date;
+	end_at: Date;
+	description: string;
+	photo: string;
+	user_id: number;
+	country_id: number;
 }
 
 function HomeSearchbar() {
-	const [results, setResults] = useState<Country[]>([]);
+	const [results, setResults] = useState<CountryDetails[]>([]);
 	const [error, setError] = useState("");
 	const [isDropdownVisible, setDropdownVisible] = useState(true);
 	const [search, setSearch] = useState("");
 
-	// Fetch country details by ID
+	const navigate = useNavigate();
+	const handleCountryDetails = (CountryAll: CountryDetails) => {
+		navigate("/countrydetails", { state: CountryAll });
+	};
+
 	const fetchCountryById = async (id: number) => {
 		try {
 			const response = await fetch(
@@ -25,16 +46,13 @@ function HomeSearchbar() {
 			}
 
 			const data = await response.json();
-
-			setResults([data]); // Store single country result in an array
-			setError("");
+			return [data];
 		} catch (err) {
 			console.error("Error fetching country details:", err);
 			setError("An error occurred while fetching country details.");
 		}
 	};
 
-	// Fetch countries by name when the search changes
 	useEffect(() => {
 		if (search.trim() === "") {
 			setResults([]);
@@ -83,10 +101,24 @@ function HomeSearchbar() {
 						<li key={country.id_country}>
 							<button
 								type="button"
-								onClick={() => {
-									fetchCountryById(country.id_country);
-									setSearch(country.name);
-									setDropdownVisible(false);
+								onClick={async () => {
+									try {
+										const countryDetails = await fetchCountryById(
+											country.id_country,
+										);
+
+										if (countryDetails && countryDetails.length > 0) {
+											const countryDetailsObj = countryDetails[0];
+											setSearch(country.name);
+											setDropdownVisible(false);
+											handleCountryDetails(countryDetailsObj);
+										}
+									} catch (error) {
+										console.error(
+											"Erreur lors de la récupération du pays:",
+											error,
+										);
+									}
 								}}
 							>
 								{country.name}
