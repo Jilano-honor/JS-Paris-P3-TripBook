@@ -4,12 +4,12 @@ import CountryList from "../../components/CountryList";
 import TagMenu from "../../components/TagMenu";
 import Banner from "../../components/ThemeBanner";
 
-import "./TravelSearch.css";
+import "./TripsSearch.css";
 
 import HomeButton from "../../assets/images/Icon_buton_back.png";
 
-function TravelsSearch() {
-	const [travels, setTravels] = useState([]);
+function TripsSearch() {
+	const [trips, setTrips] = useState([]);
 	const [tags, setTags] = useState([]);
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +17,7 @@ function TravelsSearch() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch("http://localhost:3310/api/travels")
+		fetch("http://localhost:3310/api/trips")
 			.then((response) => {
 				if (!response.ok) {
 					throw new Error("Réseau de réponse non ok");
@@ -25,7 +25,7 @@ function TravelsSearch() {
 				return response.json();
 			})
 			.then((data) => {
-				setTravels(data);
+				setTrips(data);
 			})
 			.catch((error) => {
 				console.error("Erreur lors de la récupération des données :", error);
@@ -48,12 +48,12 @@ function TravelsSearch() {
 			});
 	}, []);
 
-	const loadFilteredTravels = (tagId: number) => {
+	const loadFilteredTrips = (tagId: number) => {
 		setCurrentPage(1);
 
 		if (activeTag === tagId) {
 			setActiveTag(null);
-			fetch("http://localhost:3310/api/travels")
+			fetch("http://localhost:3310/api/trips")
 				.then((response) => {
 					if (!response.ok) {
 						throw new Error("Réseau de réponse non ok");
@@ -61,7 +61,7 @@ function TravelsSearch() {
 					return response.json();
 				})
 				.then((data) => {
-					setTravels(data);
+					setTrips(data);
 				})
 				.catch((error) => {
 					console.error(
@@ -71,7 +71,7 @@ function TravelsSearch() {
 				});
 		} else {
 			setActiveTag(tagId);
-			fetch(`http://localhost:3310/api/travels/tag/${tagId}`)
+			fetch(`http://localhost:3310/api/trips/tag/${tagId}`)
 				.then((response) => {
 					if (!response.ok) {
 						throw new Error("Réseau de réponse non ok");
@@ -79,7 +79,7 @@ function TravelsSearch() {
 					return response.json();
 				})
 				.then((data) => {
-					setTravels(data);
+					setTrips(data);
 				})
 				.catch((error) => {
 					console.error(
@@ -96,15 +96,15 @@ function TravelsSearch() {
 
 	return (
 		<>
-			<div className="TravelSearch">
+			<div className="TripSearch">
 				<Banner />
 				<TagMenu
 					tags={tags}
 					activeTag={activeTag}
-					onTagClick={loadFilteredTravels}
+					onTagClick={loadFilteredTrips}
 				/>
 				<CountryList
-					travels={travels}
+					trips={trips}
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
 				/>
@@ -116,4 +116,4 @@ function TravelsSearch() {
 	);
 }
 
-export default TravelsSearch;
+export default TripsSearch;

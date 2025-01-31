@@ -1,0 +1,17 @@
+.country-allTrips-block {
+	display: flex;
+	flex-direction: row;
+}
+.country-trip-name {
+	font-size: 10%;
+}
+.country-trip-photo {
+	width: 44.86vh;
+	height: 45.81vh;
+}
+.country-trip-block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

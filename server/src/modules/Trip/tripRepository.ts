@@ -19,9 +19,20 @@ const createTrip = (trip: Trip) => {
 		],
 	);
 };
+
+const readTrips = (countryId: number) => {
+	return client.query<Rows>("SELECT * FROM trip WHERE country_id = ?", [
+		countryId,
+	]);
+};
+const readTrip = (idTrip: number) => {
+	return client.query<Rows>(
+		"SELECT t.name as tripName, c.name as countryName, c.flag, t.* FROM trip as t join country as c on c.id_country = t.country_id WHERE id_trip = ?",
+		[idTrip],
+	);
+};
 const readAll = async () => {
 	const [rows] = await client.query<Rows>("SELECT * FROM country");
 	return rows as CountryTag[];
 };
-
-export default { createTrip, readAll };
+export default { createTrip, readTrips, readTrip, readAll };
