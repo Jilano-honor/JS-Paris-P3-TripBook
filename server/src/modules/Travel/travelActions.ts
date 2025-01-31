@@ -35,4 +35,4 @@ const getTrip = async (request: Request, response: Response) => {
 	}
 };
 
-export default { add, getTrip,browse };
+export default { add, getTrip, browse };
