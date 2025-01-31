@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import buttonback from "../../assets/images/buttonback.png";
-import TravelsCountrySearchbar from "../../components/TravelsCountrySearchbar/TravelsCountrySearchbar";
-import "./TravelsAdd.css";
+import TripsCountrySearchbar from "../../components/TripsCountrySearchbar/TripsCountrySearchbar";
+import "./TripsAdd.css";
 
-const TravelsAdd = () => {
+const TripsAdd = () => {
 	const [tripName, setTripName] = useState("");
 	const [step, setStep] = useState(1);
 	const [tripDescription, setTripDescription] = useState("");
@@ -50,24 +50,21 @@ const TravelsAdd = () => {
 
 	const createTrip = async () => {
 		try {
-			const result = await fetch(
-				`${import.meta.env.VITE_API_URL}/api/travels`,
-				{
-					method: "POST",
-					headers: {
-						"content-type": "application/json",
-					},
-					body: JSON.stringify({
-						name: tripName,
-						description: tripDescription,
-						start_at: startAt,
-						end_at: endAt,
-						photo: tripImage,
-						user_id: 94,
-						country_id: countryId,
-					}),
+			const result = await fetch(`${import.meta.env.VITE_API_URL}/api/trips`, {
+				method: "POST",
+				headers: {
+					"content-type": "application/json",
 				},
-			);
+				body: JSON.stringify({
+					name: tripName,
+					description: tripDescription,
+					start_at: startAt,
+					end_at: endAt,
+					photo: tripImage,
+					user_id: 3,
+					country_id: countryId,
+				}),
+			});
 
 			if (result.status === 201) {
 				navigate("/profile");
@@ -120,7 +117,7 @@ const TravelsAdd = () => {
 			{step === 2 && (
 				<section className="step2-container-addtrip">
 					<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
-					<TravelsCountrySearchbar
+					<TripsCountrySearchbar
 						search={search}
 						setSearch={setSearch}
 						onCountrySelect={(id) => setCountryId(id)}
@@ -133,7 +130,7 @@ const TravelsAdd = () => {
 								<input
 									className="start-at-step2"
 									type="date"
-									name="travel-start"
+									name="trip-start"
 									min="1950-04-01"
 									max="3000-12-31"
 									required
@@ -147,7 +144,7 @@ const TravelsAdd = () => {
 								<h2 className="start-end-h2-name">End date:</h2>
 								<input
 									type="date"
-									name="travel-end"
+									name="trip-end"
 									min="1950-04-01"
 									max="3000-12-31"
 									required
@@ -224,4 +221,4 @@ const TravelsAdd = () => {
 	);
 };
 
-export default TravelsAdd;
+export default TripsAdd;

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./TravelsCountrySearchbar.css";
+import "./TripsCountrySearchbar.css";
 interface Result {
 	id_country: number;
 	name: string;
 }
 
-const TravelsCountrySearchbar = ({
+const TripsCountrySearchbar = ({
 	search,
 	setSearch,
 	onCountrySelect,
@@ -85,4 +85,4 @@ const TravelsCountrySearchbar = ({
 	);
 };
 
-export default TravelsCountrySearchbar;
+export default TripsCountrySearchbar;
