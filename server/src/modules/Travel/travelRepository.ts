@@ -3,6 +3,7 @@ import client from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
 
 import type Trip from "../../types/type";
+import type CountryTag from "../../types/typeCountryTag";
 
 const createTrip = (trip: Trip) => {
 	return client.query<Result>(
@@ -23,4 +24,9 @@ const readTrip = (id: number) => {
 	return client.query("SELECT * FROM trip WHERE id_trip = ?", [id]);
 };
 
-export default { createTrip, readTrip };
+const readAll = async () => {
+	const [rows] = await client.query<Rows>("SELECT * FROM country");
+	return rows as CountryTag[];
+};
+
+export default { createTrip, readAll, readTrip };

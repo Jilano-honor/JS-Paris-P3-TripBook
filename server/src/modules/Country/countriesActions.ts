@@ -1,5 +1,6 @@
-import type { Request, Response } from "express";
+import type { Request, RequestHandler, Response } from "express";
 import CountryRepository from "./countryRepository";
+import countryRepository from "./countryRepository";
 
 const browseCountries = async (req: Request, res: Response) => {
 	try {
@@ -22,4 +23,22 @@ const browseCountries = async (req: Request, res: Response) => {
 	}
 };
 
-export default { browseCountries };
+const read: RequestHandler = async (req, res, next) => {
+	try {
+		const tagId = Number(req.params.id);
+
+		const filteredCountries = await countryRepository.readByTag(tagId);
+		if (Number.isNaN(tagId)) {
+			res.status(400).send("ID de tag invalide");
+		}
+
+		if (filteredCountries.length === 0) {
+			res.sendStatus(404);
+		} else {
+			res.json(filteredCountries);
+		}
+	} catch (err) {
+		next(err);
+	}
+};
+export default { browseCountries, read };

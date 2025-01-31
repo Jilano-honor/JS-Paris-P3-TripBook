@@ -1,0 +1,88 @@
+.TravelSearch {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.banner-container {
+	position: relative;
+	width: 100%;
+	height: 55vh;
+	overflow: hidden;
+}
+
+.banner-image {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+	display: block;
+	margin: 2.5rem 0;
+}
+
+.banner-title {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 2em;
+	background-color: var(--banner);
+	padding: 10px 0;
+	margin: 0;
+}
+.TravelSearchListTag {
+	margin-top: 5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+}
+.TravelSearchButton {
+	width: 100px;
+	height: 100px;
+}
+.TravelSearchListCountry {
+	width: 100vh;
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+	align-items: center;
+	margin: 5rem 0 1rem 0;
+}
+.TravelSearchListCountryBox {
+	height: 50px;
+	display: flex;
+	width: 100vh;
+	background-color: var(--gray);
+	gap: 10rem;
+	align-items: center;
+	padding-left: 1rem;
+	border-radius: 15px;
+}
+
+.TravelSearchListCountryBox:hover {
+	background-color: var(--green);
+	box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.TravelSearchButtonPage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+.TravelSearchList {
+	margin-bottom: 5rem;
+}
+.GoHomeButton {
+	position: fixed;
+	bottom: 10px;
+	left: 5px;
+	background-color: transparent;
+	border: 0;
+}
+.GoHomeButton img {
+	height: 25px;
+	width: 25px;
+}
