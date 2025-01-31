@@ -20,11 +20,14 @@ function NavBar() {
 					</button>
 				</Link>
 
-				<Link to="/SignIn">
+				<Link to="/register">
 					<button type="button" id="InscriptionButton">
 						<img src={inscriptionImage} alt="Sign In" />
 						<p>Inscription</p>
 					</button>
+				</Link>
+				<Link to="/trips/add">
+					<button type="button">Add Trip</button>
 				</Link>
 			</div>
 		</nav>

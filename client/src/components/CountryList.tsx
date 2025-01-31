@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CountryList.css";
 
 interface Trip {
 	flag: string;
