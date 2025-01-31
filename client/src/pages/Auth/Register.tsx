@@ -15,7 +15,7 @@ function Register() {
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
 
-	const validateRegister: FormEventHandler = async (e) => {
+	const submitRegister: FormEventHandler = async (e) => {
 		e.preventDefault();
 
 		try {
@@ -47,7 +47,7 @@ function Register() {
 			<section className="background">
 				<section className="formulaire">
 					{error && error}
-					<form onSubmit={validateRegister}>
+					<form onSubmit={submitRegister}>
 						<div className="firstname">
 							<label htmlFor="firstname">Firstname:</label>
 							<input

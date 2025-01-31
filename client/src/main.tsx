@@ -9,9 +9,9 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
+import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
 import Home from "./pages/Home";
-import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import Country from "./pages/countries/Country";
 import TripCard from "./pages/trips/TripCard";

@@ -17,12 +17,14 @@ router.get("/api/countries/:country_id/trips", tripActions.browseAllByCountry);
 router.get("/api/trips/:id_trip", tripActions.browse);
 // Define item-related routes
 
+import authActions from "./modules/Auth/authActions";
 import countriesActions from "./modules/Country/countriesActions";
 import userActions from "./modules/User/userActions";
 
 router.post("/api/trips", tripServices.validateTrip, tripActions.add);
 
 router.post("/api/users", authService.hash, userActions.add);
+router.post("/api/login", authActions.login);
 
 router.get("/api/countries", countriesActions.browseCountries);
 router.get("/api/trips/tag/:id", countriesActions.read);
