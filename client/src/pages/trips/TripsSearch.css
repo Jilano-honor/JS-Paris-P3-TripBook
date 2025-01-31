@@ -1,4 +1,4 @@
-.TravelSearch {
+.TripSearch {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -32,18 +32,18 @@
 	padding: 10px 0;
 	margin: 0;
 }
-.TravelSearchListTag {
+.TripSearchListTag {
 	margin-top: 5rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1.5rem;
 }
-.TravelSearchButton {
+.TripsSearchButton {
 	width: 100px;
 	height: 100px;
 }
-.TravelSearchListCountry {
+.TripSearchListCountry {
 	width: 100vh;
 	display: flex;
 	gap: 1rem;
@@ -51,7 +51,7 @@
 	align-items: center;
 	margin: 5rem 0 1rem 0;
 }
-.TravelSearchListCountryBox {
+.TripSearchListCountryBox {
 	height: 50px;
 	display: flex;
 	width: 100vh;
@@ -62,17 +62,17 @@
 	border-radius: 15px;
 }
 
-.TravelSearchListCountryBox:hover {
+.TripSearchListCountryBox:hover {
 	background-color: var(--green);
 	box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
-.TravelSearchButtonPage {
+.TripSearchButtonPage {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
 }
-.TravelSearchList {
+.TripSearchList {
 	margin-bottom: 5rem;
 }
 .GoHomeButton {
