@@ -13,6 +13,9 @@ router.get("/api/trips", tripActions.browseAll);
 
 import filtertagAction from "./modules/FilterTag/TagAction";
 router.get("/api/tag/theme/:id", filtertagAction.readTags);
+
+import ThemeAction from "./modules/FilterTag/ThemeAction";
+router.get("/api/theme", ThemeAction.readthemes);
 router.get("/api/countries/:country_id/trips", tripActions.browseAllByCountry);
 router.get("/api/trips/:id_trip", tripActions.browse);
 // Define item-related routes

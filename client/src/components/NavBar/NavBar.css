@@ -1,0 +1,34 @@
+#ConnexionButton {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#ConnexionButton img {
+	height: 50px;
+	width: 50px;
+}
+#InscriptionButton {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#InscriptionButton img {
+	height: 50px;
+	width: 50px;
+}
+
+#Logo {
+	height: 75px;
+	width: 75px;
+}
+
+.Navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.ButtonNavigation {
+	display: flex;
+	gap: 1rem;
+	margin-right: 1rem;
+}
