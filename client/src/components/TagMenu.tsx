@@ -8,6 +8,7 @@ interface TagMenuProps {
 	activeTag: number | null;
 	onTagClick: (tagId: number) => void;
 }
+
 function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 	const handleTagClick = (tag: tags) => {
 		onTagClick(tag.id_tag);

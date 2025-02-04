@@ -46,7 +46,8 @@ const browse = async (req: Request, res: Response) => {
 };
 const browseAll: RequestHandler = async (req, res, next) => {
 	try {
-		const trips = await tripRepository.readAll();
+		const themeId = Number(req.params.id);
+		const trips = await tripRepository.readAll(themeId);
 		res.json(trips);
 	} catch (err) {
 		next(err);
