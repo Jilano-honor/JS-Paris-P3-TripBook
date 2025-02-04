@@ -1,12 +1,13 @@
-import { useLocation } from "react-router-dom";
-import Voyages from "../assets/images/Voyages.jpg";
+import { useLocation, useNavigate } from "react-router-dom";
+import Voyages from "../../assets/images/Voyages.jpg";
 import "./CountryDetails.css";
 import type CountryAll from "../../../../server/src/types/Countryall";
-import buttonback from "../assets/images/buttonback.png";
+import buttonback from "../../assets/images/buttonback.png";
 
 const CountryDetailsPage = () => {
 	const location = useLocation();
 	const country = location.state as CountryAll;
+	const navigate = useNavigate();
 
 	if (!country) {
 		return <p>Aucun pays trouvé.</p>;
@@ -42,10 +43,18 @@ const CountryDetailsPage = () => {
 				</div>
 			</div>
 			<div className="button-container">
-				<button type="button" className="button-back">
+				<button
+					type="button"
+					className="button-back"
+					onClick={() => navigate("/")}
+				>
 					<img className="img-back-button" src={buttonback} alt="button" />
 				</button>
-				<button type="button" className="button-voir-plus">
+				<button
+					type="button"
+					className="button-voir-plus"
+					onClick={() => navigate("/trips/:id")}
+				>
 					Voir plus
 				</button>
 			</div>
