@@ -9,7 +9,7 @@ import authService from "./modules/Auth/authService";
 import tripActions from "./modules/Trip/tripActions";
 import tripServices from "./modules/Trip/tripServices";
 router.post("/api/trips", tripServices.validateTrip, tripActions.add);
-router.get("/api/trips", tripActions.browseAll);
+router.get("/api/trips/:id", tripActions.browseAll);
 
 import filtertagAction from "./modules/FilterTag/TagAction";
 router.get("/api/tag/theme/:id", filtertagAction.readTags);
