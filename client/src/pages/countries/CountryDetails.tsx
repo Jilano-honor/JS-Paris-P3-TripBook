@@ -1,30 +1,8 @@
 import { useLocation } from "react-router-dom";
 import Voyages from "../assets/images/Voyages.jpg";
-import "./CountryDetails.css"; // Import du CSS
-
-interface CountryAll {
-	country_name: string;
-	id_country: number;
-	name: string;
-	flag: string;
-	tag_id: number;
-	tag_name: string;
-	tag_photo: string;
-	trip: Trip[];
-}
-
-interface Trip {
-	id_trip: number;
-	countryName: string;
-	flag: string;
-	name: string;
-	start_at: Date;
-	end_at: Date;
-	description: string;
-	photo: string;
-	user_id: number;
-	country_id: number;
-}
+import "./CountryDetails.css";
+import type CountryAll from "../../../../server/src/types/Countryall";
+import buttonback from "../assets/images/buttonback.png";
 
 const CountryDetailsPage = () => {
 	const location = useLocation();
@@ -53,15 +31,23 @@ const CountryDetailsPage = () => {
 			</div>
 
 			<div className="trips-section">
-				<h2>Voyages effectués</h2>
+				<h2 className="trips-title">Voyages effectués</h2>
 				<div className="trips-container">
 					{country.trip.map((t) => (
 						<div className="trip-card" key={t.id_trip}>
 							<img src={t.photo} alt={t.name} />
-							<h3>{t.name}</h3>
+							<h3 className="trip-name">{t.name}</h3>
 						</div>
 					))}
 				</div>
+			</div>
+			<div className="button-container">
+				<button type="button" className="button-back">
+					<img className="img-back-button" src={buttonback} alt="button" />
+				</button>
+				<button type="button" className="button-voir-plus">
+					Voir plus
+				</button>
 			</div>
 		</div>
 	);
