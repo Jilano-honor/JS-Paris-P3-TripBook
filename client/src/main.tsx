@@ -31,9 +31,13 @@ const router = createBrowserRouter([
 				path: "/trips",
 				element: <TripsSearch />,
 			},
+			{
+				path: "/countries/:name",
+				element: <CountryDetails />,
+			},
 
 			{
-				path: "/countries/:id",
+				path: "/countries/:name/trips",
 				element: <Country />,
 			},
 			{
@@ -55,10 +59,6 @@ const router = createBrowserRouter([
 			{
 				path: "/trips/add",
 				element: <TripsAdd />,
-			},
-			{
-				path: "/countrydetails",
-				element: <CountryDetails />,
 			},
 		],
 	},

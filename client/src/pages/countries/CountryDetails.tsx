@@ -1,12 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Voyages from "../../assets/images/Voyages.jpg";
 import "./CountryDetails.css";
-import type CountryAll from "../../../../server/src/types/Countryall";
 import buttonback from "../../assets/images/buttonback.png";
+import type Country from "../../types/Country";
 
 const CountryDetailsPage = () => {
 	const location = useLocation();
-	const country = location.state as CountryAll;
+	const country = location.state as Country;
 	const navigate = useNavigate();
 
 	if (!country) {
@@ -53,7 +53,7 @@ const CountryDetailsPage = () => {
 				<button
 					type="button"
 					className="button-voir-plus"
-					onClick={() => navigate("/trips/:id")}
+					onClick={() => navigate(`/countries/${country.country_name}/trips`)}
 				>
 					Voir plus
 				</button>
