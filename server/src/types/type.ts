@@ -1,5 +1,7 @@
 interface Trip {
 	id_trip: number;
+	countryName: string;
+	flag: string;
 	name: string;
 	start_at: Date;
 	end_at: Date;

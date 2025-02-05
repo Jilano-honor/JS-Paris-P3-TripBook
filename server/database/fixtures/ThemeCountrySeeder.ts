@@ -12,7 +12,7 @@ class ThemeCountrySeeder extends AbstractSeeder {
 	}
 
 	run() {
-		for (let i = 0; i < 50; i++) {
+		for (let i = 0; i < 150; i++) {
 			const randomThemeId = Math.floor(Math.random() * 5);
 			const ThemeCountry = {
 				theme_id: this.getRef(`theme_${randomThemeId}`).insertId,

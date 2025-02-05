@@ -8,14 +8,15 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
-import Travel from "./components/Travel";
-import Home from "./pages/Home";
+import Register from "./pages/Auth/Register";
+import Home from "./pages/Home/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
-import SignIn from "./pages/SignIn";
-import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
-import TravelsSearch from "./pages/TravelsSearch";
+import Country from "./pages/countries/Country";
 import CountryDetails from "./pages/countries/CountryDetails";
+import TripCard from "./pages/trips/TripCard";
+import TripsAdd from "./pages/trips/TripsAdd";
+import TripsSearch from "./pages/trips/TripsSearch";
 
 /* ************************************************************************* */
 const router = createBrowserRouter([
@@ -27,12 +28,17 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/travels",
-				element: <TravelsSearch />,
+				path: "/trips",
+				element: <TripsSearch />,
+			},
+
+			{
+				path: "/countries/:id",
+				element: <Country />,
 			},
 			{
-				path: "/travels/:id",
-				element: <Travel />,
+				path: "/trips/:id",
+				element: <TripCard />,
 			},
 			{
 				path: "/profile",
@@ -43,12 +49,12 @@ const router = createBrowserRouter([
 				element: <LogIn />,
 			},
 			{
-				path: "/signin",
-				element: <SignIn />,
+				path: "/register",
+				element: <Register />,
 			},
 			{
-				path: "/travels/add",
-				element: <TravelsAdd />,
+				path: "/trips/add",
+				element: <TripsAdd />,
 			},
 			{
 				path: "/countrydetails",

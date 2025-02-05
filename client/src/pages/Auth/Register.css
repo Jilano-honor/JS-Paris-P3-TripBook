@@ -1,0 +1,82 @@
+.background {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	padding-top: 100px; /* Espace pour éviter le chevauchement */
+}
+.Logo {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	width: auto; /* Garde juste la largeur du logo */
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.Logo img {
+	height: 180px;
+}
+
+.formulaire {
+	background-color: #c9f3de;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.formulaire form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.formulaire div {
+	margin-bottom: 20px;
+}
+
+.formulaire label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+
+.formulaire input {
+	width: 95%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.formulaire .buttons {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.formulaire input[type="submit"] {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	padding: 12px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+}
+
+.formulaire input[type="submit"]:hover {
+	background-color: #45a049;
+}

@@ -38,4 +38,14 @@ const readCountryById = async (id_country: number) => {
 	);
 	return rows;
 };
-export default { readCountryByName, readAll, readCountryById };
+const readByTag = async (tagId: number) => {
+	const query = `
+		SELECT *
+		FROM country
+		JOIN country_tag ON country.id_country = country_tag.country_id
+		WHERE tag_id = ?;
+	`;
+	const [rows] = await client.query<Rows>(query, [tagId]);
+	return rows;
+};
+export default { readCountryByName, readAll, readByTag, readCountryById };
