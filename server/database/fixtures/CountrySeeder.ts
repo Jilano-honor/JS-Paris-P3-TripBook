@@ -8,7 +8,8 @@ class CountrySeeder extends AbstractSeeder {
 	}
 	run() {
 		const countryNames = new Set();
-		for (let i = 0; i < 150; i += 1) {
+
+		for (let i = 0; i < 200; i += 1) {
 			let fakeCountryName: string;
 			do {
 				fakeCountryName = this.faker.location.country();
@@ -18,6 +19,7 @@ class CountrySeeder extends AbstractSeeder {
 				name: fakeCountryName,
 				flag: `http://localhost:3310/flags/${this.faker.location.countryCode()}.png`,
 				refName: `country_${i}`,
+				it,
 			};
 			this.insert(fakeCountry);
 		}

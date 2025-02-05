@@ -1,6 +1,7 @@
 import "./Home.css";
 import { useEffect, useState } from "react";
 import Themebar from "../../components/ThemeBar/ThemeBar";
+import HomeSearchbar from "../trips/HomeSearchbar";
 
 function Home() {
 	const [themes, setThemes] = useState([]);
@@ -29,6 +30,7 @@ function Home() {
 					inspirer la communauté !
 				</header>
 				<Themebar themes={themes} />
+				<HomeSearchbar />
 			</div>
 		</>
 	);

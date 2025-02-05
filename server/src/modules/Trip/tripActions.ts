@@ -1,5 +1,4 @@
 import type { Request, RequestHandler, Response } from "express";
-import addTripRepository from "./tripRepository";
 import tripRepository from "./tripRepository";
 
 const add = async (req: Request, res: Response) => {

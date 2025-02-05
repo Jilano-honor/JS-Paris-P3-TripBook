@@ -1,13 +1,11 @@
+import type Trip from "../../../../client/src/types/type";
+import type CountryTag from "../../../../client/src/types/typeCountryTag";
 import client from "../../../database/client";
-
 import type { Result, Rows } from "../../../database/client";
-
-import type Trip from "../../types/type";
-import type CountryTag from "../../types/typeCountryTag";
 
 const createTrip = (trip: Trip) => {
 	return client.query<Result>(
-		"INSERT INTO trip (name,start_at,end_at,description,photo,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
+		"INSERT INTO trip (id_trip,name,start_at,end_at,description,photo,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
 		[
 			trip.name,
 			trip.start_at,
@@ -20,6 +18,11 @@ const createTrip = (trip: Trip) => {
 	);
 };
 
+const readTripbycountryId = async (country_id: number) => {
+	return client.query<Rows>("SELECT * FROM trip WHERE country_id = ?;", [
+		country_id,
+	]);
+};
 const readTrips = (countryId: number) => {
 	return client.query<Rows>("SELECT * FROM trip WHERE country_id = ?", [
 		countryId,
@@ -43,4 +46,10 @@ const readAll = async (themeId: number) => {
 	);
 	return rows as CountryTag[];
 };
-export default { createTrip, readTrips, readTrip, readAll };
+export default {
+	createTrip,
+	readTrips,
+	readTrip,
+	readAll,
+	readTripbycountryId,
+};

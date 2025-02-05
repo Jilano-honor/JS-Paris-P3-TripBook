@@ -28,6 +28,7 @@ router.post("/api/trips", tripServices.validateTrip, tripActions.add);
 router.post("/api/users", authService.hash, userActions.add);
 
 router.get("/api/countries", countriesActions.browseCountries);
+router.get("/api/countries/:id", countriesActions.readCountriesById);
 router.get("/api/trips/tag/:id", countriesActions.read);
 /* ************************************************************************* */
 

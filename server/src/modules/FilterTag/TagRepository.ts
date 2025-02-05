@@ -1,7 +1,7 @@
 import databaseClient from "../../../database/client";
 import type { Rows } from "../../../database/client";
 
-import type CountryTag from "../../types/typeCountryTag";
+import type CountryTag from "../../../../client/src/types/typeCountryTag";
 
 class TagRepository {
 	async readByTheme(themeId: number) {
