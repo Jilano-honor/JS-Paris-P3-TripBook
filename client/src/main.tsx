@@ -13,7 +13,6 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
-import HomeSearchbar from "./pages/TravelsAdd/HomeSearchbar";
 import TravelsAdd from "./pages/TravelsAdd/TravelsAdd";
 import TravelsSearch from "./pages/TravelsSearch";
 import CountryDetails from "./pages/countries/CountryDetails";
@@ -50,10 +49,6 @@ const router = createBrowserRouter([
 			{
 				path: "/travels/add",
 				element: <TravelsAdd />,
-			},
-			{
-				path: "/api/countries/:id",
-				element: <HomeSearchbar />,
 			},
 			{
 				path: "/countrydetails",
