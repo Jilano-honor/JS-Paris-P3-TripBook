@@ -1,9 +1,9 @@
 import { useState } from "react";
-
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import buttonback from "../../assets/images/buttonback.png";
 import TripsCountrySearchbar from "../../components/TripsCountrySearchbar/TripsCountrySearchbar";
 import "./TripsAdd.css";
+import type { AppContextInterface } from "../../../../server/src/types/type";
 
 const TripsAdd = () => {
 	const [tripName, setTripName] = useState("");
@@ -15,8 +15,9 @@ const TripsAdd = () => {
 	const [countryId, setCountryId] = useState<number>();
 	const [search, setSearch] = useState("");
 	const [error, setError] = useState<string>("");
-
+	const { user } = useOutletContext<AppContextInterface>();
 	const navigate = useNavigate();
+	// console.log(user);
 
 	const isValidImageUrl = (url: string) => {
 		return url.endsWith(".png");
@@ -54,6 +55,7 @@ const TripsAdd = () => {
 				method: "POST",
 				headers: {
 					"content-type": "application/json",
+					authorization: user.token,
 				},
 				body: JSON.stringify({
 					name: tripName,
@@ -61,13 +63,15 @@ const TripsAdd = () => {
 					start_at: startAt,
 					end_at: endAt,
 					photo: tripImage,
-					user_id: 3,
+					user_id: user.id_user,
 					country_id: countryId,
 				}),
 			});
 
 			if (result.status === 201) {
 				navigate("/profile");
+			} else if (result.status === 401) {
+				navigate("/login");
 			}
 		} catch (error) {
 			console.error(error);

@@ -2,7 +2,7 @@ import client from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
 
-import type Trip from "../../types/type";
+import type { Trip } from "../../types/type";
 import type CountryTag from "../../types/typeCountryTag";
 
 const createTrip = (trip: Trip) => {
