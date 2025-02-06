@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./country.css";
-import type { Trip } from "../../../../server/src/types/type";
+import type { Trip } from "../../types/type";
 function Country() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();

@@ -1,5 +1,4 @@
 import type { Request, RequestHandler, Response } from "express";
-import addTripRepository from "./tripRepository";
 import tripRepository from "./tripRepository";
 
 const add = async (req: Request, res: Response) => {
@@ -44,14 +43,5 @@ const browse = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
-const browseAll: RequestHandler = async (req, res, next) => {
-	try {
-		const themeId = Number(req.params.id);
-		const trips = await tripRepository.readAll(themeId);
-		res.json(trips);
-	} catch (err) {
-		next(err);
-	}
-};
 
-export default { add, browseAllByCountry, browse, browseAll };
+export default { add, browseAllByCountry, browse };

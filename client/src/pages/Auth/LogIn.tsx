@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import type { FormEventHandler } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import type { AppContextInterface } from "../../../../server/src/types/type";
+import type { AppContextInterface } from "../../types/type";
 import "./logIn.css";
 function LogIn() {
 	const emailRef = useRef<HTMLInputElement>(null);

@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import buttonback from "../../assets/images/buttonback.png";
 import TripsCountrySearchbar from "../../components/TripsCountrySearchbar/TripsCountrySearchbar";
 import "./TripsAdd.css";
-import type { AppContextInterface } from "../../../../server/src/types/type";
+import type { AppContextInterface } from "../../types/type";
 
 const TripsAdd = () => {
 	const [tripName, setTripName] = useState("");

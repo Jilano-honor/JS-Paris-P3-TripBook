@@ -1,6 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import type { AppContextInterface } from "../../../server/src/types/type";
-
+import type { AppContextInterface } from "../../src/types/type";
 function Profil() {
 	const { user } = useOutletContext<AppContextInterface>();
 	return (

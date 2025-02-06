@@ -1,5 +1,4 @@
 // Import necessary modules from React and React Router
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./assets/global.css";
@@ -14,6 +13,7 @@ import Register from "./pages/Auth/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile";
 import Country from "./pages/countries/Country";
+import CountryDetails from "./pages/countries/CountryDetails";
 import TripCard from "./pages/trips/TripCard";
 import TripsAdd from "./pages/trips/TripsAdd";
 import TripsSearch from "./pages/trips/TripsSearch";
@@ -28,12 +28,16 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/trips",
+				path: "/countries",
 				element: <TripsSearch />,
+			},
+			{
+				path: "/countries/:name",
+				element: <CountryDetails />,
 			},
 
 			{
-				path: "/countries/:id",
+				path: "/countries/:name/trips",
 				element: <Country />,
 			},
 			{
@@ -69,11 +73,7 @@ if (rootElement == null) {
 }
 
 // Render the app inside the root element
-createRoot(rootElement).render(
-	<StrictMode>
-		<RouterProvider router={router} />
-	</StrictMode>,
-);
+createRoot(rootElement).render(<RouterProvider router={router} />);
 
 /**
  * Helpful Notes:
