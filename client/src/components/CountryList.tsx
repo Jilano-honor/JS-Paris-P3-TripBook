@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CountryList.css";
 
 interface Trip {
@@ -43,6 +44,14 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 		paginate(pageInput);
 	};
 
+	const navigate = useNavigate();
+
+	// Function to handle the navigation to the country details page
+	const handleCountryDetails = (country: Trip) => {
+		// Navigate using the country ID in the URL (e.g., /countries/:id_country)
+		navigate(`/countries/${country.id_country}`);
+	};
+
 	return (
 		<div className="tripSearchList">
 			{currentItems.length > 0 ? (
@@ -51,7 +60,8 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 						<li key={trip.id_country}>
 							<button
 								type="button"
-								className="tripSearchListCountryBox" /*onClick={}*/
+								className="tripSearchListCountryBox"
+								onClick={() => handleCountryDetails(trip)} // Trigger navigation with ID
 							>
 								<img src={trip.flag} alt="flag" />
 								<div>{trip.name}</div>
