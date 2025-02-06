@@ -32,7 +32,6 @@ function Country() {
 	const handleNavigation = (idtrip: number) => {
 		navigate(`/trips/${idtrip}`);
 	};
-	console.log(trips);
 
 	return (
 		<>
