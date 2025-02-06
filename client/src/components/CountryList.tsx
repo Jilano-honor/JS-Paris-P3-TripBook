@@ -46,10 +46,8 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 
 	const navigate = useNavigate();
 
-	// Function to handle the navigation to the country details page
 	const handleCountryDetails = (country: Trip) => {
-		// Navigate using the country ID in the URL (e.g., /countries/:id_country)
-		navigate(`/countries/${country.id_country}`);
+		navigate(`/countries/${country.name}`);
 	};
 
 	return (
@@ -61,7 +59,7 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 							<button
 								type="button"
 								className="tripSearchListCountryBox"
-								onClick={() => handleCountryDetails(trip)} // Trigger navigation with ID
+								onClick={() => handleCountryDetails(trip)}
 							>
 								<img src={trip.flag} alt="flag" />
 								<div>{trip.name}</div>

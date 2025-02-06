@@ -59,4 +59,13 @@ const read: RequestHandler = async (req, res, next) => {
 		next(err);
 	}
 };
-export default { browseCountries, read, readCountriesById };
+const browsebytheme: RequestHandler = async (req, res, next) => {
+	try {
+		const themeId = Number(req.params.id);
+		const countries = await countryRepository.readCountrybyTheme(themeId);
+		res.json(countries);
+	} catch (err) {
+		next(err);
+	}
+};
+export default { browseCountries, read, readCountriesById, browsebytheme };
