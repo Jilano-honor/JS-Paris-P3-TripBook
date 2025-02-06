@@ -34,7 +34,7 @@ function TripsSearch() {
 	useEffect(() => {
 		const getTrips = async () => {
 			const data = await fetchData(
-				`http://localhost:3310/api/trips/${themeId}`,
+				`http://localhost:3310/api/theme/countries/${themeId}`,
 			);
 			if (data) {
 				setCountry(data);
@@ -87,7 +87,9 @@ function TripsSearch() {
 	};
 
 	const fetchTrips = async (themeId: number) => {
-		const data = await fetchData(`http://localhost:3310/api/trips/${themeId}`);
+		const data = await fetchData(
+			`http://localhost:3310/api/theme/countries/${themeId}`,
+		);
 		if (data) {
 			setCountry(data);
 		}

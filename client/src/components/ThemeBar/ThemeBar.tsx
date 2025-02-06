@@ -23,7 +23,7 @@ function Themebar({ themes }: ThemebarProps) {
 						type="button"
 						key={theme.id_theme}
 						onClick={() =>
-							navigate("/Trips", { state: { themeId: theme.id_theme } })
+							navigate("/countries", { state: { themeId: theme.id_theme } })
 						}
 					>
 						{theme.name}

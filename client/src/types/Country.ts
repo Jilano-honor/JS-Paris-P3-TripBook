@@ -1,4 +1,4 @@
-import type Trip from "./type";
+import type { Trip } from "./type";
 
 interface Country {
 	country_name: string;

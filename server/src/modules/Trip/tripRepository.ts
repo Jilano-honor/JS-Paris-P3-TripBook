@@ -1,4 +1,4 @@
-import type Trip from "../../../../client/src/types/type";
+import type { Trip } from "../../../../client/src/types/type";
 import type CountryTag from "../../../../client/src/types/typeCountryTag";
 import client from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
@@ -34,22 +34,9 @@ const readTrip = (idTrip: number) => {
 		[idTrip],
 	);
 };
-const readAll = async (themeId: number) => {
-	const [rows] = await client.query<Rows>(
-		`
-        SELECT *
-        FROM country
-        JOIN theme_country ON country.id_country = theme_country.country_id
-        WHERE theme_id = ?;
-        `,
-		[themeId],
-	);
-	return rows as CountryTag[];
-};
 export default {
 	createTrip,
 	readTrips,
 	readTrip,
-	readAll,
 	readTripbycountryId,
 };
