@@ -2,6 +2,22 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CountryList.css";
 
+import type Country from "../types/Country";
+
+const fetchCountryById = async (id: number) => {
+	try {
+		const response = await fetch(
+			`${import.meta.env.VITE_API_URL}/api/countries/${id}`,
+		);
+
+		if (!response.ok) {
+			throw new Error("An error occurred while fetching country details.");
+		}
+
+		const data = await response.json();
+		return [data];
+	} catch (err) {}
+};
 interface Trip {
 	flag: string;
 	id_country: number;
@@ -45,11 +61,24 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 	};
 
 	const navigate = useNavigate();
+	const handleCountryDetails = async (country: Trip) => {
+		try {
+			const countryDetails = await fetchCountryById(country.id_country);
 
-	// Function to handle the navigation to the country details page
-	const handleCountryDetails = (country: Trip) => {
-		// Navigate using the country ID in the URL (e.g., /countries/:id_country)
-		navigate(`/countries/${country.id_country}`);
+			if (countryDetails) {
+				const countryData: Country = {
+					id_country: country.id_country,
+					country_name: country.name,
+					name: countryDetails[0]?.name || "", // Assuming fetched details include `name`
+					flag: country.flag,
+					tag_id: countryDetails[0]?.tag_id || 0, // Adjust based on actual response
+					tag_name: countryDetails[0]?.tag_name || "",
+					tag_photo: countryDetails[0]?.tag_photo || "",
+					trip: countryDetails[0]?.trip || [],
+				};
+				navigate(`/countries/${country.name}`, { state: countryData });
+			}
+		} catch (err) {}
 	};
 
 	return (
@@ -61,7 +90,7 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 							<button
 								type="button"
 								className="tripSearchListCountryBox"
-								onClick={() => handleCountryDetails(trip)} // Trigger navigation with ID
+								onClick={() => handleCountryDetails(trip)}
 							>
 								<img src={trip.flag} alt="flag" />
 								<div>{trip.name}</div>

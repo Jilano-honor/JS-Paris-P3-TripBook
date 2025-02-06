@@ -22,7 +22,7 @@ const fetchData = async (url: string | URL | Request) => {
 };
 
 function TripsSearch() {
-	const [trips, setTrips] = useState([]);
+	const [country, setCountry] = useState([]);
 	const [tags, setTags] = useState([]);
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
@@ -37,7 +37,7 @@ function TripsSearch() {
 				`http://localhost:3310/api/trips/${themeId}`,
 			);
 			if (data) {
-				setTrips(data);
+				setCountry(data);
 			}
 		};
 		getTrips();
@@ -82,14 +82,14 @@ function TripsSearch() {
 			`http://localhost:3310/api/trips/tag/${tagId}`,
 		);
 		if (data) {
-			setTrips(data);
+			setCountry(data);
 		}
 	};
 
 	const fetchTrips = async (themeId: number) => {
 		const data = await fetchData(`http://localhost:3310/api/trips/${themeId}`);
 		if (data) {
-			setTrips(data);
+			setCountry(data);
 		}
 	};
 
@@ -107,7 +107,7 @@ function TripsSearch() {
 				onTagClick={(tagId) => loadFilteredTrips(tagId)}
 			/>
 			<CountryList
-				trips={trips}
+				trips={country}
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
 			/>
