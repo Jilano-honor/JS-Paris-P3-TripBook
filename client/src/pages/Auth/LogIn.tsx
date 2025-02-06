@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import type { FormEventHandler } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import type { AppContextInterface } from "../../../../server/src/types/type";
+import "./logIn.css";
 function LogIn() {
 	const emailRef = useRef<HTMLInputElement>(null);
 	const passwordRef = useRef<HTMLInputElement>(null);
@@ -32,21 +33,46 @@ function LogIn() {
 			setError("une erreur est survenue");
 		}
 	};
+	const NavigateToRegister = () => {
+		navigate("/register");
+	};
 	return (
 		<>
 			{error && error}
-			<form onSubmit={submitLogin}>
-				<label htmlFor="email">Email :</label>
-				<input type="email" id="email" name="email" ref={emailRef} />
-				<label htmlFor="password">Password :</label>
-				<input
-					type="password"
-					id="password"
-					name="password"
-					ref={passwordRef}
-				/>
-				<input type="submit" value="Se connecter" />
-			</form>
+
+			<section className="backgroundLogin">
+				<section className="formulaireLogin">
+					{error && error}
+					<form onSubmit={submitLogin}>
+						<div className="Email">
+							<label htmlFor="email">Email :</label>
+							<input type="email" id="email" name="email" ref={emailRef} />
+						</div>
+						<div className="Password">
+							<label htmlFor="password">Password :</label>
+							<input
+								type="password"
+								id="password"
+								name="password"
+								ref={passwordRef}
+							/>
+						</div>
+						<div className="logInandLogOutBlock">
+							<input type="submit" value="Se connecter" />
+						</div>
+					</form>
+					<p className="registerText">
+						Tu n'as pas encore de compte ?{" "}
+						<button
+							type="button"
+							className="registerButton"
+							onClick={NavigateToRegister}
+						>
+							<u>M'inscrire maintenant !</u>
+						</button>
+					</p>
+				</section>
+			</section>
 		</>
 	);
 }
