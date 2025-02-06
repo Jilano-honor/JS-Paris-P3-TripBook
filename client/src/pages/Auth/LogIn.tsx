@@ -39,7 +39,6 @@ function LogIn() {
 	return (
 		<>
 			{error && error}
-
 			<section className="backgroundLogin">
 				<section className="formulaireLogin">
 					{error && error}
