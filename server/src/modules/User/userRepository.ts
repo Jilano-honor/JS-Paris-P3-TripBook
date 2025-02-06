@@ -1,5 +1,5 @@
 import client from "../../../database/client";
-import type { Result } from "../../../database/client";
+import type { Result, Rows } from "../../../database/client";
 
 type User = {
 	email: string;
@@ -25,6 +25,9 @@ class UserRepository {
 				user.password,
 			],
 		);
+	}
+	readUserByEmail(email: string) {
+		return client.query<Rows>("SELECT * FROM User WHERE email = ?", [email]);
 	}
 }
 

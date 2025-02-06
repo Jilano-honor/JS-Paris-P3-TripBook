@@ -1,4 +1,13 @@
-.background {
+.logInandLogOutBlock {
+	display: flex;
+	align-items: center;
+}
+.registerButton {
+	background-color: #c9f3de;
+	border: 0px;
+	cursor: pointer;
+}
+.backgroundLogin {
 	background-color: white;
 	display: flex;
 	flex-direction: column;
@@ -6,23 +15,10 @@
 	justify-content: center;
 	height: 100vh;
 	margin: 0;
-	padding-top: 100px; /* Espace pour éviter le chevauchement */
-}
-.Logo {
-	position: absolute;
-	top: 0;
-	left: 20px;
-	width: auto; /* Garde juste la largeur du logo */
-	display: flex;
-	align-items: center;
-	padding: 10px 0;
+	padding-top: 100px;
 }
 
-.Logo img {
-	height: 180px;
-}
-
-.formulaire {
+.formulaireLogin {
 	background-color: #c9f3de;
 	padding: 40px;
 	border-radius: 10px;
@@ -31,26 +27,27 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 200px;
 }
 
-.formulaire form {
+.formulaireLogin form {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 }
 
-.formulaire div {
+.formulaireLogin div {
 	margin-bottom: 20px;
 }
 
-.formulaire label {
+.formulaireLogin label {
 	font-weight: bold;
 	display: block;
 	margin-bottom: 8px;
 	font-size: 18px;
 }
 
-.formulaire input {
+.formulaireLogin input {
 	width: 95%;
 	padding: 12px;
 	border: 1px solid #ccc;
@@ -58,14 +55,14 @@
 	font-size: 16px;
 }
 
-.formulaire .buttons {
+.formulaireLogin .buttons {
 	display: flex;
 	justify-content: center;
 	width: 100%;
 	margin-top: 15px;
 }
 
-.formulaire input[type="submit"] {
+.formulaireLogin input[type="submit"] {
 	background-color: #4caf50;
 	color: white;
 	border: none;
@@ -77,17 +74,9 @@
 	text-align: center;
 }
 
-.formulaire input[type="submit"]:hover {
+.formulaireLogin input[type="submit"]:hover {
 	background-color: #45a049;
 }
-.logInButton {
-	background-color: #c9f3de;
-	border: 0px;
-	cursor: pointer;
-}
-.logInButton:hover {
+.registerButton:hover {
 	font-size: 14px;
-}
-.logInText {
-	margin-top: 10px;
 }

@@ -1,4 +1,4 @@
-import type Trip from "../../../../client/src/types/type";
+import type { Trip } from "../../../../client/src/types/type";
 import type CountryTag from "../../../../client/src/types/typeCountryTag";
 import client from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
