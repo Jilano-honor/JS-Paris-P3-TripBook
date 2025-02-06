@@ -11,7 +11,7 @@ function Country() {
 		const getTrips = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/countries/${id}/trips`,
+					`${import.meta.env.VITE_API_URL}/api/countries/:name/${id}/trips`,
 					{
 						method: "GET",
 						headers: {
