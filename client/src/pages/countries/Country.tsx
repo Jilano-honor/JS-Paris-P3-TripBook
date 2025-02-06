@@ -6,6 +6,7 @@ function Country() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();
 	const { id } = useParams();
+
 	useEffect(() => {
 		const getTrips = async () => {
 			try {
@@ -31,6 +32,7 @@ function Country() {
 	const handleNavigation = (idtrip: number) => {
 		navigate(`/trips/${idtrip}`);
 	};
+	console.log(trips);
 
 	return (
 		<>
@@ -54,6 +56,7 @@ function Country() {
 					);
 				})}
 			</div>
+			<div>hello</div>
 		</>
 	);
 }

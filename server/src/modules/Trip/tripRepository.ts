@@ -1,3 +1,4 @@
+import { RouterProvider } from "react-router-dom";
 import type Trip from "../../../../client/src/types/type";
 import type CountryTag from "../../../../client/src/types/typeCountryTag";
 import client from "../../../database/client";
@@ -23,11 +24,14 @@ const readTripbycountryId = async (country_id: number) => {
 		country_id,
 	]);
 };
-const readTrips = (countryId: number) => {
-	return client.query<Rows>("SELECT * FROM trip WHERE country_id = ?", [
-		countryId,
-	]);
+const readTrips = async (country_id: number) => {
+	const [rows] = await client.query<Rows>(
+		"SELECT * FROM trip WHERE country_id = ?;",
+		[country_id],
+	);
+	return rows;
 };
+
 const readTrip = (idTrip: number) => {
 	return client.query<Rows>(
 		"SELECT t.name as tripName, c.name as countryName, c.flag, t.* FROM trip as t join country as c on c.id_country = t.country_id WHERE id_trip = ?",

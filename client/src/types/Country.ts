@@ -1,6 +1,7 @@
 import type Trip from "./type";
 
 interface Country {
+	country_id: number;
 	country_name: string;
 	id_country: number;
 	name: string;

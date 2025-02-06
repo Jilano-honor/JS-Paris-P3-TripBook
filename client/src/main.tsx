@@ -37,7 +37,7 @@ const router = createBrowserRouter([
 			},
 
 			{
-				path: "/countries/:name/trips",
+				path: "/countries/:id/trips",
 				element: <Country />,
 			},
 			{
