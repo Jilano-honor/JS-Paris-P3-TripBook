@@ -69,9 +69,9 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 				const countryData: Country = {
 					id_country: country.id_country,
 					country_name: country.name,
-					name: countryDetails[0]?.name || "", // Assuming fetched details include `name`
+					name: countryDetails[0]?.name || "",
 					flag: country.flag,
-					tag_id: countryDetails[0]?.tag_id || 0, // Adjust based on actual response
+					tag_id: countryDetails[0]?.tag_id || 0,
 					tag_name: countryDetails[0]?.tag_name || "",
 					tag_photo: countryDetails[0]?.tag_photo || "",
 					trip: countryDetails[0]?.trip || [],
