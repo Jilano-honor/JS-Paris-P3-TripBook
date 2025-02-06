@@ -1,3 +1,4 @@
+import type CountryTag from "../../../../client/src/types/typeCountryTag";
 import client from "../../../database/client";
 import type { Rows } from "../../../database/client";
 
@@ -48,4 +49,22 @@ const readByTag = async (tagId: number) => {
 	const [rows] = await client.query<Rows>(query, [tagId]);
 	return rows;
 };
-export default { readCountryByName, readAll, readByTag, readCountryById };
+const readCountrybyTheme = async (themeId: number) => {
+	const [rows] = await client.query<Rows>(
+		`
+        SELECT *
+        FROM country
+        JOIN theme_country ON country.id_country = theme_country.country_id
+        WHERE theme_id = ?;
+        `,
+		[themeId],
+	);
+	return rows as CountryTag[];
+};
+export default {
+	readCountryByName,
+	readAll,
+	readByTag,
+	readCountryById,
+	readCountrybyTheme,
+};

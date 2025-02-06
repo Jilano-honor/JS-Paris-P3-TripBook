@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CountryList.css";
 
 interface Trip {
@@ -43,6 +44,12 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 		paginate(pageInput);
 	};
 
+	const navigate = useNavigate();
+
+	const handleCountryDetails = (country: Trip) => {
+		navigate(`/countries/${country.name}`);
+	};
+
 	return (
 		<div className="tripSearchList">
 			{currentItems.length > 0 ? (
@@ -51,7 +58,8 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 						<li key={trip.id_country}>
 							<button
 								type="button"
-								className="tripSearchListCountryBox" /*onClick={}*/
+								className="tripSearchListCountryBox"
+								onClick={() => handleCountryDetails(trip)}
 							>
 								<img src={trip.flag} alt="flag" />
 								<div>{trip.name}</div>
