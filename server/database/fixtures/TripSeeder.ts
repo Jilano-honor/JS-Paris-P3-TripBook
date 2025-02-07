@@ -1,4 +1,4 @@
-import { th } from "@faker-js/faker/.";
+import { faker } from "@faker-js/faker";
 import AbstractSeeder from "./AbstractSeeder";
 import CountrySeeder from "./CountrySeeder";
 import UserSeeder from "./UserSeeder";
@@ -13,15 +13,18 @@ class TripSeeder extends AbstractSeeder {
 	}
 
 	run() {
-		for (let i = 0; i < 150; i += 1) {
+		for (let i = 0; i < 1000; i += 1) {
+			const userId = faker.number.int({ min: 0, max: 149 });
+			const countryId = faker.number.int({ min: 0, max: 149 });
+
 			const fakeTrip = {
-				name: this.faker.lorem.words(2),
-				start_at: this.faker.date.anytime(),
-				end_at: this.faker.date.anytime(),
-				description: this.faker.lorem.text(),
-				photo: this.faker.image.url(),
-				user_id: this.getRef(`user_${i}`).insertId,
-				country_id: this.getRef(`country_${i}`).insertId,
+				name: faker.lorem.words(2),
+				start_at: faker.date.anytime(),
+				end_at: faker.date.anytime(),
+				description: faker.lorem.text(),
+				photo: faker.image.url(),
+				user_id: this.getRef(`user_${userId}`).insertId,
+				country_id: this.getRef(`country_${countryId}`).insertId,
 			};
 
 			this.insert(fakeTrip);

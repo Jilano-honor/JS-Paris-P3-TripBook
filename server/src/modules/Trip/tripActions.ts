@@ -51,13 +51,5 @@ const browse = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
-const browseAll: RequestHandler = async (req, res, next) => {
-	try {
-		const trips = await tripRepository.readAll;
-		res.json(trips);
-	} catch (err) {
-		next(err);
-	}
-};
 
-export default { add, browseAllByCountry, browse, browseAll };
+export default { add, browseAllByCountry, browse };

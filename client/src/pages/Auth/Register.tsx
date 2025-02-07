@@ -41,6 +41,9 @@ function Register() {
 			setError("Une erreur est survenue...");
 		}
 	};
+	const NavigateToLogIn = () => {
+		navigate("/login");
+	};
 
 	return (
 		<>
@@ -99,6 +102,16 @@ function Register() {
 
 						<input type="submit" value="s'inscrire" />
 					</form>
+					<p className="logInText">
+						Tu as un compte ?{" "}
+						<button
+							type="button"
+							className="logInButton"
+							onClick={NavigateToLogIn}
+						>
+							<u>Je me connecte !</u>
+						</button>
+					</p>
 				</section>
 			</section>
 		</>

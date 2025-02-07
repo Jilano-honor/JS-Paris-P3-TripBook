@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 interface Trip {
 	id_trip: number;
 	countryName: string;
@@ -10,4 +12,14 @@ interface Trip {
 	user_id: number;
 	country_id: number;
 }
-export default Trip;
+interface User {
+	id_user: number;
+	email: string;
+	password: string;
+	token: string;
+}
+interface AppContextInterface {
+	user: User;
+	setUser: Dispatch<SetStateAction<User>>;
+}
+export type { Trip, User, AppContextInterface };

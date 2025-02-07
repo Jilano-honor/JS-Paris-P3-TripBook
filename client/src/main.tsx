@@ -8,12 +8,12 @@ import "./assets/reset.css";
 
 // Import the main app component
 import App from "./App";
+import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
 import Home from "./pages/Home/Home";
-import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
 import CountryDetails from "./pages/countries/CountryDetails";
-import TheCountry from "./pages/countries/TheCountry";
+import TheCountry from "./pages/countries/Thecountry";
 import TripCard from "./pages/trips/TripCard";
 import TripsAdd from "./pages/trips/TripsAdd";
 import TripsSearch from "./pages/trips/TripsSearch";
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/trips",
+				path: "/countries",
 				element: <TripsSearch />,
 			},
 			{

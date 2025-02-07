@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
+import { useState } from "react";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 
 function App() {
+	const [user, setUser] = useState(null);
 	return (
 		<>
 			<NavBar />
-			<Outlet />
+			<Outlet context={{ user, setUser }} />
 			<Footer />
 		</>
 	);
