@@ -29,6 +29,7 @@ router.get("/api/tag/theme/:id", filtertagAction.readTags);
 //authentification
 router.post("/api/users", authService.hash, userActions.add);
 router.post("/api/login", authActions.login);
+router.get("/api/users/:id", userActions.browse);
 
 //private routes
 router.use(authService.isAuth);

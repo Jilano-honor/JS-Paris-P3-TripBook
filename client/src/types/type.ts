@@ -13,6 +13,10 @@ interface Trip {
 	country_id: number;
 }
 interface User {
+	phone_number: number;
+	lastname: string;
+	firstname: string;
+	born_at:Date;
 	id_user: number;
 	email: string;
 	password: string;

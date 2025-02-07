@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 				element: <TripCard />,
 			},
 			{
-				path: "/profile",
+				path: "/profile/:id_user",
 				element: <Profile />,
 			},
 			{

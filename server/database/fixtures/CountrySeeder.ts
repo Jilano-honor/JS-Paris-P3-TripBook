@@ -19,7 +19,7 @@ class CountrySeeder extends AbstractSeeder {
 				name: fakeCountryName,
 				flag: `http://localhost:3310/flags/${this.faker.location.countryCode()}.png`,
 				refName: `country_${i}`,
-				it,
+				
 			};
 			this.insert(fakeCountry);
 		}

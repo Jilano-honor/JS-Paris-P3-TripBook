@@ -19,11 +19,13 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 					},
 				);
 				user.token = token;
-				res.status(200).json(user);
+				res.status(200).json(user);				
 			}
 		}
 	} catch (error) {
 		next(error);
 	}
 };
+
+
 export default { login };

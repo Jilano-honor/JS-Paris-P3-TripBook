@@ -29,6 +29,9 @@ class UserRepository {
 	readUserByEmail(email: string) {
 		return client.query<Rows>("SELECT * FROM User WHERE email = ?", [email]);
 	}
+	readUserById(idUser: number) {
+		return client.query<Rows>("SELECT * FROM User WHERE id_user = ?", [idUser]);
+	}
 }
 
 export default new UserRepository();

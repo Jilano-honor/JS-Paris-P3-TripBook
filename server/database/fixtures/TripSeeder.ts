@@ -14,8 +14,8 @@ class TripSeeder extends AbstractSeeder {
 
 	run() {
 		for (let i = 0; i < 1000; i += 1) {
-			const userId = faker.number.int({ min: 0, max: 149 });
-			const countryId = faker.number.int({ min: 0, max: 149 });
+			const userId = faker.number.int({ min: 0, max: 99 });
+			const countryId = faker.number.int({ min: 0, max: 199 });
 
 			const fakeTrip = {
 				name: faker.lorem.words(2),
