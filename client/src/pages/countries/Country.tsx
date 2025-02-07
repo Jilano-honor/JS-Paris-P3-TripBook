@@ -29,8 +29,8 @@ function Country() {
 		};
 		getTrips();
 	}, [id]);
-	const handleNavigation = (idtrip: number) => {
-		navigate(`/trips/${idtrip}`);
+	const handleNavigation = (id_trip: number) => {
+		navigate(`/countries/${Country.name}/${id}/trips/${id_trip}`);
 	};
 
 	return (

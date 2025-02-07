@@ -53,7 +53,11 @@ const CountryDetailsPage = () => {
 				<button
 					type="button"
 					className="button-voir-plus"
-					onClick={() => navigate(`/countries/${country.id_country}/trips`)}
+					onClick={() =>
+						navigate(
+							`/countries/${country.country_name}/${country.id_country}/trips`,
+						)
+					}
 				>
 					Voir plus
 				</button>

@@ -9,7 +9,7 @@ import authService from "./modules/Auth/authService";
 import tripActions from "./modules/Trip/tripActions";
 import tripServices from "./modules/Trip/tripServices";
 router.post("/api/trips", tripServices.validateTrip, tripActions.add);
-router.get("/api/trips/:id", tripActions.browseAll);
+// router.get("/api/trips/:id", tripActions.browseAll route qui existe plus a supprimer lors du merge);
 
 import filtertagAction from "./modules/FilterTag/TagAction";
 router.get("/api/tag/theme/:id", filtertagAction.readTags);

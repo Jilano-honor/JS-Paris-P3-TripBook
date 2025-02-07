@@ -37,11 +37,11 @@ const router = createBrowserRouter([
 			},
 
 			{
-				path: "/countries/:id/trips",
+				path: "/countries/:name/:id/trips",
 				element: <Country />,
 			},
 			{
-				path: "/trips/:id",
+				path: "/countries/:name/:id/trips/:id_trip",
 				element: <TripCard />,
 			},
 			{
