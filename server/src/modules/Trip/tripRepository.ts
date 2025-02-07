@@ -34,7 +34,7 @@ const readTrips = async (country_id: number) => {
 
 const readTrip = (idTrip: number) => {
 	return client.query<Rows>(
-		"SELECT t.name as tripName, c.name as countryName, c.flag, t.* FROM trip as t join country as c on c.id_country = t.country_id WHERE country_id= ?;",
+		"SELECT t.name as tripName, c.name as countryName, c.flag, t.* FROM trip as t join country as c on c.id_country = t.country_id WHERE id_trip= ?;",
 		[idTrip],
 	);
 };

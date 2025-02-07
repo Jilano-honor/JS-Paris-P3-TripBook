@@ -12,8 +12,8 @@ import Register from "./pages/Auth/Register";
 import Home from "./pages/Home/Home";
 import LogIn from "./pages/LogIn";
 import Profile from "./pages/Profile";
-import Country from "./pages/countries/Country";
 import CountryDetails from "./pages/countries/CountryDetails";
+import TheCountry from "./pages/countries/TheCountry";
 import TripCard from "./pages/trips/TripCard";
 import TripsAdd from "./pages/trips/TripsAdd";
 import TripsSearch from "./pages/trips/TripsSearch";
@@ -37,11 +37,11 @@ const router = createBrowserRouter([
 			},
 
 			{
-				path: "/countries/:name/:id/trips",
-				element: <Country />,
+				path: "/countries/:name/trips",
+				element: <TheCountry />,
 			},
 			{
-				path: "/countries/:name/:id/trips/:id_trip",
+				path: "/countries/:name/trips/:id_trip",
 				element: <TripCard />,
 			},
 			{

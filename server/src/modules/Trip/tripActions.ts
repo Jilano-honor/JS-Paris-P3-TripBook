@@ -20,10 +20,11 @@ const add = async (req: Request, res: Response) => {
 };
 const browseAllByCountry = async (req: Request, res: Response) => {
 	try {
-		const countryId = Number(req.params.country_id);
+		const countryId = Number(req.params.id);
 		if (Number.isNaN(countryId)) {
 			console.error("❌ countryId est NaN !");
 			res.status(400).json({ error: "Invalid country_id" });
+			return;
 		}
 
 		const result = await tripRepository.readTrips(countryId);
