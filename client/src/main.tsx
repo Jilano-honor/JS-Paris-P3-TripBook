@@ -13,7 +13,7 @@ import Register from "./pages/Auth/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile";
 import CountryDetails from "./pages/countries/CountryDetails";
-import TheCountry from "./pages/countries/Thecountry";
+import TheCountry from "./pages/countries/TheCountry";
 import TripCard from "./pages/trips/TripCard";
 import TripsAdd from "./pages/trips/TripsAdd";
 import TripsSearch from "./pages/trips/TripsSearch";
