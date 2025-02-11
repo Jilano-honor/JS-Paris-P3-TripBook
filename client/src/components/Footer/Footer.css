@@ -5,4 +5,5 @@
 	background-color: rgba(var(--banner-rgb), 0.4);
 	width: 100%;
 	box-sizing: border-box;
+	margin-top: 2rem;
 }
