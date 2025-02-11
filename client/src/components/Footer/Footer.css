@@ -3,8 +3,7 @@
 	justify-content: space-between;
 	align-items: center;
 	background-color: rgba(var(--banner-rgb), 0.4);
-	position: fixed;
-	bottom: 0;
 	width: 100%;
 	box-sizing: border-box;
+	margin-top: 2rem;
 }
