@@ -5,13 +5,13 @@ import "./assets/global.css";
 import "./assets/reset.css";
 
 /* ************************************************************************* */
-import TheCountry from "../src/pages/countries/TheCountry";
 // Import the main app component
 import App from "./App";
 import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile";
+import ChosenCountry from "./pages/countries/ChosenCountry";
 import CountryDetails from "./pages/countries/CountryDetails";
 import TripCard from "./pages/trips/TripCard";
 import TripsAdd from "./pages/trips/TripsAdd";
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
 
 			{
 				path: "/countries/:name/trips",
-				element: <TheCountry />,
+				element: <ChosenCountry />,
 			},
 			{
 				path: "/countries/:name/trips/:id_trip",

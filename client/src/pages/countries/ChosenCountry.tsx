@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./country.css";
 import type Country from "../../types/Country";
 import type { Trip } from "../../types/type";
-function TheCountry() {
+function ChosenCountry() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();
 	const { name } = useParams();
@@ -61,4 +61,4 @@ function TheCountry() {
 		</>
 	);
 }
-export default TheCountry;
+export default ChosenCountry;
