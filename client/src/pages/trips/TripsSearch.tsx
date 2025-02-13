@@ -51,7 +51,6 @@ function TripsSearch() {
 			);
 			if (data) {
 				setTags(data);
-				console.log(data);
 			}
 		};
 		getTags();
