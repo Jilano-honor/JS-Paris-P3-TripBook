@@ -10,7 +10,9 @@ function HomeSearchbar() {
 
 	const navigate = useNavigate();
 	const handleCountryDetails = (country: Country) => {
-		navigate(`/countries/${country.country_name}`, { state: country });
+		navigate(`/countries/${country.country_name.toLocaleLowerCase()}`, {
+			state: country,
+		});
 	};
 
 	const fetchCountryById = async (id: number) => {
@@ -41,7 +43,7 @@ function HomeSearchbar() {
 		const fetchCountriesByName = async () => {
 			try {
 				const response = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/countries?name=${search}`,
+					`${import.meta.env.VITE_API_URL}/api/countries?name=${search.toLocaleLowerCase()}`,
 				);
 				if (!response.ok) {
 					throw new Error("An error occurred while searching.");

@@ -1,4 +1,5 @@
 import type { Request, RequestHandler, Response } from "express";
+import addTripRepository from "./tripRepository";
 import tripRepository from "./tripRepository";
 
 const add = async (req: Request, res: Response) => {
@@ -19,15 +20,22 @@ const add = async (req: Request, res: Response) => {
 };
 const browseAllByCountry = async (req: Request, res: Response) => {
 	try {
-		const countryId = Number(req.params.country_id);
-		const [result] = await tripRepository.readTrips(countryId);
-		if (result.length > 0) res.status(200).json(result);
-		else {
-			res.sendStatus(400);
+		const countryId = Number(req.params.id);
+		if (Number.isNaN(countryId)) {
+			console.error("❌ countryId est NaN !");
+			res.status(400).json({ error: "Invalid country_id" });
+			return;
+		}
+
+		const result = await tripRepository.readTrips(countryId);
+		if (result.length > 0) {
+			res.status(200).json(result);
+		} else {
+			res.status(404).json({ error: "No trips found" });
 		}
 	} catch (error) {
-		console.error(error);
-		res.sendStatus(500);
+		console.error("❌ Erreur serveur :", error);
+		res.status(500).json({ error: "Internal server error" });
 	}
 };
 const browse = async (req: Request, res: Response) => {

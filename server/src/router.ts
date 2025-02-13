@@ -7,12 +7,18 @@ import ThemeAction from "./modules/FilterTag/ThemeAction";
 import tripActions from "./modules/Trip/tripActions";
 import tripServices from "./modules/Trip/tripServices";
 import userActions from "./modules/User/userActions";
-
 const router = express.Router();
 
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */
+
+router.post("/api/trips", tripServices.validateTrip, tripActions.add);
+
+router.get("/api/tag/theme/:id", filtertagAction.readTags);
+
+router.get("/api/theme", ThemeAction.readthemes);
+router.get("/api/countries/:id/trips", tripActions.browseAllByCountry);
 
 //trips and country
 router.get("/api/trips/:id_trip", tripActions.browse);
