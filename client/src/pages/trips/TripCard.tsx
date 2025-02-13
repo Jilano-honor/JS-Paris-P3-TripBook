@@ -55,7 +55,7 @@ function TripCard() {
 					</div>
 					<div className="tripCard-tripImage-block">
 						<img
-							src={trip?.flag}
+							src={`.././flags/${trip?.flag}.png`}
 							alt="country flag"
 							className="tripCard-trip-image"
 						/>
