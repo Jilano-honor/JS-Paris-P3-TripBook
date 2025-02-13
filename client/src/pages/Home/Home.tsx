@@ -1,6 +1,6 @@
 import "./Home.css";
 import { useEffect, useState } from "react";
-import Themebar from "../../components/ThemeBar/ThemeBar";
+import Themebar from "../../components/ThemeBar/ThemeBarHome";
 import HomeSearchbar from "../trips/HomeSearchbar";
 
 function Home() {

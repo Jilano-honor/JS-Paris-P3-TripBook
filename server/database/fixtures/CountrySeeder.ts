@@ -17,7 +17,7 @@ class CountrySeeder extends AbstractSeeder {
 			countryNames.add(fakeCountryName);
 			const fakeCountry = {
 				name: fakeCountryName,
-				flag: `http://localhost:3310/flags/${this.faker.location.countryCode()}.png`,
+				slug: this.faker.location.countryCode(),
 				refName: `country_${i}`,
 			};
 			this.insert(fakeCountry);

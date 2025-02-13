@@ -9,9 +9,10 @@ interface Theme {
 
 interface ThemebarProps {
 	themes: Theme[];
+	onThemeSelect: (theme: Theme) => void;
 }
 
-function Themebar({ themes }: ThemebarProps) {
+function Themebar({ themes, onThemeSelect }: ThemebarProps) {
 	const navigate = useNavigate();
 
 	return (
@@ -22,9 +23,10 @@ function Themebar({ themes }: ThemebarProps) {
 						className="HomeThemeButton"
 						type="button"
 						key={theme.id_theme}
-						onClick={() =>
-							navigate("/countries", { state: { themeId: theme.id_theme } })
-						}
+						onClick={() => {
+							onThemeSelect(theme);
+							navigate("/countries", { state: { themeId: theme.id_theme } });
+						}}
 					>
 						{theme.name}
 					</button>

@@ -4,6 +4,27 @@
 	justify-content: center;
 }
 .HomeThemeButton {
-	width: 200px;
-	height: 50px;
+	background-color: var(--beige);
+	border: none;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
+	width: 15%;
+}
+
+.HomeThemeButton:hover {
+	background-color: var(--brown);
+	color: black;
+}
+
+.HomeThemeButton:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 128, 0, 0.6);
 }

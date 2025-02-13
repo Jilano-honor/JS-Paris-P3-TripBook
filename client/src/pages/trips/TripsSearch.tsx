@@ -27,6 +27,7 @@ function TripsSearch() {
 	const [activeTag, setActiveTag] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [themes, setThemes] = useState([]);
+	const [selectedTheme, setSelectedTheme] = useState<null>(null);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const themeId = location.state?.themeId || 3;
@@ -99,10 +100,15 @@ function TripsSearch() {
 		navigate("/");
 	};
 
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const handleThemeSelect = (theme: any) => {
+		setSelectedTheme(theme);
+	};
+
 	return (
 		<div className="TripSearch">
-			<Banner />
-			<Themebar themes={themes} />
+			<Banner theme={selectedTheme} />
+			<Themebar themes={themes} onThemeSelect={handleThemeSelect} />
 			<TagMenu
 				tags={tags}
 				activeTag={activeTag}
