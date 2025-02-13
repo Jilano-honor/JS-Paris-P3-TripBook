@@ -1,4 +1,5 @@
 interface tags {
+	photo: string;
 	id_tag: number;
 	name: string;
 }
@@ -24,7 +25,7 @@ function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 						key={tag.id_tag}
 						onClick={() => handleTagClick(tag)}
 					>
-						{tag.name}
+						<img src={tag.photo} alt={tag.name} className="icone" />
 					</button>
 				))
 			) : (

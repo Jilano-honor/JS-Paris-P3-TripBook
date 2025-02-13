@@ -409,26 +409,26 @@ INSERT INTO `TripBook`.`theme` (`name`, `photo`) VALUES
   ("Voyages en Famille et Activités Diverses", "./public/joyful-family-enjoying-sunset-run-outdoors.jpg");
 
 INSERT INTO `TripBook`.`tag` (`name`, `photo`, `theme_id`) VALUES
-("Aventure en plein air", "photo_1.jpg", 1),
-("Randonnée et trekking", "photo_2.jpg", 1),
-("Sites naturels", "photo_3.jpg", 1),
-("Tourisme durable", "photo_4.jpg", 1),
-("Safari et faune", "photo_5.jpg", 1),
-("Plongée et sports nautiques", "photo_6.jpg", 3),
-("Voyages culturels", "photo_7.jpg", 2),
-("Sites UNESCO", "photo_8.jpg", 2),
-("Villes historiques et culturelles", "photo_9.jpg", 2),
-("Cuisine mondiale", "photo_10.jpg", 5),
-("Expériences locales et artisanat", "photo_11.jpg", 2),
-("Îles exotiques", "photo_12.jpg", 3),
-("Voyages en bateau et croisières", "photo_13.jpg", 3),
-("Tourisme de luxe", "photo_14.jpg", 4),
-("Sports d'hiver", "photo_15.jpg", 4),
-("Villes modernes", "photo_16.jpg", 4),
-("Voyages romantiques", "photo_17.jpg", 4),
-("Voyages en famille", "photo_18.jpg", 5),
-("Activités culturelles", "photo_19.jpg", 5),
-("Voyages en train", "photo_20.jpg", 2);
+("Aventure en plein air", "./public/carte-au-tresor.png", 1),
+("Randonnée et trekking", "./public/randonnee.png", 1),
+("Sites naturels", "./public/cascade.png", 1),
+("Tourisme durable", "./public/tourismedurable.png", 1),
+("Safari et faune", "./public/lion.png", 1),
+("Plongée et sports nautiques", "./public/masque-de-plongee.png", 3),
+("Voyages culturels", "./public/tourisme-culturel.png", 2),
+("Sites UNESCO", "./public/pyramide-azteque.png", 2),
+("Villes historiques et culturelles", "./public/culturel.png", 2),
+("Cuisine mondiale", "./public/cuisine.png", 5),
+("Expériences locales et artisanat", "./public/artisanat.png", 2),
+("Îles exotiques", "./public/ete.png", 3),
+("Voyages en bateau et croisières", "./public/croisiere.png", 3),
+("Tourisme de luxe", "./public/tourisme-de-luxe.png", 4),
+("Sports d'hiver", "./public/planche-a-neige.png", 4),
+("Villes modernes", "./public/ville-intelligente.png", 4),
+("Voyages romantiques", "./public/voyage-de-noces.png", 4),
+("Voyages en famille", "./public/voyage-en-famille.png", 5),
+("Activités culturelles", "./public/theatre.png", 5),
+("Voyages en train", "./public/gare.png", 2);
 
 
 INSERT INTO `TripBook`.`country_tag` ( `country_id`, `tag_id` )

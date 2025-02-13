@@ -78,7 +78,10 @@
 	align-items: center;
 	border-radius: 25px;
 }
-
+.icone {
+	width: 80%;
+	height: 80%;
+}
 .inactive-tag {
 	background-color: white;
 	color: black;

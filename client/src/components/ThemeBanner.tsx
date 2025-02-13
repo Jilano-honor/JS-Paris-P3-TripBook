@@ -1,3 +1,5 @@
+import defaultimage from "../../public/2913097.jpg";
+
 interface BannerProps {
 	theme: Theme | null;
 }
@@ -16,7 +18,7 @@ function Banner({ theme }: BannerProps) {
 				</>
 			) : (
 				<>
-					<img src="default_image.jpg" alt="default" className="banner-image" />
+					<img src={defaultimage} alt="default" className="banner-image" />
 					<h1 className="banner-title">Sélectionnez un thème</h1>
 				</>
 			)}
