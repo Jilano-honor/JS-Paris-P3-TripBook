@@ -402,11 +402,11 @@ VALUES
 
 
 INSERT INTO `TripBook`.`theme` (`name`, `photo`) VALUES 
-  ("Aventure et Nature", "client\src\assets\images\sustainable-travel-concept.jpg"),
-  ("Culture et Histoire", "client\src\assets\images\ruines-anciennes-arriere-plan-soupcon-histoire_91128-4383.jpg"),
-  ("Plages et Détente", "client\src\assets\images\beautiful-tropical-beach-sea-with-chair-blue-sky.jpg"),
-  ("Voyages de Luxe et Expériences Uniques", "client\src\assets\images\extravagant-pool-party-luxurious-mansion-complete-with-vip-cabanas-dj-booth.jpg"),
-  ("Voyages en Famille et Activités Diverses", "client\src\assets\images\joyful-family-enjoying-sunset-run-outdoors.jpg");
+  ("Aventure et Nature", "./public/sustainable-travel-concept.jpg"),
+  ("Culture et Histoire", "./public/ruines-anciennes-arriere-plan-soupcon-histoire_91128-4383.jpg"),
+  ("Plages et Détente", "./public/beautiful-tropical-beach-sea-with-chair-blue-sky.jpg"),
+  ("Voyages de Luxe et Expériences Uniques", "./public/extravagant-pool-party-luxurious-mansion-complete-with-vip-cabanas-dj-booth.jpg"),
+  ("Voyages en Famille et Activités Diverses", "./public/joyful-family-enjoying-sunset-run-outdoors.jpg");
 
 INSERT INTO `TripBook`.`tag` (`name`, `photo`, `theme_id`) VALUES
 ("Aventure en plein air", "photo_1.jpg", 1),
