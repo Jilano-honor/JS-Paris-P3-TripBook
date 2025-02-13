@@ -27,7 +27,10 @@ const CountryDetailsPage = () => {
 				</div>
 				<div className="tag">
 					<h2 className="tag-name">{country.country_name}</h2>
-					<img src={country.flag} alt={`Drapeau de ${country.country_name}`} />
+					<img
+						src={`.././flags/${country.flag}.png`}
+						alt={`Drapeau  de ${country.country_name}`}
+					/>
 				</div>
 			</div>
 
