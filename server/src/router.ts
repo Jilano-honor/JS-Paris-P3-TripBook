@@ -6,6 +6,8 @@ import filtertagAction from "./modules/FilterTag/TagAction";
 import ThemeAction from "./modules/FilterTag/ThemeAction";
 import tripActions from "./modules/Trip/tripActions";
 import tripServices from "./modules/Trip/tripServices";
+import upload from "./modules/Upload/uploadServices";
+import uploadServices from "./modules/Upload/uploadServices";
 import userActions from "./modules/User/userActions";
 
 const router = express.Router();
@@ -31,7 +33,12 @@ router.post("/api/users", authService.hash, userActions.add);
 router.post("/api/login", authActions.login);
 
 //private routes
-router.use(authService.isAuth);
-router.post("/api/trips", tripServices.validateTrip, tripActions.add);
+// router.use(authService.isAuth);
+router.post(
+	"/api/trips",
+	uploadServices.single("image"),
+	tripServices.validateTrip,
+	tripActions.add,
+);
 /* ************************************************************************* */
 export default router;
