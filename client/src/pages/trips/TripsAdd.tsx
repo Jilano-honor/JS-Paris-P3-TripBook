@@ -102,20 +102,29 @@ const TripsAdd = () => {
 
 					<div className="AddTrip1BlockNextAndBackButton">
 						{error && <p className="error-allstep">{error}</p>}
-						<button
-							className="AddTrip1NextButton"
-							type="button"
-							onClick={() => {
-								if (isValidImageUrl(tripImage)) {
-									setError("");
-									setStep(2);
-								} else {
-									setError("L'URL de l'image doit se terminer par .png .");
-								}
-							}}
-						>
-							Suivant
-						</button>
+						<div className="next-back-button-container">
+							<button
+								className="button-step2-back"
+								type="button"
+								onClick={() => navigate("/profile")}
+							>
+								<img className="img-back-button" src={buttonback} alt="Back" />
+							</button>
+							<button
+								className="AddTrip1NextButton"
+								type="button"
+								onClick={() => {
+									if (isValidImageUrl(tripImage)) {
+										setError("");
+										setStep(2);
+									} else {
+										setError("L'URL de l'image doit se terminer par .png .");
+									}
+								}}
+							>
+								Suivant
+							</button>
+						</div>
 					</div>
 				</article>
 			)}
@@ -126,16 +135,11 @@ const TripsAdd = () => {
 						<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
 					</div>
 					<div className="searchBarAndFlag">
-						<div className="TripsCountrySearchbar">
-							<TripsCountrySearchbar
-								search={search}
-								setSearch={setSearch}
-								onCountrySelect={(id) => setCountryId(id)}
-							/>
-						</div>
-						<div className="tripsCountryFlag">
-							<img src={tripImage} alt="flag" />
-						</div>
+						<TripsCountrySearchbar
+							search={search}
+							setSearch={setSearch}
+							onCountrySelect={(id) => setCountryId(id)}
+						/>
 					</div>
 					<div className="title-block2">
 						<h1 className="name-h1">Sur quelle période ?</h1>

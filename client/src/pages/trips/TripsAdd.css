@@ -191,11 +191,26 @@
 }
 .searchBarAndFlag {
 	display: flex;
-	justify-content: space-between;
 	flex-grow: 1;
-	align-items: center;
+	justify-content: center;
 	width: 100vw;
 }
+
+.searchBarAndFlag input[type="text"] {
+	width: 70%;
+	padding: 12px;
+	border: 2px solid var(--light-green);
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBarAndFlag input[type="text"]:focus {
+	border-color: var(--light-green);
+	outline: none;
+	box-shadow: 0 0 5px var(--light-green);
+}
+
 .TripsCountrySearchbar {
 	margin-left: 10%;
 }
@@ -334,14 +349,14 @@ input[type="date"]:focus {
 	}
 
 	.AddTrip1NextButton {
-		width: 100%;
+		width: 20rem;
 		max-width: none;
 		font-size: 1.2rem;
 		height: 50px;
 	}
 
 	.button-step2-next {
-		width: 100%;
+		width: 20rem;
 		max-width: none;
 		font-size: 1.2rem;
 		height: 50px;
