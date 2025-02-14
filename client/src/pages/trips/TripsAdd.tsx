@@ -84,7 +84,9 @@ const TripsAdd = () => {
 			{step === 1 && (
 				<article className="step1-container-addtrip">
 					<header className="header-step1-addtrip">
-						<h1 className="Name-h1-step1">Ajoute ta photo de voyage</h1>
+						<div className="title-block">
+							<h1 className="Name-h1-step1">Ajoute ta photo de voyage</h1>
+						</div>
 						<form>
 							<label className="step1-search-addtrip">
 								<input
@@ -120,13 +122,24 @@ const TripsAdd = () => {
 
 			{step === 2 && (
 				<section className="step2-container-addtrip">
-					<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
-					<TripsCountrySearchbar
-						search={search}
-						setSearch={setSearch}
-						onCountrySelect={(id) => setCountryId(id)}
-					/>
-					<h1 className="name-h1">Sur quelle période ?</h1>
+					<div className="title-block2">
+						<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
+					</div>
+					<div className="searchBarAndFlag">
+						<div className="TripsCountrySearchbar">
+							<TripsCountrySearchbar
+								search={search}
+								setSearch={setSearch}
+								onCountrySelect={(id) => setCountryId(id)}
+							/>
+						</div>
+						<div className="tripsCountryFlag">
+							<img src={tripImage} alt="flag" />
+						</div>
+					</div>
+					<div className="title-block2">
+						<h1 className="name-h1">Sur quelle période ?</h1>
+					</div>
 					<article className="step2-container-start-end-at">
 						<form>
 							<label className="start-at-step2">
@@ -183,16 +196,23 @@ const TripsAdd = () => {
 
 			{step === 3 && (
 				<section className="step3-container-addtrip">
-					<h1 className="name-h1">
-						Sous quel nom voulez-vous poster votre voyage ?
-					</h1>
+					<div className="title-block3">
+						<h1 className="name-h1">
+							Sous quel nom voulez-vous poster votre voyage ?
+						</h1>
+					</div>
+
 					<input
 						type="text"
 						placeholder="Nom du voyage"
 						value={tripName}
 						onChange={(e) => setTripName(e.target.value)}
 					/>
-					<h1 className="name-h1">Partagez-nous les détails de votre voyage</h1>
+					<div className="title-block3">
+						<h1 className="name-h1">
+							Partagez-nous les détails de votre voyage
+						</h1>
+					</div>
 					<textarea
 						cols={80}
 						rows={9}
