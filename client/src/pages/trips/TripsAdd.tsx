@@ -83,7 +83,9 @@ const TripsAdd = () => {
 			{step === 1 && (
 				<article className="step1-container-addtrip">
 					<header className="header-step1-addtrip">
-						<h1 className="Name-h1-step1">Ajoute ta photo de voyage</h1>
+						<div className="title-block">
+							<h1 className="Name-h1-step1">Ajoute ta photo de voyage</h1>
+						</div>
 						<form>
 							<label className="step1-search-addtrip">
 								<input
@@ -99,33 +101,48 @@ const TripsAdd = () => {
 
 					<div className="AddTrip1BlockNextAndBackButton">
 						{error && <p className="error-allstep">{error}</p>}
-						<button
-							className="AddTrip1NextButton"
-							type="button"
-							onClick={() => {
-								if (isValidImageUrl(tripImage)) {
-									setError("");
-									setStep(2);
-								} else {
-									setError("L'URL de l'image doit se terminer par .png .");
-								}
-							}}
-						>
-							Suivant
-						</button>
+						<div className="next-back-button-container">
+							<button
+								className="button-step2-back"
+								type="button"
+								onClick={() => navigate("/profile")}
+							>
+								<img className="img-back-button" src={buttonback} alt="Back" />
+							</button>
+							<button
+								className="AddTrip1NextButton"
+								type="button"
+								onClick={() => {
+									if (isValidImageUrl(tripImage)) {
+										setError("");
+										setStep(2);
+									} else {
+										setError("L'URL de l'image doit se terminer par .png .");
+									}
+								}}
+							>
+								Suivant
+							</button>
+						</div>
 					</div>
 				</article>
 			)}
 
 			{step === 2 && (
 				<section className="step2-container-addtrip">
-					<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
-					<TripsCountrySearchbar
-						search={search}
-						setSearch={setSearch}
-						onCountrySelect={(id) => setCountryId(id)}
-					/>
-					<h1 className="name-h1">Sur quelle période ?</h1>
+					<div className="title-block2">
+						<h1 className="name-h1">Quel pays souhaité vous visitez ?</h1>
+					</div>
+					<div className="searchBarAndFlag">
+						<TripsCountrySearchbar
+							search={search}
+							setSearch={setSearch}
+							onCountrySelect={(id) => setCountryId(id)}
+						/>
+					</div>
+					<div className="title-block2">
+						<h1 className="name-h1">Sur quelle période ?</h1>
+					</div>
 					<article className="step2-container-start-end-at">
 						<form>
 							<label className="start-at-step2">
@@ -182,16 +199,23 @@ const TripsAdd = () => {
 
 			{step === 3 && (
 				<section className="step3-container-addtrip">
-					<h1 className="name-h1">
-						Sous quel nom voulez-vous poster votre voyage ?
-					</h1>
+					<div className="title-block3">
+						<h1 className="name-h1">
+							Sous quel nom voulez-vous poster votre voyage ?
+						</h1>
+					</div>
+
 					<input
 						type="text"
 						placeholder="Nom du voyage"
 						value={tripName}
 						onChange={(e) => setTripName(e.target.value)}
 					/>
-					<h1 className="name-h1">Partagez-nous les détails de votre voyage</h1>
+					<div className="title-block3">
+						<h1 className="name-h1">
+							Partagez-nous les détails de votre voyage
+						</h1>
+					</div>
 					<textarea
 						cols={80}
 						rows={9}
