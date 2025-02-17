@@ -53,7 +53,14 @@ const CountryDetailsPage = () => {
 				<button
 					type="button"
 					className="button-voir-plus"
-					onClick={() => navigate(`/countries/${country.country_name}/trips`)}
+					onClick={() =>
+						navigate(
+							`/countries/${country.country_name.toLocaleLowerCase()}/trips`,
+							{
+								state: country,
+							},
+						)
+					}
 				>
 					Voir plus
 				</button>

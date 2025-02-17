@@ -1,5 +1,4 @@
 .home-container {
-	flex: 1;
 	background-image: url("../../assets/images/background_projet3.png");
 	background-size: cover;
 	background-position: center;
@@ -7,11 +6,12 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
 header {
 	height: 15vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 60vh;
 }

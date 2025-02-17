@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./country.css";
+import type Country from "../../types/Country";
 import type { Trip } from "../../types/type";
-function Country() {
+function ChosenCountry() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();
-	const { id } = useParams();
+	const location = useLocation();
+	const country = location.state as Country;
+
 	useEffect(() => {
 		const getTrips = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/countries/${id}/trips`,
+					`${import.meta.env.VITE_API_URL}/api/countries/${country.id_country}/trips`,
 					{
 						method: "GET",
 						headers: {
@@ -27,9 +30,9 @@ function Country() {
 			}
 		};
 		getTrips();
-	}, [id]);
-	const handleNavigation = (idtrip: number) => {
-		navigate(`/trips/${idtrip}`);
+	}, [country.id_country]);
+	const handleNavigation = (id_trip: number) => {
+		navigate(`/trips/${id_trip}`, { state: country });
 	};
 
 	return (
@@ -57,4 +60,4 @@ function Country() {
 		</>
 	);
 }
-export default Country;
+export default ChosenCountry;
