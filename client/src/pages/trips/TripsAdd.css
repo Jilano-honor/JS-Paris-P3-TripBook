@@ -10,7 +10,10 @@
 	--black: #000000;
 	--button: #55b6a5;
 }
-
+.header-step1-addtrip {
+	display: flex;
+	flex-direction: column;
+}
 .step1-container-addtrip {
 	display: flex;
 	flex-direction: column;
@@ -34,7 +37,10 @@
 	margin-bottom: 80px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+.addtrip-upload {
+	display: flex;
+	flex-direction: column;
+}
 .step1-search-addtrip input[type="text"] {
 	width: 100%;
 	max-width: 500px;

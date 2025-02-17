@@ -25,6 +25,7 @@ function LogIn() {
 			);
 			if (response.status === 200) {
 				const user = await response.json();
+				// console.log(user);
 				setUser(user);
 				navigate("/profile");
 			} else setError("Veuillez remplir tous les champs.");
@@ -36,6 +37,7 @@ function LogIn() {
 	const NavigateToRegister = () => {
 		navigate("/register");
 	};
+
 	return (
 		<>
 			{error && error}

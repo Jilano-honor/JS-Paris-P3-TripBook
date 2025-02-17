@@ -4,6 +4,7 @@ import tripRepository from "./tripRepository";
 const add = async (req: Request, res: Response) => {
 	try {
 		const trip = req.body;
+		trip.photo = req.file?.filename;
 
 		const [result] = await tripRepository.createTrip(trip);
 		if (result.affectedRows > 0) {

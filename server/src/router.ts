@@ -33,10 +33,10 @@ router.post("/api/users", authService.hash, userActions.add);
 router.post("/api/login", authActions.login);
 
 //private routes
-// router.use(authService.isAuth);
 router.post(
 	"/api/trips",
-	uploadServices.single("image"),
+	upload.single("image"),
+	authService.isAuth,
 	tripServices.validateTrip,
 	tripActions.add,
 );
