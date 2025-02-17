@@ -1,6 +1,5 @@
 import type { NextFunction, Request, Response } from "express";
 import userRepository from "./userRepository";
-import { log } from "node:console";
 
 const add = async (req: Request, res: Response, next: NextFunction) => {
 	try {
