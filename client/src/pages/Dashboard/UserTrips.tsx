@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./UserTrips.css";
 import type { Trip } from "../../types/type";
 
 function UserTrips() {
+	const navigate = useNavigate();
 	const { id } = useParams<string>();
 	const [trips, setTrips] = useState([]);
 	useEffect(() => {
@@ -35,6 +36,10 @@ function UserTrips() {
 				{trips.map((trip: Trip) => (
 					<div key={trip.id_trip} className="user-trip-card">
 						<img
+							onClick={() => navigate(`/trips/${trip.id_trip}`)}
+							onKeyDown={(e) =>
+								e.key === "Enter" && navigate(`/trips/${trip.id_trip}`)
+							}
 							src={trip.flag}
 							alt="user-drapeau"
 							className="user-trip-flag"

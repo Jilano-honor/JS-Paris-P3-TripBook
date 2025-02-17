@@ -1,8 +1,8 @@
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import type { AppContextInterface } from "../../types/type";
 import "./Profile.css";
-import UserTrips from "./UserTrips";
 import avatarImage from "../../../public/avatar/Avatar3.png";
+import UserTrips from "./UserTrips";
 
 function Profile() {
 	const { user } = useOutletContext<AppContextInterface>();

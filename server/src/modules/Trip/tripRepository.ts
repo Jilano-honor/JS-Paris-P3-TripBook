@@ -35,7 +35,9 @@ const readTrip = (idTrip: number) => {
 	);
 };
 const readTripsByUserId = (userId: number) => {
-return client.query<Rows>("SELECT trip.id_trip, trip.name AS trip_name, trip.start_at, trip.end_at, trip.description,trip.photo, country.name AS country_name, country.flag FROM trip JOIN country ON trip.country_id = country.id_country WHERE trip.user_id = ?;", [userId]
+	return client.query<Rows>(
+		"SELECT trip.id_trip, trip.name AS trip_name, trip.start_at, trip.end_at, trip.description,trip.photo, country.name AS country_name, country.flag FROM trip JOIN country ON trip.country_id = country.id_country WHERE trip.user_id = ?;",
+		[userId],
 	);
 };
 export default {
@@ -43,5 +45,5 @@ export default {
 	readTrips,
 	readTrip,
 	readTripbycountryId,
-	readTripsByUserId
+	readTripsByUserId,
 };

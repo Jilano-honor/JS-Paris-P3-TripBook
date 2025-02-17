@@ -10,7 +10,7 @@ function Register() {
 	const lastnameRef = useRef<HTMLInputElement>(null);
 	const phonenNumberRef = useRef<HTMLInputElement>(null);
 	const bornAtRef = useRef<HTMLInputElement>(null);
-	const avatarRef = useState("d")
+	const avatarRef = useState("d");
 
 	const [error, setError] = useState("");
 	const navigate = useNavigate();

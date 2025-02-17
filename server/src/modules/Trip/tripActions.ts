@@ -1,14 +1,13 @@
+import { log } from "node:console";
 import type { Request, RequestHandler, Response } from "express";
 import tripRepository from "./tripRepository";
-import { log } from "node:console";
 
 const add = async (req: Request, res: Response) => {
 	try {
 		const trip = req.body;
 
 		const [result] = await tripRepository.createTrip(trip);
-	
-		
+
 		if (result.affectedRows > 0) {
 			res.sendStatus(201);
 		} else {
