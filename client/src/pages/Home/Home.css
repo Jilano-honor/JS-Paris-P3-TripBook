@@ -14,4 +14,8 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: black;
+	font-size: 3rem;
+	text-transform: uppercase;
+	width: 80%;
 }

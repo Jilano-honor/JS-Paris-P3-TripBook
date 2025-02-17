@@ -1,4 +1,5 @@
 interface tags {
+	photo: string;
 	id_tag: number;
 	name: string;
 }
@@ -19,16 +20,12 @@ function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 			{tags.length > 0 ? (
 				tags.map((tag: tags) => (
 					<button
-						className="TripSearchButton"
+						className={activeTag === tag.id_tag ? "active-tag" : "inactive-tag"}
 						type="button"
 						key={tag.id_tag}
 						onClick={() => handleTagClick(tag)}
-						style={{
-							backgroundColor: activeTag === tag.id_tag ? "lightblue" : "white",
-							color: activeTag === tag.id_tag ? "white" : "black",
-						}}
 					>
-						{tag.name}
+						<img src={tag.photo} alt={tag.name} className="icone" />
 					</button>
 				))
 			) : (

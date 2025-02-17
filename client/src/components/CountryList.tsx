@@ -92,7 +92,8 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 								className="tripSearchListCountryBox"
 								onClick={() => handleCountryDetails(trip)}
 							>
-								<img src={trip.flag} alt="flag" />
+								<img src={`./flags/${trip.flag}.png`} alt="flag" />
+
 								<div>{trip.name}</div>
 							</button>
 						</li>

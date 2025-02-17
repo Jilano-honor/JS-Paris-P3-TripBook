@@ -23,11 +23,17 @@ const CountryDetailsPage = () => {
 			<div className="tags">
 				<div className="tag">
 					<h2 className="tag-name">{country.tag_name}</h2>
-					<img src={country.tag_photo} alt={`Tag de ${country.tag_name}`} />
+					<img
+						src={`../${country.tag_photo}`}
+						alt={`Tag de ${country.tag_name} `}
+					/>
 				</div>
 				<div className="tag">
-					<h2 className="tag-name">{country.country_name}</h2>
-					<img src={country.flag} alt={`Drapeau de ${country.country_name}`} />
+					<h2 className="tag-name">{country.country_name} </h2>
+					<img
+						src={`.././flags/${country.flag}.png`}
+						alt={`Drapeau  de ${country.country_name}`}
+					/>
 				</div>
 			</div>
 
