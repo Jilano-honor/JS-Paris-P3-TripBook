@@ -14,14 +14,13 @@ type User = {
 class UserRepository {
 	createUser(user: User) {
 		return client.query<Result>(
-			"INSERT INTO user(firstname, lastname,email,phone_number, born_at, avatar,password) VALUES (?,?,?,?,?,?,?)",
+			"INSERT INTO user(firstname,lastname,email,phone_number,born_at,password) VALUES (?,?,?,?,?,?)",
 			[
 				user.firstname,
 				user.lastname,
 				user.email,
 				user.phone_number,
 				user.born_at,
-				user.avatar,
 				user.password,
 			],
 		);

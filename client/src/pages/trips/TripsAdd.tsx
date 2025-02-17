@@ -17,7 +17,6 @@ const TripsAdd = () => {
 	const [error, setError] = useState<string>("");
 	const { user } = useOutletContext<AppContextInterface>();
 	const navigate = useNavigate();
-	// console.log(user);
 
 	const isValidImageUrl = (url: string) => {
 		return url.endsWith(".png");
@@ -69,7 +68,7 @@ const TripsAdd = () => {
 			});
 
 			if (result.status === 201) {
-				navigate("/profile");
+				navigate(`/profile/${user.id_user}`);
 			} else if (result.status === 401) {
 				navigate("/login");
 			}

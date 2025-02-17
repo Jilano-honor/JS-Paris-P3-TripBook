@@ -10,7 +10,7 @@ function Register() {
 	const lastnameRef = useRef<HTMLInputElement>(null);
 	const phonenNumberRef = useRef<HTMLInputElement>(null);
 	const bornAtRef = useRef<HTMLInputElement>(null);
-	const avatarRef = useRef<HTMLInputElement>(null);
+	const avatarRef = useState("d")
 
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -30,7 +30,7 @@ function Register() {
 					email: (emailRef.current as HTMLInputElement).value,
 					phone_number: (phonenNumberRef.current as HTMLInputElement).value,
 					born_at: (bornAtRef.current as HTMLInputElement).value,
-					avatar: (avatarRef.current as HTMLInputElement).value,
+					avatar: avatarRef,
 					password: (passwordRef.current as HTMLInputElement).value,
 				}),
 			});
@@ -86,10 +86,7 @@ function Register() {
 							<label htmlFor="bornAt">Date of Birth:</label>
 							<input type="date" name="bornAt" id="bornAt" ref={bornAtRef} />
 						</div>
-						<div className="avatar">
-							<label htmlFor="avatar">Avatar:</label>
-							<input type="file" name="avatar" id="avatar" ref={avatarRef} />
-						</div>
+
 						<div className="avatar">
 							<label htmlFor="password">Password:</label>
 							<input

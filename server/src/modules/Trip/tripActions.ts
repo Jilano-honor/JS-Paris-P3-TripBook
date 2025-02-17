@@ -1,11 +1,14 @@
 import type { Request, RequestHandler, Response } from "express";
 import tripRepository from "./tripRepository";
+import { log } from "node:console";
 
 const add = async (req: Request, res: Response) => {
 	try {
 		const trip = req.body;
 
 		const [result] = await tripRepository.createTrip(trip);
+	
+		
 		if (result.affectedRows > 0) {
 			res.sendStatus(201);
 		} else {
@@ -43,5 +46,18 @@ const browse = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
+const browseAllByUser = async (req: Request, res: Response) => {
+	try {
+		const userId = Number(req.params.id);
+		const [result] = await tripRepository.readTripsByUserId(userId);
+		if (result.length > 0) res.status(200).json(result);
+		else {
+			res.sendStatus(404);
+		}
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
+};
 
-export default { add, browseAllByCountry, browse };
+export default { add, browseAllByCountry, browse, browseAllByUser };

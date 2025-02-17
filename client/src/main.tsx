@@ -11,7 +11,7 @@ import App from "./App";
 import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
 import Home from "./pages/Home/Home";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Dashboard/Profile";
 import Country from "./pages/countries/Country";
 import CountryDetails from "./pages/countries/CountryDetails";
 import TripCard from "./pages/trips/TripCard";
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 				element: <TripCard />,
 			},
 			{
-				path: "/profile/:id_user",
+				path: "/profile/:id",
 				element: <Profile />,
 			},
 			{

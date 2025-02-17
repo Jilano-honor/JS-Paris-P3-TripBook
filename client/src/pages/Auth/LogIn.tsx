@@ -25,9 +25,9 @@ function LogIn() {
 				},
 			);
 			if (response.status === 200) {
-				const User = await response.json();
-				setUser(User);
-				navigate(`/profile/${User.id_user}`); 
+				const newUser = await response.json();
+				setUser(newUser);
+				navigate(`/profile/${newUser.id_user}`); 
 			} else setError("Veuillez remplir tous les champs.");
 		} catch (error) {
 			console.error(error);

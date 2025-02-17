@@ -58,6 +58,14 @@ app.use(express.json());
 
 /* ************************************************************************* */
 
+// Serve server resources
+
+const publicFolderPath = path.join(__dirname, "../../server/public");
+
+if (fs.existsSync(publicFolderPath)) {
+	app.use(express.static(publicFolderPath));
+}
+
 // Import the API router
 import router from "./router";
 
@@ -76,14 +84,6 @@ app.use(router);
 
 import fs from "node:fs";
 import path from "node:path";
-
-// Serve server resources
-
-const publicFolderPath = path.join(__dirname, "../../server/public");
-
-if (fs.existsSync(publicFolderPath)) {
-	app.use(express.static(publicFolderPath));
-}
 
 // Serve client resources
 

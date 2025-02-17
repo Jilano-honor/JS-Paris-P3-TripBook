@@ -20,6 +20,7 @@ router.get("/api/countries/:country_id/trips", tripActions.browseAllByCountry);
 router.get("/api/countries", countriesActions.browseCountries);
 router.get("/api/countries/:id", countriesActions.readCountriesById);
 router.get("/api/trips/tag/:id", countriesActions.read);
+router.get("/api/user/:id/trips", tripActions.browseAllByUser);
 
 //theme
 router.get("/api/theme", ThemeAction.readthemes);

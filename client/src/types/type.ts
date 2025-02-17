@@ -11,6 +11,7 @@ interface Trip {
 	photo: string;
 	user_id: number;
 	country_id: number;
+	id:number;
 }
 interface User {
 	phone_number: number;
