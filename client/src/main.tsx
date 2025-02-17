@@ -9,8 +9,8 @@ import "./assets/reset.css";
 import App from "./App";
 import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
+import Profile from "./pages/Dashboard/Profile";
 import Home from "./pages/Home/Home";
-import Profile from "./pages/Profile";
 import ChosenCountry from "./pages/countries/ChosenCountry";
 import CountryDetails from "./pages/countries/CountryDetails";
 import TripCard from "./pages/trips/TripCard";
@@ -40,11 +40,11 @@ const router = createBrowserRouter([
 				element: <ChosenCountry />,
 			},
 			{
-				path: "/countries/:name/trips/:id_trip",
+				path: "/trips/:id_trip",
 				element: <TripCard />,
 			},
 			{
-				path: "/profile",
+				path: "/profile/:id",
 				element: <Profile />,
 			},
 			{

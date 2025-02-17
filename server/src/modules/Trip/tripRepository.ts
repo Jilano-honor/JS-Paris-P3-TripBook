@@ -6,7 +6,7 @@ import type { Result, Rows } from "../../../database/client";
 
 const createTrip = (trip: Trip) => {
 	return client.query<Result>(
-		"INSERT INTO trip (id_trip,name,start_at,end_at,description,photo,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
+		"INSERT INTO trip (name,start_at,end_at,description,photo,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
 		[
 			trip.name,
 			trip.start_at,
@@ -38,9 +38,16 @@ const readTrip = (idTrip: number) => {
 		[idTrip],
 	);
 };
+const readTripsByUserId = (userId: number) => {
+	return client.query<Rows>(
+		"SELECT trip.id_trip, trip.name AS trip_name, trip.start_at, trip.end_at, trip.description,trip.photo, country.name AS country_name, country.flag FROM trip JOIN country ON trip.country_id = country.id_country WHERE trip.user_id = ?;",
+		[userId],
+	);
+};
 export default {
 	createTrip,
 	readTrips,
 	readTrip,
 	readTripbycountryId,
+	readTripsByUserId,
 };

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./country.css";
 import type Country from "../../types/Country";
 import type { Trip } from "../../types/type";
 function ChosenCountry() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();
-	const { name } = useParams();
 	const location = useLocation();
 	const country = location.state as Country;
 
@@ -33,7 +32,7 @@ function ChosenCountry() {
 		getTrips();
 	}, [country.id_country]);
 	const handleNavigation = (id_trip: number) => {
-		navigate(`/countries/${name}/trips/${id_trip}`, { state: country });
+		navigate(`/trips/${id_trip}`, { state: country });
 	};
 
 	return (

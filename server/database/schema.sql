@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `TripBook`.`user` (
   `email` VARCHAR(255) NOT NULL,
   `phone_number` INT NOT NULL,
   `born_at` DATETIME NOT NULL,
-  `avatar`   VARCHAR(255) NOT NULL,
+  `avatar`   VARCHAR(255) DEFAULT 'vide.png',
   `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE INDEX `Id_UNIQUE` (`id_user` ASC) VISIBLE,
