@@ -105,7 +105,7 @@ const TripsAdd = () => {
 							<button
 								className="button-step2-back"
 								type="button"
-								onClick={() => navigate("/profile")}
+								onClick={() => navigate(`/profile/${user.id_user}`)}
 							>
 								<img className="img-back-button" src={buttonback} alt="Back" />
 							</button>
