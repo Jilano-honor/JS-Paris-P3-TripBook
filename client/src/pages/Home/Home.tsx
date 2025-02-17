@@ -29,8 +29,8 @@ function Home() {
 					Trouvez votre prochaine destination et partagez vos expériences pour
 					inspirer la communauté !
 				</header>
-				<Themebar themes={themes} />
 				<HomeSearchbar />
+				<Themebar themes={themes} />
 			</div>
 		</>
 	);

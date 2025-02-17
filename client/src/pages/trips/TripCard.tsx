@@ -7,13 +7,13 @@ import type { Trip } from "../../types/type";
 function TripCard() {
 	const [trip, setTrip] = useState<Trip | null>(null);
 	const navigate = useNavigate();
-	const { id } = useParams();
+	const { id_trip } = useParams();
 
 	useEffect(() => {
 		const getTrip = async () => {
 			try {
 				const result = await fetch(
-					`${import.meta.env.VITE_API_URL}/api/trips/${id}`,
+					`${import.meta.env.VITE_API_URL}/api/trips/${id_trip}`,
 					{
 						method: "GET",
 						headers: {
@@ -30,13 +30,13 @@ function TripCard() {
 			}
 		};
 		getTrip();
-	}, [id]);
+	}, [id_trip]);
 	const formattedStartDate =
 		trip && new Date(trip.start_at).toLocaleDateString("fr-FR");
 	const formattedEndDate =
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
 	const handleNavigateBack = () => {
-		navigate(`/countries/${trip?.country_id}`);
+		navigate(`/countries/trips/${trip?.country_id}`);
 	};
 
 	return (
