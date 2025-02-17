@@ -87,7 +87,7 @@ import path from "node:path";
 
 // Serve client resources
 
-const clientBuildPath = path.join(__dirname, "../../client/dist");
+const clientBuildPath = path.join(__dirname, "../public");
 
 if (fs.existsSync(clientBuildPath)) {
 	app.use(express.static(clientBuildPath));
