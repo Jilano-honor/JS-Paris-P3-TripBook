@@ -9,6 +9,14 @@ const CountryDetailsPage = () => {
 	const country = location.state as Country;
 	const navigate = useNavigate();
 
+	const handleBackClick = () => {
+		if (document.referrer.includes("/countries")) {
+			navigate("/countries");
+		} else {
+			navigate(-1);
+		}
+	};
+
 	if (!country) {
 		return <p>Aucun pays trouvé.</p>;
 	}
@@ -16,60 +24,72 @@ const CountryDetailsPage = () => {
 	return (
 		<div className="container">
 			<div className="banner">
-				<img src={Voyages} alt="Voyages" />
+				<img className="banner-img" src={Voyages} alt="Voyages" />
 				<h1 className="title">{country.country_name}</h1>
 			</div>
 
 			<div className="tags">
 				<div className="tag">
-					<h2 className="tag-name">{country.tag_name}</h2>
 					<img
 						src={`../${country.tag_photo}`}
-						alt={`Tag de ${country.tag_name} `}
+						alt={`Tag de ${country.tag_name}`}
 					/>
+					<span>{country.tag_name}</span> {/* Ajout du texte ici */}
 				</div>
-				<div className="tag">
-					<h2 className="tag-name">{country.country_name} </h2>
+				<div className="tag-flag">
 					<img
 						src={`.././flags/${country.flag}.png`}
-						alt={`Drapeau  de ${country.country_name}`}
+						alt={`Drapeau de ${country.country_name}`}
 					/>
+					<span>{country.country_name}</span> {/* Ajout du texte ici */}
 				</div>
 			</div>
 
 			<div className="trips-section">
-				<h2 className="trips-title">Voyages effectués</h2>
+				<h2 className="trips-title">Expériences de voyage</h2>
 				<div className="trips-container">
 					{country.trip.map((t) => (
-						<div className="trip-card" key={t.id_trip}>
-							<img src={t.photo} alt={t.name} />
+						<div className="details-trip-card" key={t.id_trip}>
+							<img
+								src={
+									t?.photo?.includes("http")
+										? t.photo
+										: `http://localhost:3310/upload/${t?.photo}`
+								}
+								alt={`nom : ${t?.name}`}
+								className="trip-photo"
+							/>
 							<h3 className="trip-name">{t.name}</h3>
 						</div>
 					))}
 				</div>
 			</div>
 			<div className="button-container">
-				<button
-					type="button"
-					className="button-back"
-					onClick={() => navigate("/")}
-				>
-					<img className="img-back-button" src={buttonback} alt="button" />
-				</button>
-				<button
-					type="button"
-					className="button-voir-plus"
-					onClick={() =>
-						navigate(
-							`/countries/${country.country_name.toLocaleLowerCase()}/trips`,
-							{
-								state: country,
-							},
-						)
-					}
-				>
-					Voir plus
-				</button>
+				<div className="backButton">
+					<button
+						type="button"
+						className="button-back"
+						onClick={handleBackClick}
+					>
+						<img className="img-back-button" src={buttonback} alt="button" />
+					</button>
+				</div>
+				<div className="voirPlusButton">
+					<button
+						type="button"
+						className="button-voir-plus wrapper"
+						onClick={() =>
+							navigate(
+								`/countries/${country.country_name.toLocaleLowerCase()}/trips`,
+								{
+									state: country,
+								},
+							)
+						}
+					>
+						<span>Voir plus</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	);
