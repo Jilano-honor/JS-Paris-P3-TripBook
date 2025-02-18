@@ -11,15 +11,31 @@ const TripsAdd = () => {
 	const [tripDescription, setTripDescription] = useState("");
 	const [startAt, setStartAt] = useState("");
 	const [endAt, setEndAt] = useState("");
-	const [tripImage, setTripImage] = useState("");
-	const [countryId, setCountryId] = useState<number>();
+	const [tripImage, setTripImage] = useState<File | null | undefined>(null);
+	const [countryId, setCountryId] = useState<number | null>(null);
 	const [search, setSearch] = useState("");
 	const [error, setError] = useState<string>("");
+	const [previewImage, setPreviewImage] = useState<string | null>(null);
 	const { user } = useOutletContext<AppContextInterface>();
 	const navigate = useNavigate();
 
-	const isValidImageUrl = (url: string) => {
-		return url.endsWith(".png");
+	const isValidImageUrl = (url: File | null | undefined): boolean => {
+		if (!url) return false;
+		return url.name.toLowerCase().endsWith(".png");
+	};
+
+	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const file = e.target.files?.[0];
+		if (file && isValidImageUrl(file)) {
+			setTripImage(file);
+			const objectURL = URL.createObjectURL(file);
+			setPreviewImage(objectURL);
+			setError("");
+		} else {
+			setError("L'image doit être un fichier PNG.");
+			setTripImage(null);
+			setPreviewImage(null);
+		}
 	};
 
 	const validateStep3 = () => {
@@ -50,21 +66,20 @@ const TripsAdd = () => {
 
 	const createTrip = async () => {
 		try {
+			const form = new FormData();
+			form.append("image", tripImage as File);
+			form.append("name", tripName);
+			form.append("start_at", startAt);
+			form.append("end_at", endAt);
+			form.append("description", tripDescription);
+			form.append("user_id", user.id_user.toString());
+			form.append("country_id", countryId?.toString() || "");
 			const result = await fetch(`${import.meta.env.VITE_API_URL}/api/trips`, {
 				method: "POST",
 				headers: {
-					"content-type": "application/json",
-					authorization: user.token,
+					Authorization: user.token,
 				},
-				body: JSON.stringify({
-					name: tripName,
-					description: tripDescription,
-					start_at: startAt,
-					end_at: endAt,
-					photo: tripImage,
-					user_id: user.id_user,
-					country_id: countryId,
-				}),
+				body: form,
 			});
 
 			if (result.status === 201) {
@@ -86,19 +101,23 @@ const TripsAdd = () => {
 						<div className="title-block">
 							<h1 className="Name-h1-step1">Ajoute ta photo de voyage</h1>
 						</div>
-						<form>
-							<label className="step1-search-addtrip">
-								<input
-									type="text"
-									id="image"
-									placeholder="URL d'image"
-									value={tripImage}
-									onChange={(event) => setTripImage(event.target.value)}
-								/>
-							</label>
-						</form>
+						<article className="container-upload">
+							<input
+								className="addtrip-upload"
+								type="file"
+								onChange={handleImageChange}
+							/>
+							{previewImage && (
+								<div>
+									<img
+										className="img-preview"
+										src={previewImage}
+										alt="Aperçu"
+									/>
+								</div>
+							)}
+						</article>
 					</header>
-
 					<div className="AddTrip1BlockNextAndBackButton">
 						{error && <p className="error-allstep">{error}</p>}
 						<div className="next-back-button-container">

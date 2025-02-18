@@ -6,13 +6,13 @@ import type { Result, Rows } from "../../../database/client";
 
 const createTrip = (trip: Trip) => {
 	return client.query<Result>(
-		"INSERT INTO trip (name,start_at,end_at,description,photo,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
+		"INSERT INTO trip (photo,name,start_at,end_at,description,user_id,country_id) VALUES (?,?,?,?,?,?,?)",
 		[
+			trip.photo,
 			trip.name,
 			trip.start_at,
 			trip.end_at,
 			trip.description,
-			trip.photo,
 			trip.user_id,
 			trip.country_id,
 		],

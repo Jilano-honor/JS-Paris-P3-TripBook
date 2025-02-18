@@ -40,7 +40,7 @@ function UserTrips() {
 							onKeyDown={(e) =>
 								e.key === "Enter" && navigate(`/trips/${trip.id_trip}`)
 							}
-							src={trip.flag}
+							src={`.././flags/${trip?.flag}.png`}
 							alt="user-drapeau"
 							className="user-trip-flag"
 						/>

@@ -1,10 +1,16 @@
 import type React from "react";
-import { useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import "./DragAndDrop.css";
 
-const DragAndDrop = () => {
-	const [imageUrl, setImageUrl] = useState<string | null>(null);
+interface DragAndDropProps {
+	tripImage: string | null;
+	setTripImage: Dispatch<SetStateAction<string>>;
+}
 
+const DragAndDrop: React.FC<DragAndDropProps> = ({
+	tripImage,
+	setTripImage,
+}) => {
 	const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
 		e.preventDefault();
 
@@ -14,7 +20,7 @@ const DragAndDrop = () => {
 
 		if (imageFiles.length > 0) {
 			const url = URL.createObjectURL(imageFiles[0]);
-			setImageUrl(url);
+			setTripImage(url); // Utilise la prop du parent au lieu de gérer un state interne
 		}
 	};
 
@@ -26,7 +32,7 @@ const DragAndDrop = () => {
 		const file = e.target.files?.[0];
 		if (file?.type?.startsWith("image/")) {
 			const url = URL.createObjectURL(file);
-			setImageUrl(url);
+			setTripImage(url); // Utilise la prop du parent
 		}
 	};
 
@@ -40,10 +46,10 @@ const DragAndDrop = () => {
 				<p>Glissez une image ici</p>
 			</div>
 
-			{imageUrl && (
+			{tripImage && (
 				<div className="image-preview">
 					<p>Voici l'image :</p>
-					<img src={imageUrl} alt="téléchargée" />
+					<img src={tripImage ?? ""} alt="téléchargée" />
 				</div>
 			)}
 

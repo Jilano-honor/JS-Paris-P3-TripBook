@@ -10,6 +10,59 @@
 	--black: #000000;
 	--button: #55b6a5;
 }
+.header-step1-addtrip {
+	display: flex;
+	flex-direction: column;
+}
+.container-upload {
+	margin-top: 3rem;
+}
+
+.addtrip-upload {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background-color: var(--beige);
+	border-radius: 12px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	width: 90%;
+	max-width: 500px;
+	margin: auto;
+}
+
+.img-preview {
+	width: 100%;
+	max-width: 320px;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 9px;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+
+.upload-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--button);
+	color: var(--white);
+	font-weight: bold;
+	padding: 10px 15px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+	margin-top: 10px;
+}
+
+.upload-label:hover {
+	background-color: var(--green);
+}
+
+.upload-input {
+	display: none;
+}
 
 .step1-container-addtrip {
 	display: flex;
@@ -31,7 +84,10 @@
 	padding: 15px;
 	border-radius: 8px;
 }
-
+.addtrip-upload {
+	display: flex;
+	flex-direction: column;
+}
 .step1-search-addtrip input[type="text"] {
 	width: 100%;
 	max-width: 500px;
@@ -178,8 +234,7 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-bottom: 150px;
-	margin-top: 0px;
+	margin-top: 5rem;
 }
 .title-block2 {
 	background-color: var(--light-green);
@@ -263,8 +318,7 @@ input[type="date"]:focus {
 	align-items: center;
 	justify-content: center;
 	gap: 2vw;
-	margin-top: 20px;
-	padding-bottom: 20px;
+	padding-right: 100px;
 }
 
 .button-step2-back {

@@ -48,9 +48,9 @@ function TripCard() {
 				<div className="tripCard-images-block">
 					<div className="tripCard-tripImage-block">
 						<img
-							src={trip?.photo}
+							src={`http://localhost:3310/upload/${trip?.photo}`}
 							alt={`nom : ${trip?.name}`}
-							className="tripCard-trip-image"
+							className="tripCard-trip-image2"
 						/>
 					</div>
 					<div className="tripCard-tripImage-block">
