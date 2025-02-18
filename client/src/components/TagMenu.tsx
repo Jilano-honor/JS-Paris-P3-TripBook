@@ -36,5 +36,4 @@ function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 	);
 }
 
-
 export default TagMenu;
