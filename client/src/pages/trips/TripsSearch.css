@@ -10,51 +10,151 @@
 	width: 100%;
 	height: 55vh;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
 }
 
 .banner-image {
-	width: 100%;
-	height: 100%;
+	height: 55vh;
 	object-fit: fill;
 	display: block;
-	margin: 2.5rem 0;
+	width: 50rem;
 }
 
 .banner-title {
+	font-weight: bold;
 	position: absolute;
-	top: 100px;
+	top: 70px;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 100%;
+	width: 50rem;
 	text-align: center;
-	color: white;
+	color: #ffffff;
 	font-size: 2em;
-	background-color: rgba(var(--banner-rgb));
+	background-color: rgb(77 70 70 / 42%);
 	padding: 10px 0;
 	margin: 0;
 }
 .TripSearchListTag {
+	border-radius: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 2.5rem;
+	background: rgb(0 0 0 / 4%);
+	padding: 1rem;
+	box-shadow: 0px 15px 20px #33333345;
+	margin: 2rem;
 }
-.TripSearchListCountry {
-	width: 100vh;
+/* Ajout de la classe spécifique et augmentation de la spécificité */
+	.tripSearchList
+	.tripSearchListCountry {
+	width: 55rem; /* Ajustement pour mieux s’intégrer */
+	max-width: 55rem;
 	display: flex;
-	gap: 1rem;
+	gap: 1.5rem;
 	flex-direction: column;
 	align-items: center;
-	margin: 5rem 0 1rem 0;
+	background-color: white; /* Fond blanc */
+	padding: 2rem;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+	border-radius: 1.5rem; /* Coins arrondis */
+	margin: 3rem auto 1rem auto;
+	border: 1px solid rgba(0, 0, 0, 0.1); /* Bordure subtile */
+	transition: all 0.3s ease; /* Transition douce */
 }
-.TripSearchButtonPage {
+
+/* Effet d'ombre et léger déplacement au survol */
+	.tripSearchList
+	.tripSearchListCountry:hover {
+	box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
+	transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+/* Style pour les éléments de la liste (les pays) */
+	.tripSearchList
+	.tripSearchListCountry
+	li {
+	list-style-type: none;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+/* Style des boutons de pays */
+	.tripSearchList
+	.tripSearchListCountryBox {
+	width: 100%;
+	background: transparent;
+	border: 1px solid #ddd;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	border-radius: 1rem;
+	transition: transform 0.3s ease;
+}
+
+.tripSearchList .tripSearchListCountryBox:hover {
+	background-color: var(--light-green); /* Fond gris clair sur survol */
+	transform: scale(1.05); /* Agrandissement léger */
+}
+.active-tag,
+.inactive-tag {
+	position: relative;
+	list-style: none;
+	width: 7rem;
+	height: 6rem;
+	background: white;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	border-radius: 2rem;
+	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 1rem;
+	transition: 0.3s ease-in-out;
+	overflow: hidden;
 }
-.TripSearchList {
-	margin-bottom: 5rem;
+
+.active-tag {
+	background: var(--light-green); /* Tag en vert quand actif */
+	color: black;
+}
+
+.active-tag:hover,
+.inactive-tag:hover {
+	width: 200px; /* Agrandit au survol */
+}
+
+.icone {
+	width: 80%;
+	height: 80%;
+	transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.active-tag:hover .icone,
+.inactive-tag:hover .icone {
+	transform: scale(0.3); /* Rétrécit au lieu de disparaître brutalement */
+	opacity: 0;
+}
+
+.active-tag span,
+.inactive-tag span {
+	position: absolute;
+	color: #000;
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-weight: bold;
+	opacity: 0;
+	transform: scale(0.7); /* Commence plus petit pour un effet plus smooth */
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.active-tag:hover span,
+.inactive-tag:hover span {
+	opacity: 1;
+	transform: scale(1); /* Grandit progressivement */
 }
 .GoHomeButton {
 	position: fixed;
@@ -62,34 +162,104 @@
 	left: 5px;
 	background-color: transparent;
 	border: 0;
+	cursor: pointer;
+	transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.GoHomeButton:hover {
+	transform: scale(1.2); /* Agrandissement au survol */
+	opacity: 0.8; /* Légère transparence au survol */
+}
+
 .GoHomeButton img {
-	height: 25px;
-	width: 25px;
+	padding: 1rem;
+	height: 5rem;
+	width: 4rem;
+	object-fit: contain;
+	transition: transform 0.3sease-in-out;
 }
-.active-tag {
-	background-color: var(--light-green);
-	color: black;
-	box-shadow: rgba(0, 0, 0, 0.3) 3px 6px 15px 3px;
-	width: 100px;
-	height: 100px;
+
+.GoHomeButton img:hover {
+	transform: rotate(180deg); /* Rotation de l'icône pour un effet de retour */
+}
+
+.GoHomeButton:active img {
+	transform: scale(0.95); /* Réduction lors du clic */
+}
+.tripSearchButtonPage {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
-	border-radius: 25px;
+	gap: 1rem;
+	margin-top: 2rem;
 }
-.icone {
-	width: 80%;
-	height: 80%;
+
+/* Style des boutons de page précédent et suivant */
+	.tripSearchButtonPage
+	button {
+	background-color: #4caf50; /* Vert clair */
+	border: none;
+	color: white;
+	padding: 0.8rem 1.5rem;
+	font-size: 1rem;
+	border-radius: 5rem;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
 }
-.inactive-tag {
-	background-color: white;
-	color: black;
-	box-shadow: rgba(0, 0, 0, 0.3) 3px 6px 15px 3px;
-	width: 100px;
-	height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 25px;
+
+/* Changement de couleur et effet au survol */
+	.tripSearchButtonPage
+	button:hover {
+	background-color: #45a049; /* Vert foncé au survol */
+	transform: translateY(-3px); /* Légère élévation au survol */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Bouton désactivé */
+	.tripSearchButtonPage
+	button:disabled {
+	background-color: #d3d3d3; /* Gris clair */
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+/* Affichage du texte "Précédent" et "Suivant" */
+	.tripSearchButtonPage
+	span {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #333;
+}
+.tripSearchGoToPage input {
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 5rem;
+	width: 5rem;
+	text-align: center;
+	transition: border 0.3s ease;
+}
+
+.tripSearchGoToPage input:focus {
+	border-color: #4caf50; /* Vert clair sur focus */
+}
+
+.tripSearchGoToPage button {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	padding: 0.5rem 1.5rem;
+	font-size: 1rem;
+	border-radius: 5rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+/* Changement de couleur et effet au survol du bouton "Aller à la page" */
+	.tripSearchGoToPage
+	button:hover {
+	background-color: #45a049;
+	transform: translateY(-3px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

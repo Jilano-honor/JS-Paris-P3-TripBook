@@ -26,6 +26,7 @@ function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 						onClick={() => handleTagClick(tag)}
 					>
 						<img src={tag.photo} alt={tag.name} className="icone" />
+						<span>{tag.name}</span> {}
 					</button>
 				))
 			) : (
@@ -34,5 +35,6 @@ function TagMenu({ tags, activeTag, onTagClick }: TagMenuProps) {
 		</div>
 	);
 }
+
 
 export default TagMenu;

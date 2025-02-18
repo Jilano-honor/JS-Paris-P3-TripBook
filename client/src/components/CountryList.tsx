@@ -93,7 +93,6 @@ function CountryList({ trips, currentPage, setCurrentPage }: CountryListProps) {
 								onClick={() => handleCountryDetails(trip)}
 							>
 								<img src={`./flags/${trip.flag}.png`} alt="flag" />
-
 								<div>{trip.name}</div>
 							</button>
 						</li>
