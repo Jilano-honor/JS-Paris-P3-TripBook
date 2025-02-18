@@ -1,21 +1,35 @@
+/* CONTAINER PRINCIPAL */
 .home-container {
-	background-image: url("../../assets/images/background_projet3.png");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	min-height: 100vh;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
+	padding: 1.5rem 0;
+
+	/* GESTION DU BACKGROUND */
+	background-image: url(../../assets/images/Designe.jpeg);
+	background-size: cover; /* Assure que l'image prend toute la page */
+	background-position: center; /* Centre l'image */
+	background-repeat: no-repeat; /* Empêche la répétition */
 }
+/* HEADER */
 header {
-	height: 15vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	position: relative; /* Plus besoin de absolute */
+	width: 100%;
+	text-align: center;
+	font-size: 2.5rem;
 	color: black;
-	font-size: 3rem;
-	text-transform: uppercase;
-	width: 80%;
+	background-color: rgba(255, 255, 255, 0.3); /* Fond blanc légèrement opaque */
+	padding: 20px;
+	font-weight: bold;
+}
+#search-theme {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
 }
