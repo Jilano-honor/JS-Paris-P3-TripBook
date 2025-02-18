@@ -1,4 +1,6 @@
+import { log } from "node:console";
 import type { Request, RequestHandler, Response } from "express";
+import addTripRepository from "./tripRepository";
 import tripRepository from "./tripRepository";
 
 const add = async (req: Request, res: Response) => {
@@ -7,10 +9,11 @@ const add = async (req: Request, res: Response) => {
 		trip.photo = req.file?.filename;
 
 		const [result] = await tripRepository.createTrip(trip);
+
 		if (result.affectedRows > 0) {
 			res.sendStatus(201);
 		} else {
-			res.sendStatus(400);
+			res.sendStatus(404);
 		}
 	} catch (error) {
 		console.error(error);
@@ -20,15 +23,22 @@ const add = async (req: Request, res: Response) => {
 };
 const browseAllByCountry = async (req: Request, res: Response) => {
 	try {
-		const countryId = Number(req.params.country_id);
-		const [result] = await tripRepository.readTrips(countryId);
-		if (result.length > 0) res.status(200).json(result);
-		else {
-			res.sendStatus(400);
+		const countryId = Number(req.params.id);
+		if (Number.isNaN(countryId)) {
+			console.error("❌ countryId est NaN !");
+			res.status(400).json({ error: "Invalid country_id" });
+			return;
+		}
+
+		const result = await tripRepository.readTrips(countryId);
+		if (result.length > 0) {
+			res.status(200).json(result);
+		} else {
+			res.status(404).json({ error: "No trips found" });
 		}
 	} catch (error) {
-		console.error(error);
-		res.sendStatus(500);
+		console.error("❌ Erreur serveur :", error);
+		res.status(500).json({ error: "Internal server error" });
 	}
 };
 const browse = async (req: Request, res: Response) => {
@@ -44,5 +54,18 @@ const browse = async (req: Request, res: Response) => {
 		res.sendStatus(500);
 	}
 };
+const browseAllByUser = async (req: Request, res: Response) => {
+	try {
+		const userId = Number(req.params.id);
+		const [result] = await tripRepository.readTripsByUserId(userId);
+		if (result.length > 0) res.status(200).json(result);
+		else {
+			res.sendStatus(404);
+		}
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
+};
 
-export default { add, browseAllByCountry, browse };
+export default { add, browseAllByCountry, browse, browseAllByUser };

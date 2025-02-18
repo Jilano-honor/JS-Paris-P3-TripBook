@@ -58,6 +58,14 @@ app.use(express.urlencoded({ limit: "50mb" }));
 
 /* ************************************************************************* */
 
+// Serve server resources
+
+const publicFolderPath = path.join(__dirname, "../public");
+
+if (fs.existsSync(publicFolderPath)) {
+	app.use(express.static(publicFolderPath));
+}
+
 // Import the API router
 import router from "./router";
 
@@ -77,17 +85,9 @@ app.use(router);
 import fs from "node:fs";
 import path from "node:path";
 
-// Serve server resources
-
-const publicFolderPath = path.join(__dirname, "../public");
-
-if (fs.existsSync(publicFolderPath)) {
-	app.use(express.static(publicFolderPath));
-}
-
 // Serve client resources
 
-const clientBuildPath = path.join(__dirname, "../../client/dist");
+const clientBuildPath = path.join(__dirname, "../public");
 
 if (fs.existsSync(clientBuildPath)) {
 	app.use(express.static(clientBuildPath));

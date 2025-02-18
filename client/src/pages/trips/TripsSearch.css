@@ -34,15 +34,10 @@
 	margin: 0;
 }
 .TripSearchListTag {
-	margin-top: 5rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 1.5rem;
-}
-.TripsSearchButton {
-	width: 100px;
-	height: 100px;
+	gap: 2.5rem;
 }
 .TripSearchListCountry {
 	width: 100vh;
@@ -51,21 +46,6 @@
 	flex-direction: column;
 	align-items: center;
 	margin: 5rem 0 1rem 0;
-}
-.TripSearchListCountryBox {
-	height: 50px;
-	display: flex;
-	width: 100vh;
-	background-color: var(--gray);
-	gap: 10rem;
-	align-items: center;
-	padding-left: 1rem;
-	border-radius: 15px;
-}
-
-.TripSearchListCountryBox:hover {
-	background-color: var(--green);
-	box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .TripSearchButtonPage {
 	display: flex;
@@ -86,4 +66,30 @@
 .GoHomeButton img {
 	height: 25px;
 	width: 25px;
+}
+.active-tag {
+	background-color: var(--light-green);
+	color: black;
+	box-shadow: rgba(0, 0, 0, 0.3) 3px 6px 15px 3px;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+}
+.icone {
+	width: 80%;
+	height: 80%;
+}
+.inactive-tag {
+	background-color: white;
+	color: black;
+	box-shadow: rgba(0, 0, 0, 0.3) 3px 6px 15px 3px;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
 }

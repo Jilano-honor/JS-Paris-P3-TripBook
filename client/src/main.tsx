@@ -5,14 +5,13 @@ import "./assets/global.css";
 import "./assets/reset.css";
 
 /* ************************************************************************* */
-
 // Import the main app component
 import App from "./App";
 import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
+import Profile from "./pages/Dashboard/Profile";
 import Home from "./pages/Home/Home";
-import Profile from "./pages/Profile";
-import Country from "./pages/countries/Country";
+import ChosenCountry from "./pages/countries/ChosenCountry";
 import CountryDetails from "./pages/countries/CountryDetails";
 import TripCard from "./pages/trips/TripCard";
 import TripsAdd from "./pages/trips/TripsAdd";
@@ -38,14 +37,14 @@ const router = createBrowserRouter([
 
 			{
 				path: "/countries/:name/trips",
-				element: <Country />,
+				element: <ChosenCountry />,
 			},
 			{
-				path: "/trips/:id",
+				path: "/trips/:id_trip",
 				element: <TripCard />,
 			},
 			{
-				path: "/profile",
+				path: "/profile/:id",
 				element: <Profile />,
 			},
 			{

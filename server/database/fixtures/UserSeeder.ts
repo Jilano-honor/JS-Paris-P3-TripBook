@@ -15,7 +15,7 @@ class UserSeeder extends AbstractSeeder {
 				password: this.faker.internet.password(),
 				phone_number: this.faker.number.int(25),
 				born_at: this.faker.date.birthdate(),
-				avatar: this.faker.image.urlPicsumPhotos(),
+				avatar: this.faker.image.avatarGitHub(),
 				refName: `user_${i}`,
 			};
 

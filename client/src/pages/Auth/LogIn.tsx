@@ -9,6 +9,7 @@ function LogIn() {
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
 	const { setUser } = useOutletContext<AppContextInterface>();
+
 	const submitLogin: FormEventHandler = async (event) => {
 		event.preventDefault();
 		try {
@@ -24,10 +25,9 @@ function LogIn() {
 				},
 			);
 			if (response.status === 200) {
-				const user = await response.json();
-				// console.log(user);
-				setUser(user);
-				navigate("/profile");
+				const newUser = await response.json();
+				setUser(newUser);
+				navigate(`/profile/${newUser.id_user}`);
 			} else setError("Veuillez remplir tous les champs.");
 		} catch (error) {
 			console.error(error);

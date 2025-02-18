@@ -1,6 +1,6 @@
 import "./Home.css";
 import { useEffect, useState } from "react";
-import Themebar from "../../components/ThemeBar/ThemeBar";
+import Themebar from "../../components/ThemeBar/ThemeBarHome";
 import HomeSearchbar from "../trips/HomeSearchbar";
 
 function Home() {
@@ -29,8 +29,8 @@ function Home() {
 					Trouvez votre prochaine destination et partagez vos expériences pour
 					inspirer la communauté !
 				</header>
-				<Themebar themes={themes} />
 				<HomeSearchbar />
+				<Themebar themes={themes} />
 			</div>
 		</>
 	);
