@@ -23,7 +23,7 @@
 }
 
 .formulaire {
-	background-color: #c9f3de;
+	background-color: rgb(250 250 250);
 	padding: 40px;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -31,6 +31,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 5rem;
 }
 
 .formulaire form {
@@ -66,8 +67,8 @@
 }
 
 .formulaire input[type="submit"] {
-	background-color: #4caf50;
-	color: white;
+	background-color: #ffffff;
+	color: black;
 	border: none;
 	padding: 12px;
 	cursor: pointer;
@@ -75,13 +76,13 @@
 	font-size: 18px;
 	width: 100%;
 	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .formulaire input[type="submit"]:hover {
-	background-color: #45a049;
+	background-color: #c9f3de;
 }
 .logInButton {
-	background-color: #c9f3de;
 	border: 0px;
 	cursor: pointer;
 }

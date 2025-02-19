@@ -3,7 +3,6 @@
 	align-items: center;
 }
 .registerButton {
-	background-color: #c9f3de;
 	border: 0px;
 	cursor: pointer;
 }
@@ -19,15 +18,15 @@
 }
 
 .formulaireLogin {
-	background-color: #c9f3de;
-	padding: 40px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	width: 500px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 200px;
+background-color: rgba(250, 250, 250, 1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
 }
 
 .formulaireLogin form {
@@ -38,6 +37,8 @@
 
 .formulaireLogin div {
 	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
 }
 
 .formulaireLogin label {
@@ -63,19 +64,20 @@
 }
 
 .formulaireLogin input[type="submit"] {
-	background-color: #4caf50;
-	color: white;
+	background-color: #ffffff;
+	color: black;
 	border: none;
 	padding: 12px;
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 18px;
-	width: 100%;
+	width: 50%;
 	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .formulaireLogin input[type="submit"]:hover {
-	background-color: #45a049;
+	background-color: #c9f3de;
 }
 .registerButton:hover {
 	font-size: 14px;
