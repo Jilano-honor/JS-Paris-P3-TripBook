@@ -52,7 +52,14 @@ function ChosenCountry() {
 									onKeyDown={() => handleNavigation(trip.id_trip)}
 								/>
 							</div>
-							<figcaption className="trip-card-name">{trip.name}</figcaption>
+
+							<figcaption
+								onClick={() => handleNavigation(trip.id_trip)}
+								onKeyDown={() => handleNavigation(trip.id_trip)}
+								className="trip-card-name"
+							>
+								{trip.name}
+							</figcaption>
 						</figure>
 					))}
 				</div>

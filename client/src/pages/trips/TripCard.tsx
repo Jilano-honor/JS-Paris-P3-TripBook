@@ -59,9 +59,7 @@ function TripCard() {
 							className="tripCardContainer-tripImage"
 						/>
 					</div>
-
 				</div>
-
 				<div className="tripCardContainer-info">
 					<div className="tripCardContainer-calendar">
 						<h1 className="tripCardContainer-datesTitle">
