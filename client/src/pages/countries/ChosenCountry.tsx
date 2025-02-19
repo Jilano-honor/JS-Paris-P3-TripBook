@@ -36,7 +36,7 @@ function ChosenCountry() {
 	return (
 		<>
 			<div className="country-trips-container">
-				{trips.slice().map((trip: Trip) => (
+				{trips.map((trip: Trip) => (
 					<figure key={trip.id_trip} className="trip-card">
 						<div className="trip-card-image-wrapper">
 							<img
