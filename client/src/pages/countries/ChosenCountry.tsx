@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./country.css";
+import "./ChosenCountry.css";
 import type Country from "../../types/Country";
 import type { Trip } from "../../types/type";
 function ChosenCountry() {
@@ -8,7 +8,6 @@ function ChosenCountry() {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const country = location.state as Country;
-
 	useEffect(() => {
 		const getTrips = async () => {
 			try {
@@ -34,28 +33,27 @@ function ChosenCountry() {
 	const handleNavigation = (id_trip: number) => {
 		navigate(`/trips/${id_trip}`, { state: country });
 	};
-
 	return (
 		<>
-			<div className="country-allTrips-block">
-				{trips.slice(0, 3).map((trip: Trip) => {
-					return (
-						<div key={trip.id_trip}>
-							<figure className="country-trip-block">
-								<figcaption key={trip.id_trip} className="country-trip-name">
-									{trip.name}
-								</figcaption>
-								<img
-									src={trip.photo}
-									alt={`le nom est ${trip.name}`}
-									className="country-trip-photo"
-									onKeyDown={() => handleNavigation(trip.id_trip)}
-									onClick={() => handleNavigation(trip.id_trip)}
-								/>
-							</figure>
+			<div className="country-trips-container">
+				{trips.slice().map((trip: Trip) => (
+					<figure key={trip.id_trip} className="trip-card">
+						<div className="trip-card-image-wrapper">
+							<img
+								src={
+									trip?.photo?.includes("http")
+										? trip.photo
+										: `http://localhost:3310/upload/${trip?.photo}`
+								}
+								alt={`Le nom est ${trip.name}`}
+								className="trip-card-photo"
+								onClick={() => handleNavigation(trip.id_trip)}
+								onKeyDown={() => handleNavigation(trip.id_trip)}
+							/>
 						</div>
-					);
-				})}
+						<figcaption className="trip-card-name">{trip.name}</figcaption>
+					</figure>
+				))}
 			</div>
 		</>
 	);

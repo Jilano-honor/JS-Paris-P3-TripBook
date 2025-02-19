@@ -36,7 +36,7 @@ function TripCard() {
 	const formattedEndDate =
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
 	const handleNavigateBack = () => {
-		navigate(`/countries/trips/${trip?.country_id}`);
+		navigate(-1);
 	};
 
 	return (
@@ -48,7 +48,11 @@ function TripCard() {
 				<div className="tripCard-images-block">
 					<div className="tripCard-tripImage-block">
 						<img
-							src={`http://localhost:3310/upload/${trip?.photo}`}
+							src={
+								trip?.photo?.includes("http")
+									? trip.photo
+									: `http://localhost:3310/upload/${trip?.photo}`
+							}
 							alt={`nom : ${trip?.name}`}
 							className="tripCard-trip-image2"
 						/>

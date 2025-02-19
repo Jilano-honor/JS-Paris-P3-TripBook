@@ -58,6 +58,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-bottom: 1rem;
+	padding-left: 0.5rem;
 }
 .tripCard-buttonBack {
 	width: 3vw;
