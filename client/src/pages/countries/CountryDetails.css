@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Acme&family=Roboto&display=swap");
+
 .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
+	font-family: "Arial", sans-serif;
+	background-color: #f5f5f5;
+	padding-bottom: 50px;
 }
+
 .banner {
 	position: relative;
 	width: 100%;
@@ -13,6 +20,83 @@
 	justify-content: center;
 	margin: 2rem;
 }
+
+.banner-img {
+	height: 55vh;
+	object-fit: fill;
+	display: block;
+	width: 50rem;
+}
+
+.title {
+	font-weight: bold;
+	font-family: "Roboto", sans-serif;
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50rem;
+	text-align: center;
+	color: #ffffff;
+	font-size: 2em;
+	background-color: rgba(77, 70, 70, 0.42);
+	padding: 10px 0;
+	margin: 0;
+}
+
+.trips-title {
+	font-family: "Acme", sans-serif;
+	font-weight: bold;
+	font-size: 2.5rem;
+	margin: 1rem;
+	text-decoration: underline;
+}
+
+.tag-name {
+	font-family: "Anton", serif;
+	letter-spacing: 0.1em;
+	text-align: center;
+	max-width: 200px;
+	word-wrap: break-word;
+	font-size: 20px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.trip-name {
+	font-family: "Acme", sans-serif;
+	font-weight: lighter;
+	text-align: center;
+	max-width: 200px;
+	word-wrap: break-word;
+	font-size: 20px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-voir-plus {
+	width: 16rem;
+	height: 3rem;
+	line-height: 40px;
+	font-size: 18px;
+	font-family: "Acme", sans-serif;
+	text-decoration: none;
+	color: #333;
+	border: 2px solid #333;
+	letter-spacing: 2px;
+	text-align: center;
+	position: relative;
+	transition: all 0.35s;
+	background: transparent;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 1rem;
+}
+
 .banner-img {
 	height: 55vh;
 	object-fit: fill;

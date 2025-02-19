@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
-/* ======= Conteneur global centré ======= */
+
 .main-container {
 	display: flex;
 	flex-direction: row;
@@ -8,7 +8,6 @@
 	align-items: center;
 }
 
-/* ======= Conteneur principal ======= */
 .profile-container {
 	display: flex;
 	flex-direction: column;
@@ -18,7 +17,6 @@
 	width: 50%;
 }
 
-/* ======= Conteneur de l'avatar ======= */
 .profile-avatar-container {
 	display: flex;
 	flex-direction: column;
@@ -26,7 +24,6 @@
 	margin-bottom: 20px;
 }
 
-/* ======= Avatar rond avec effet lumineux ======= */
 .profile-avatar img {
 	width: 180px;
 	height: 180px;
@@ -42,7 +39,6 @@
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ======= Conteneur des infos ======= */
 .profile-info-container {
 	display: flex;
 	flex-direction: column;
@@ -50,7 +46,6 @@
 	margin-top: 20px;
 }
 
-/* ======= Informations personnelles ======= */
 .profile-info {
 	display: flex;
 	flex-direction: column;
@@ -79,7 +74,6 @@
 	transition: transform 0.3s ease-in-out;
 }
 
-/* ======= Boutons centrés ======= */
 .edit-profile-button {
 	display: block;
 	padding: 12px 20px;
@@ -104,12 +98,11 @@
 	transform: scale(1.05);
 }
 
-/* ======= Bouton "Ajouter Voyage" plus large et animé ======= */
 .add-trip-button {
 	display: block;
 	padding: 12px 20px;
 	margin: 15px auto;
-	background-color: #ff0800;
+	background-color: #55b6a5;
 	color: white;
 	border: none;
 	border-radius: 10px;
@@ -121,7 +114,7 @@
 	position: relative;
 	overflow: hidden;
 	transition: all 0.3s ease-in-out;
-	box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.6);
+	box-shadow: 0px 5px 15px #3333339e;
 }
 
 .add-trip-button:hover {

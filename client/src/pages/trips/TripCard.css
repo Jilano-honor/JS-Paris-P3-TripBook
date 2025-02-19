@@ -7,7 +7,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	font-family: "Source Code Pro", monospace;
-	font-size: 7rem;
+	/* font-size: 4rem; */
 	color: black;
 	margin: 0 auto;
 }
@@ -116,12 +116,27 @@
 	font-weight: bold;
 	color: var(--black);
 	margin-bottom: 1rem;
+	text-decoration: underline;
 }
 
 .tripCardContainer-descriptionText {
 	font-size: 1.2rem;
 	line-height: 1.5;
 	color: var(--black);
+}
+.tripCard-description-block {
+	background-color: var(--light-green);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 1rem;
+	padding-left: 0.5rem;
+}
+.tripCard-buttonBack {
+	width: 3vw;
+	height: 6vh;
 }
 
 .tripCardContainer-backButtonWrapper {

@@ -15,7 +15,8 @@
 	flex-direction: column;
 }
 .container-upload {
-	margin-top: 3rem;
+	margin-top: 1rem;
+	margin-left: 0, 5rem;
 }
 
 .addtrip-upload {
@@ -108,7 +109,9 @@
 	border-color: #28a745;
 	box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
 }
-
+.AddTrip1BlockNextAndBackButton {
+	margin-right: 1rem;
+}
 .AddTrip1NextButton {
 	width: 650px;
 	height: 70px;
@@ -141,7 +144,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	gap: 50px;
+	gap: 40px;
 	text-align: center;
 }
 
@@ -223,7 +226,6 @@
 	outline: none;
 }
 .header-step1-addtrip {
-	margin-top: 3rem;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 10px;
@@ -234,7 +236,7 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-top: 5rem;
+	margin-top: 1rem;
 }
 .title-block2 {
 	background-color: var(--light-green);
@@ -272,9 +274,7 @@
 .tripsCountryFlag {
 	margin-right: 10%;
 }
-.AddTrip1BlockNextAndBackButton {
-	margin-top: 30vh;
-}
+
 .step2-container-start-end-at {
 	display: flex;
 	justify-content: center;
@@ -318,7 +318,15 @@ input[type="date"]:focus {
 	align-items: center;
 	justify-content: center;
 	gap: 2vw;
-	padding-right: 100px;
+	padding-right: 8rem;
+}
+.next-back-button-container2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2vw;
+	padding-right: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .button-step2-back {

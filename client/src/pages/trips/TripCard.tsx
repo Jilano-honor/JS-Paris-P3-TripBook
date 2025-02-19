@@ -38,7 +38,7 @@ function TripCard() {
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
 
 	const handleNavigateBack = () => {
-		navigate(`/countries/trips/${trip?.country_id}`);
+		navigate(-1);
 	};
 
 	return (
@@ -68,9 +68,7 @@ function TripCard() {
 						<h2 className="tripCardContainer-dates">{`${formattedStartDate} to ${formattedEndDate}`}</h2>
 					</div>
 					<div className="tripCardContainer-description">
-						<h1 className="tripCardContainer-descriptionTitle">
-							Description :
-						</h1>
+						<h1 className="tripCardContainer-descriptionTitle">Description:</h1>
 						<p className="tripCardContainer-descriptionText">
 							{trip?.description}
 						</p>

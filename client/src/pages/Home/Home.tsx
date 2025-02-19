@@ -26,8 +26,10 @@ function Home() {
 		<>
 			<div className="home-container">
 				<header>
-					Trouvez votre prochaine destination et partagez vos expériences pour
-					inspirer la communauté !
+					<h1>
+						Trouvez votre prochaine destination et partagez vos expériences pour
+						inspirer la communauté !
+					</h1>
 				</header>
 				<div id="search-theme">
 					<HomeSearchbar />
