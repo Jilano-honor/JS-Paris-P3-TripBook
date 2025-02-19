@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 .logInandLogOutBlock {
 	display: flex;
 	align-items: center;
@@ -38,6 +39,7 @@
 
 .formulaireLogin div {
 	margin-bottom: 20px;
+	font-family: "roboto", sans-serif;
 }
 
 .formulaireLogin label {
