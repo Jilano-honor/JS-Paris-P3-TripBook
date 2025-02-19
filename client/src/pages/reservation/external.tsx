@@ -16,6 +16,7 @@ function External() {
 				{ name: "FlixBus", url: "https://www.flixbus.com/" },
 				{ name: "Omio", url: "https://www.omio.com/" },
 				{ name: "BlaBlaCar Bus", url: "https://www.blablacar.fr/bus" },
+				{ name: "Busbud", url: "https://www.busbud.com/" },
 			],
 		},
 		{
