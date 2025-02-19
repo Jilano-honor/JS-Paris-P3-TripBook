@@ -35,25 +35,27 @@ function ChosenCountry() {
 	};
 	return (
 		<>
-			<div className="country-trips-container">
-				{trips.slice(0, 3).map((trip: Trip) => (
-					<figure key={trip.id_trip} className="trip-card">
-						<div className="trip-card-image-wrapper">
-							<img
-								src={
-									trip?.photo?.includes("http")
-										? trip.photo
-										: `http://localhost:3310/upload/${trip?.photo}`
-								}
-								alt={`Le nom est ${trip.name}`}
-								className="trip-card-photo"
-								onClick={() => handleNavigation(trip.id_trip)}
-								onKeyDown={() => handleNavigation(trip.id_trip)}
-							/>
-						</div>
-						<figcaption className="trip-card-name">{trip.name}</figcaption>
-					</figure>
-				))}
+			<div className="all-container">
+				<div className="country-trips-container">
+					{trips.slice(0, 3).map((trip: Trip) => (
+						<figure key={trip.id_trip} className="trip-card">
+							<div className="trip-card-image-wrapper">
+								<img
+									src={
+										trip?.photo?.includes("http")
+											? trip.photo
+											: `http://localhost:3310/upload/${trip?.photo}`
+									}
+									alt={`Le nom est ${trip.name}`}
+									className="trip-card-photo"
+									onClick={() => handleNavigation(trip.id_trip)}
+									onKeyDown={() => handleNavigation(trip.id_trip)}
+								/>
+							</div>
+							<figcaption className="trip-card-name">{trip.name}</figcaption>
+						</figure>
+					))}
+				</div>
 			</div>
 		</>
 	);
