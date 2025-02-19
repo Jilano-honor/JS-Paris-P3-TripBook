@@ -7,6 +7,7 @@ import "./assets/reset.css";
 /* ************************************************************************* */
 // Import the main app component
 import App from "./App";
+import IntroPage from "./components/NavBar/IntroPage";
 import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
 import Profile from "./pages/Dashboard/Profile";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
 			{
 				path: "/trips/add",
 				element: <TripsAdd />,
+			},
+			{
+				path: "/intro",
+				element: <IntroPage />,
 			},
 			{
 				path: "/external",
