@@ -7,11 +7,11 @@ import "./assets/reset.css";
 /* ************************************************************************* */
 // Import the main app component
 import App from "./App";
-import IntroPage from "./components/NavBar/IntroPage";
 import LogIn from "./pages/Auth/LogIn";
 import Register from "./pages/Auth/Register";
 import Profile from "./pages/Dashboard/Profile";
 import Home from "./pages/Home/Home";
+import IntroPage from "./pages/Intro/IntroPage";
 import ChosenCountry from "./pages/countries/ChosenCountry";
 import CountryDetails from "./pages/countries/CountryDetails";
 import External from "./pages/reservation/external";
