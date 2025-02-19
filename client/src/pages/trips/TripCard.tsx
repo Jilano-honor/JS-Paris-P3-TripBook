@@ -36,7 +36,7 @@ function TripCard() {
 	const formattedEndDate =
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
 	const handleNavigateBack = () => {
-		navigate(`/countries/trips/${trip?.country_id}`);
+		navigate(-1);
 	};
 
 	return (

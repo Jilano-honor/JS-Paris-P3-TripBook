@@ -9,6 +9,10 @@ const CountryDetailsPage = () => {
 	const country = location.state as Country;
 	const navigate = useNavigate();
 
+	const handleNavigation = (id_trip: number) => {
+		navigate(`/trips/${id_trip}`, { state: country });
+	};
+
 	const handleBackClick = () => {
 		if (document.referrer.includes("/countries")) {
 			navigate("/countries");
@@ -48,7 +52,7 @@ const CountryDetailsPage = () => {
 			<div className="trips-section">
 				<h2 className="trips-title">Expériences de voyage</h2>
 				<div className="trips-container">
-					{country.trip.map((t) => (
+					{country.trip.slice(0, 3).map((t) => (
 						<div className="details-trip-card" key={t.id_trip}>
 							<img
 								src={
@@ -58,6 +62,8 @@ const CountryDetailsPage = () => {
 								}
 								alt={`nom : ${t?.name}`}
 								className="trip-photo"
+								onClick={() => handleNavigation(t.id_trip)}
+								onKeyDown={() => handleNavigation(t.id_trip)}
 							/>
 							<h3 className="trip-name">{t.name}</h3>
 						</div>
