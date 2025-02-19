@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./ChosenCountry.css";
+import buttonback from "../../assets/images/buttonback.png";
 import type Country from "../../types/Country";
 import type { Trip } from "../../types/type";
+
 function ChosenCountry() {
 	const [trips, setTrips] = useState([]);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const country = location.state as Country;
+	const handleBackButton = () => {
+		navigate(`/countries/${country.country_name.toLocaleLowerCase()}`, {
+			state: country,
+		});
+	};
 	useEffect(() => {
 		const getTrips = async () => {
 			try {
@@ -62,6 +69,15 @@ function ChosenCountry() {
 							</figcaption>
 						</figure>
 					))}
+				</div>
+				<div className="backButton">
+					<button
+						type="button"
+						className="button-back"
+						onClick={handleBackButton}
+					>
+						<img className="img-back-button" src={buttonback} alt="button" />
+					</button>
 				</div>
 			</div>
 		</>
