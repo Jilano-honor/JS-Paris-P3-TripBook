@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import connexionImage from "../../assets/images/Icon_buton_connexion.png";
 import inscriptionImage from "../../assets/images/Icon_buton_profil.png";
 import Logo from "../../assets/images/Logo_tripBook.png";
+import reservationImage from "../../assets/images/reservation.png";
 
 import "./NavBar.css";
 
@@ -30,6 +31,13 @@ function NavBar() {
 						<button type="button" className="NavbarButton">
 							<img src={inscriptionImage} alt="Sign In" />
 							<p>Inscription</p>
+						</button>
+					</Link>
+
+					<Link to="/external">
+						<button type="button" className="NavbarButton">
+							<img src={reservationImage} alt="reservation" />
+							<p>Reservation</p>
 						</button>
 					</Link>
 				</div>
