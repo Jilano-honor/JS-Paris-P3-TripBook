@@ -4,15 +4,14 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
 	margin: 0;
-	padding-top: 100px; /* Espace pour éviter le chevauchement */
+	padding-bottom: 50px;
 }
 .Logo {
 	position: absolute;
 	top: 0;
 	left: 20px;
-	width: auto; /* Garde juste la largeur du logo */
+	width: auto;
 	display: flex;
 	align-items: center;
 	padding: 10px 0;
