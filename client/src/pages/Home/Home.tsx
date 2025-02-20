@@ -33,6 +33,7 @@ function Home() {
 				</header>
 				<div id="search-theme">
 					<HomeSearchbar />
+					<h2 className="selector">Sélectionnez un thème:</h2>
 					<Themebar themes={themes} />
 				</div>
 			</div>
