@@ -21,7 +21,7 @@
 	font-size: 45px;
 	color: #333;
 	margin-bottom: 35px;
-	font-family: "Itim", cursive;
+	font-family: "Acme", serif;
 	text-align: center;
 	padding-top: 15px;
 	letter-spacing: 2px;
@@ -83,7 +83,7 @@
 	font-size: 24px;
 	cursor: pointer;
 	text-align: center;
-	font-family: "Itim", cursive;
+	font-family: "Acme", serif;
 	transition: all 0.3s ease-in-out;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }

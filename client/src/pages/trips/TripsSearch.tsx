@@ -108,6 +108,7 @@ function TripsSearch() {
 	return (
 		<div className="TripSearch">
 			<Banner theme={selectedTheme} />
+			<h2 className="selector-tag-theme">Changer de thème</h2>
 			<Themebar themes={themes} onThemeSelect={handleThemeSelect} />
 			<h2 className="selector-tag">Approfondissez votre recherche:</h2>
 			<TagMenu
