@@ -389,7 +389,7 @@
 	display: block;
 	height: 4rem;
 	margin-right: 50px;
-	padding: 1rem;
+	padding: 0rem;
 	object-fit: contain;
 	transition: transform 0.3s ease-in-out;
 }

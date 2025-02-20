@@ -31,22 +31,24 @@ function TripCard() {
 		};
 		getTrip();
 	}, [id_trip]);
+
 	const formattedStartDate =
 		trip && new Date(trip.start_at).toLocaleDateString("fr-FR");
 	const formattedEndDate =
 		trip && new Date(trip.end_at).toLocaleDateString("fr-FR");
+
 	const handleNavigateBack = () => {
 		navigate(-1);
 	};
 
 	return (
 		<>
-			<header className="tripCard-block-title">
-				<h1 className="tripCard-trip-title">{trip?.name}</h1>
+			<header className="tripCardContainer-title">
+				<h1 className="tripCardContainer-tripTitle">{trip?.name}</h1>
 			</header>
 			<main>
-				<div className="tripCard-images-block">
-					<div className="tripCard-tripImage-block">
+				<div className="tripCardContainer-images">
+					<div className="tripCardContainer-imageWrapper">
 						<img
 							src={
 								trip?.photo?.includes("http")
@@ -54,35 +56,31 @@ function TripCard() {
 									: `http://localhost:3310/upload/${trip?.photo}`
 							}
 							alt={`nom : ${trip?.name}`}
-							className="tripCard-trip-image2"
-						/>
-					</div>
-					<div className="tripCard-tripImage-block">
-						<img
-							src={`.././flags/${trip?.flag}.png`}
-							alt="country flag"
-							className="tripCard-trip-image"
+							className="tripCardContainer-tripImage"
 						/>
 					</div>
 				</div>
-
-				<div className="tripCard-dates-description-block">
-					<h1 className="tripCard-dates">
-						<u>Dates:</u>
-					</h1>
-					<h2 className="tripCard-dates">{`${formattedStartDate} to ${formattedEndDate}`}</h2>
-					<div className="tripCard-description-block">
-						<h1 className="tripCard-description-title">Description :</h1>
-						<p className="tripCard-description-text">{trip?.description}</p>
-						<div className="tripCard-buttonBack-block">
-							<img
-								src={buttonback}
-								alt="back"
-								className="tripCard-buttonBack"
-								onKeyDown={handleNavigateBack}
-								onClick={handleNavigateBack}
-							/>
-						</div>
+				<div className="tripCardContainer-info">
+					<div className="tripCardContainer-calendar">
+						<h1 className="tripCardContainer-datesTitle">
+							<u>Dates:</u>
+						</h1>
+						<h2 className="tripCardContainer-dates">{`${formattedStartDate} to ${formattedEndDate}`}</h2>
+					</div>
+					<div className="tripCardContainer-description">
+						<h1 className="tripCardContainer-descriptionTitle">Description:</h1>
+						<p className="tripCardContainer-descriptionText">
+							{trip?.description}
+						</p>
+					</div>
+					<div className="tripCardContainer-backButtonWrapper">
+						<img
+							src={buttonback}
+							alt="back"
+							className="tripCardContainer-backButton"
+							onKeyDown={handleNavigateBack}
+							onClick={handleNavigateBack}
+						/>
 					</div>
 				</div>
 			</main>

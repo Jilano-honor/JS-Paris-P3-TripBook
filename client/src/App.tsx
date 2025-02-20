@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import "./App.css";
 import { useState } from "react";
 import Footer from "./components/Footer/Footer";
@@ -9,6 +9,7 @@ function App() {
 	return (
 		<>
 			<NavBar />
+			<ScrollRestoration />
 			<Outlet context={{ user, setUser }} />
 			<Footer />
 		</>
