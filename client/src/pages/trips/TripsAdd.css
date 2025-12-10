@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+:root {
+	--white: #ffffff;
+	--beige: #fceada;
+	--gray: #d3d3d3;
+	--light-green: #c9f3de;
+	--brown: #c0b6a1;
+	--green: #c9f3de;
+	--black: #000000;
+	--button: #55b6a5;
+}
+.header-step1-addtrip {
+	display: flex;
+	flex-direction: column;
+}
+.container-upload {
+	margin-top: 1rem;
+	margin-left: 0, 5rem;
+}
+
+.addtrip-upload {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background-color: var(--beige);
+	border-radius: 12px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	width: 90%;
+	max-width: 500px;
+	margin: auto;
+}
+
+.img-preview {
+	width: 100%;
+	max-width: 320px;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 9px;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+
+.upload-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--button);
+	color: var(--white);
+	font-weight: bold;
+	padding: 10px 15px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+	margin-top: 10px;
+}
+
+.upload-label:hover {
+	background-color: var(--green);
+}
+
+.upload-input {
+	display: none;
+}
+
+.step1-container-addtrip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	gap: 25px;
+	width: 100%;
+	text-align: center;
+}
+
+.Name-h1-step1 {
+	width: 100%;
+	max-width: 800px;
+	font-family: "Acme", sans-serif;
+	font-size: 2rem;
+	text-align: center;
+	padding: 15px;
+	border-radius: 8px;
+}
+.addtrip-upload {
+	display: flex;
+	flex-direction: column;
+}
+.step1-search-addtrip input[type="text"] {
+	width: 100%;
+	max-width: 500px;
+	padding: 10px 15px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	outline: none;
+	transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.step1-search-addtrip input[type="text"]::placeholder {
+	color: #aaa;
+	font-style: italic;
+}
+
+.step1-search-addtrip input[type="text"]:focus {
+	border-color: #28a745;
+	box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
+}
+.AddTrip1BlockNextAndBackButton {
+	margin-right: 1rem;
+}
+.AddTrip1NextButton {
+	width: 650px;
+	height: 70px;
+	background-color: var(--button);
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	font-family: "Acme", sans-serif;
+	font-size: 1.5rem;
+	color: #fff;
+	transition: background-color 0.3s;
+	margin-top: 10px;
+	color: var(--black);
+}
+
+.AddTrip1NextButton:hover {
+	background-color: var(--light-green);
+}
+
+.error-allstep {
+	color: red;
+	font-weight: 900;
+	font-size: 1.2rem;
+	margin-top: 15px;
+}
+
+.step2-container-addtrip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	gap: 40px;
+	text-align: center;
+}
+
+.name-h1 {
+	font-size: 2rem;
+	font-family: "Acme", sans-serif;
+	width: 100%;
+	max-width: 800px;
+	padding: 15px;
+	border-radius: 8px;
+	margin: 0 auto;
+}
+
+.step2-container-start-end-at {
+	display: flex;
+	gap: 10vw;
+}
+
+.button-step2-next {
+	width: 200px;
+	height: 50px;
+	background-color: var(--button);
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	font-family: "Acme", sans-serif;
+	font-size: 1.5rem;
+	color: #fff;
+	transition: background-color 0.3s;
+	margin-right: 100px;
+}
+
+.button-step2-next:hover {
+	background-color: #218838;
+}
+
+.button-step2-back {
+	background-color: white;
+	border: none;
+	margin-top: 5px;
+	display: inline;
+}
+.img-back-button {
+	height: 8vh;
+	margin-right: 50px;
+}
+
+.button-step2-next {
+	width: 600px;
+	height: 60px;
+	background-color: var(--button);
+	border-radius: 30px;
+	cursor: pointer;
+	font-family: "Acme", sans-serif;
+	font-size: 2rem;
+}
+
+.start-end-h2-name {
+	font-family: "Acme", sans-serif;
+}
+
+.step3-container-addtrip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	gap: 25px;
+	text-align: center;
+}
+
+.step3-container-addtrip input[type="text"] {
+	width: 100%;
+	max-width: 500px;
+	padding: 10px 15px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	outline: none;
+}
+.header-step1-addtrip {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+.title-block {
+	background-color: var(--light-green);
+	width: 100vw;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 1rem;
+}
+.title-block2 {
+	background-color: var(--light-green);
+	width: 100vw;
+	height: 18%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.searchBarAndFlag {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	width: 100vw;
+}
+
+.searchBarAndFlag input[type="text"] {
+	width: 70%;
+	padding: 12px;
+	border: 2px solid var(--light-green);
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBarAndFlag input[type="text"]:focus {
+	border-color: var(--light-green);
+	outline: none;
+	box-shadow: 0 0 5px var(--light-green);
+}
+
+.TripsCountrySearchbar {
+	margin-left: 10%;
+}
+.tripsCountryFlag {
+	margin-right: 10%;
+}
+
+.step2-container-start-end-at {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
+	background-color: var(--light-green);
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.start-at-step2,
+.end-at-step2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Arial, sans-serif;
+}
+
+.start-end-h2-name {
+	font-size: 18px;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+input[type="date"] {
+	padding: 8px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+	border-color: #007bff;
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.next-back-button-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2vw;
+	padding-right: 8rem;
+}
+.next-back-button-container2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2vw;
+	padding-right: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.button-step2-back {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+.button-step2-next {
+	width: 650px;
+	height: 70px;
+	background-color: var(--button);
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	font-family: "Acme", sans-serif;
+	font-size: 1.5rem;
+	color: var(--black);
+	transition: background-color 0.3s;
+	margin-top: 10px;
+}
+.step3-container-addtrip h1 {
+	width: 100vw;
+	height: 18%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.8rem;
+	font-family: "Acme", sans-serif;
+	padding: 20px;
+}
+
+.step3-container-addtrip input[type="text"],
+.step3-container-addtrip textarea {
+	width: 80%;
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	font-size: 1rem;
+	margin: 10px 0;
+	transition: border-color 0.3s ease;
+}
+
+.step3-container-addtrip input[type="text"]:focus,
+.step3-container-addtrip textarea:focus {
+	border-color: var(--light-green);
+	outline: none;
+	box-shadow: 0 0 5px var(--light-green);
+}
+.title-block3 {
+	background-color: var(--light-green);
+	width: 100vw;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+@media (max-width: 768px) {
+	.step1-container-addtrip,
+	.step2-container-addtrip,
+	.step3-container-addtrip {
+		padding: 0 15px;
+		gap: 15px;
+	}
+
+	.Name-h1-step1,
+	.name-h1 {
+		font-size: 1.5rem;
+		padding: 10px;
+		width: 100%;
+		max-width: none;
+	}
+
+	.step1-search-addtrip input[type="text"],
+	.step3-container-addtrip input[type="text"] {
+		width: 100%;
+		max-width: none;
+		font-size: 14px;
+		padding: 8px 12px;
+	}
+
+	.AddTrip1NextButton {
+		width: 20rem;
+		max-width: none;
+		font-size: 1.2rem;
+		height: 50px;
+	}
+
+	.button-step2-next {
+		width: 20rem;
+		max-width: none;
+		font-size: 1.2rem;
+		height: 50px;
+		margin-left: 30px;
+	}
+
+	.button-step2-back {
+		margin-top: 10px;
+	}
+
+	.img-back-button {
+		height: 5vh;
+		margin-right: 20px;
+	}
+
+	.step2-container-start-end-at {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.error-allstep {
+		font-size: 1rem;
+	}
+
+	.start-end-h2-name {
+		font-size: 1rem;
+	}
+
+	.step3-container-addtrip {
+		font-size: 1rem;
+	}
+
+	.step1-container-addtrip .Name-h1-step1 {
+		font-size: 1.5rem;
+	}
+
+	.AddTrip1NextButton {
+		font-size: 1.4rem;
+	}
+}

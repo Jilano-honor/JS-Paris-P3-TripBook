@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+.background {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding-bottom: 50px;
+}
+.Logo {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	width: auto;
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.Logo img {
+	height: 180px;
+}
+
+.formulaire {
+	background-color: rgb(250 250 250);
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 5rem;
+	font-family: "roboto", sans-serif;
+}
+
+.formulaire form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.formulaire div {
+	margin-bottom: 20px;
+}
+
+.formulaire label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+
+.formulaire input {
+	width: 95%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.formulaire .buttons {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.formulaire input[type="submit"] {
+	background-color: #ffffff;
+	color: black;
+	border: none;
+	padding: 12px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulaire input[type="submit"]:hover {
+	background-color: #c9f3de;
+}
+.logInButton {
+	border: 0px;
+	cursor: pointer;
+}
+.logInButton:hover {
+	font-size: 14px;
+}
+.logInText {
+	margin-top: 10px;
+}

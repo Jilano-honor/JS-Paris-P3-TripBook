@@ -1,0 +1,41 @@
+.tripSearchListCountryBox {
+	display: flex;
+	align-items: center;
+	background-color: var(--beige);
+	color: black;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	transition: background 0.3s;
+	gap: 10px;
+	width: 50rem;
+}
+
+.tripSearchListCountryBox:hover {
+	background-color: var(--green);
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.tripSearchListCountryBox img {
+	width: 24px;
+	height: 24px;
+}
+
+.tripSearchListCountryBox div {
+	flex: 1;
+	text-align: center;
+}
+
+.tripSearchListCountry {
+	gap: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.tripSearchButtonPage {
+	display: flex;
+	justify-content: space-around;
+	margin: 3rem 0;
+}

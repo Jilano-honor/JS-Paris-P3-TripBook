@@ -1,0 +1,50 @@
+#Logo {
+	height: 100px;
+	width: 100px;
+}
+.Navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	top: 0;
+	z-index: 5;
+}
+
+.ButtonNavigation {
+	display: flex;
+	gap: 1rem;
+	margin-right: 1rem;
+}
+.NavbarButton {
+	padding: 0.3em 1.5em;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.a {
+	text-decoration: none;
+}
+
+.NavbarButton:hover {
+	background-color: #3be19e94;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+.NavbarButton img {
+	height: 35px;
+	width: 35px;
+}

@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Itim&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
+
+:root {
+	--white: #ffffff;
+	--beige: #fceada;
+	--gray: #d3d3d3;
+	--light-green: #c9f3de;
+	--brown: #c0b6a1;
+	--green: #c9f3de;
+	--black: #000000;
+	--button: #55b6a5;
+	--acme: "Acme", sans-serif;
+}
+
+.intro-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	text-align: center;
+	padding: 0 1rem;
+}
+
+.intro-hero {
+	max-width: 800px;
+}
+
+.intro-title {
+	font-size: 3rem;
+	font-weight: bold;
+	color: var(--black);
+	margin-bottom: 1rem;
+}
+
+.intro-subtitle {
+	font-size: 1.25rem;
+	color: var(--gray);
+	margin-bottom: 1.5rem;
+	line-height: 1.5;
+}
+
+.intro-details {
+	font-family: "Lora", serif;
+	font-size: 1rem;
+	color: var(--black);
+	margin-bottom: 1.5rem;
+	line-height: 1.6;
+	font-weight: 600;
+}
+
+.intro-button {
+	background-color: var(--button);
+	color: var(--white);
+	border: none;
+	padding: 1rem 2rem;
+	font-size: 1.25rem;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-family: "Itim", cursive;
+}
+
+.intro-button:hover {
+	background-color: var(--black);
+}

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+.main-container {
+	display: flex;
+	flex-direction: row;
+	padding: 20px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.profile-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1%;
+	font-family: "Acme", serif;
+	width: 50%;
+}
+
+.profile-avatar-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.profile-avatar img {
+	width: 180px;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 3px solid black;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-avatar img:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-info-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.profile-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	padding: 15px 20px;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 15px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease-in-out;
+	width: 100%;
+	max-width: 400px;
+}
+
+.profile-info p {
+	font-size: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 10px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	color: #333;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+	transition: transform 0.3s ease-in-out;
+}
+
+.edit-profile-button {
+	display: block;
+	padding: 12px 20px;
+	margin: 20px auto;
+	color: black;
+	border: none;
+	border-radius: 10px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	font-family: "Acme", serif;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.profile-info p:hover {
+	transform: scale(1.05);
+	background: rgba(250, 250, 250, 1);
+}
+
+.edit-profile-button:hover {
+	background-color: #c9f3de;
+	transform: scale(1.05);
+}
+
+.add-trip-button {
+	display: block;
+	padding: 12px 20px;
+	margin: 15px auto;
+	background-color: #55b6a5;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	font-family: "Acme", serif;
+	min-width: 16rem;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0px 5px 15px #3333339e;
+}
+
+.add-trip-button:hover {
+	background-color: #e81919;
+	transform: scale(1.05);
+	box-shadow: 0px 10px 25px rgba(255, 0, 0, 0.8);
+}

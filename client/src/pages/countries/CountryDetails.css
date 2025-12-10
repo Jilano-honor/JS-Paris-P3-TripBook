@@ -1,0 +1,455 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Acme&family=Roboto&display=swap");
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: "Arial", sans-serif;
+	background-color: #f5f5f5;
+	padding-bottom: 50px;
+}
+
+.banner {
+	position: relative;
+	width: 100%;
+	height: 55vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+}
+
+.banner-img {
+	height: 55vh;
+	object-fit: fill;
+	display: block;
+	width: 50rem;
+}
+
+.title {
+	font-weight: bold;
+	font-family: "Roboto", sans-serif;
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50rem;
+	text-align: center;
+	color: #ffffff;
+	font-size: 2em;
+	background-color: rgba(77, 70, 70, 0.42);
+	padding: 10px 0;
+	margin: 0;
+}
+
+.trips-title {
+	font-family: "Acme", sans-serif;
+	font-weight: bold;
+	font-size: 2.5rem;
+	margin: 1rem;
+	text-decoration: underline;
+}
+
+.tag-name {
+	font-family: "Anton", serif;
+	letter-spacing: 0.1em;
+	text-align: center;
+	max-width: 200px;
+	word-wrap: break-word;
+	font-size: 20px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.trip-name {
+	font-family: "Acme", sans-serif;
+	font-weight: lighter;
+	text-align: center;
+	max-width: 200px;
+	word-wrap: break-word;
+	font-size: 20px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-voir-plus {
+	width: 16rem;
+	height: 3rem;
+	line-height: 40px;
+	font-size: 18px;
+	font-family: "Acme", sans-serif;
+	text-decoration: none;
+	color: #333;
+	border: 2px solid #333;
+	letter-spacing: 2px;
+	text-align: center;
+	position: relative;
+	transition: all 0.35s;
+	background: transparent;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 1rem;
+}
+
+.banner-img {
+	height: 55vh;
+	object-fit: fill;
+	display: block;
+	width: 50rem;
+}
+.title {
+	font-weight: bold;
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50rem;
+	text-align: center;
+	color: #ffffff;
+	font-size: 2em;
+	background-color: rgb(77 70 70 / 42%);
+	padding: 10px 0;
+	margin: 0;
+}
+.trips-title {
+	font-weight: bold;
+	font-size: 2.5rem;
+	margin: 1rem;
+}
+.tags {
+	border-radius: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2.5rem;
+	background: rgb(0 0 0 / 4%);
+	padding: 1rem;
+	box-shadow: 0px 15px 20px #33333345;
+	margin: 2rem;
+}
+.tag {
+	position: relative;
+	list-style: none;
+	width: 7rem;
+	height: 6rem;
+	background: white;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	border-radius: 2rem;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.3s ease-in-out;
+	overflow: hidden;
+	text-align: center;
+}
+
+.tag:hover {
+	width: 200px; /* Agrandit au survol */
+}
+
+.tag img {
+	width: 80%;
+	height: 80%;
+	transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+	border-radius: 1rem;
+}
+
+.tag:hover img {
+	transform: scale(0.3); /* Rétrécit au lieu de disparaître brutalement */
+	opacity: 0;
+}
+
+.tag span {
+	position: absolute;
+	color: #000000;
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-weight: bold;
+	opacity: 0;
+	transform: scale(0.7);
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.tag:hover span {
+	opacity: 1; /* Devient visible */
+	transform: scale(1); /* S'agrandit */
+}
+.tag-flag {
+	position: relative;
+	list-style: none;
+	width: 7rem;
+	height: 6rem;
+	background: white;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	border-radius: 2rem;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.3s ease-in-out;
+	overflow: hidden;
+	text-align: center;
+}
+
+.tag-flag:hover {
+	width: 200px;
+}
+
+.tag-flag img {
+	width: 80%;
+	height: 80%;
+	transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+	border-radius: 1rem;
+	border: 2px solid #ccc;
+}
+
+.tag-flag:hover img {
+	transform: scale(0.3);
+	opacity: 0;
+}
+
+.tag-flag span {
+	position: absolute;
+	color: #000000;
+	font-size: 1.2em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-weight: bold;
+	opacity: 0;
+	transform: scale(0.7);
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.tag-flag:hover span {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.trip-card img {
+	margin-top: 50px;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	font-family: "Acme", sans-serif;
+}
+
+.trips-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 100px;
+}
+
+.trips-section {
+	background-color: white; /* Garde un fond blanc ou très léger */
+	padding: 30px 10px;
+	border-radius: 1rem; /* Bordure arrondie */
+	margin: 20px;
+	min-height: auto;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Ombre légère */
+	text-align: center;
+}
+
+/* Effet de survol pour la carte individuelle */
+.details-trip-card {
+	width: 150px; /* Taille plus petite pour les cartes */
+	height: 200px; /* Taille plus petite pour les cartes */
+	background: white;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Ombre autour de la carte */
+	border-radius: 1rem; /* Coins arrondis */
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	margin: 10px;
+}
+
+/* Lors du survol d'une carte de voyage, on applique un effet d'agrandissement */
+.details-trip-card:hover {
+	transform: scale(1.05); /* Agrandit légèrement la carte */
+	box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Réduction de la taille de l'image dans la carte */
+.details-trip-card img {
+	width: 90%; /* Image plus petite à l'intérieur de la carte */
+	height: 90%; /* Ajuste la hauteur de l'image */
+	object-fit: cover; /* S'assure que l'image couvre bien la zone sans être déformée */
+	border-radius: 1rem;
+	transition: transform 0.3s ease-in-out; /* Transition de l'image */
+}
+
+/* Lors du survol de la carte, on fait disparaitre l'image et montrer un texte */
+.details-trip-card:hover img {
+	transform: scale(0.8); /* Réduit la taille de l'image au survol */
+	opacity: 0; /* Cache l'image */
+}
+
+/* L'effet de texte sur la carte (si tu veux ajouter un texte visible au survol) */
+.details-trip-card:hover:hover .trip-name {
+	opacity: 1; /* Texte devient visible au survol */
+	transform: scale(1); /* Agrandissement du texte */
+}
+
+.trip-name {
+	position: absolute;
+	color: #000000; /* Couleur du texte en blanc */
+	font-size: 1.2em; /* Taille de la police légèrement plus grande */
+	text-transform: uppercase; /* Mettre le texte en majuscules */
+	font-weight: bold; /* Gras pour plus de visibilité */
+	opacity: 0; /* Reste caché jusqu'au survol */
+	transform: scale(0.7); /* Taille initiale plus petite */
+	transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out, color 0.3s
+		ease-in-out; /* Transition fluide */
+	text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Ombre portée douce pour le texte */
+}
+
+.button-voir-plus {
+	display: block;
+	width: 16rem;
+	height: 3rem;
+	line-height: 40px;
+	font-size: 18px;
+	font-family: sans-serif;
+	text-decoration: none;
+	color: #333;
+	border: 2px solid #333;
+	letter-spacing: 2px;
+	text-align: center;
+	position: relative;
+	transition: all 0.35s;
+	background: transparent;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 1rem;
+}
+
+.button-voir-plus span {
+	position: relative;
+	z-index: 2;
+}
+
+.button-voir-plus::after {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background: #c9f3de;
+	transition: all 0.35s;
+}
+
+.button-voir-plus:hover {
+	color: #000000;
+}
+
+.button-voir-plus:hover::after {
+	width: 100%;
+}
+
+.button-container {
+	display: flex;
+	margin: 3rem;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
+}
+
+.button-back {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	z-index: 1000;
+	position: fixed;
+	top: 33rem;
+	left: 1rem;
+}
+
+.button-back img {
+	display: block;
+	height: 4rem;
+	margin-right: 50px;
+	padding: 0rem;
+	object-fit: contain;
+	transition: transform 0.3s ease-in-out;
+}
+
+.button-back:hover {
+	transform: scale(1.2);
+	opacity: 0.8;
+}
+
+.button-back img:hover {
+	transform: rotate(180deg);
+}
+
+.button-back:active img {
+	transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+	.title {
+		font-size: 40px;
+		padding: 5px 0;
+	}
+
+	.tags {
+		flex-direction: column;
+		align-items: center;
+		gap: 50px;
+	}
+
+	.trips-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 50px;
+	}
+
+	.trip-card img {
+		width: 150px;
+		height: 150px;
+	}
+
+	.button-container {
+		flex-direction: column;
+		align-items: center;
+		margin-right: 0;
+	}
+
+	.button-voir-plus {
+		width: 80%;
+		height: 50px;
+		font-size: 1.5rem;
+	}
+
+	.button-back img {
+		height: 7vh;
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+
+	.trips-section {
+		padding: 20px 5px;
+		margin: 10px;
+	}
+}
